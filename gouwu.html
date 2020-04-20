@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>购物导航 - 非常导航</title>
+    <meta name="keywords" content="购物导航，购物商城，购物网址，购物荟萃">
+    <meta name="description" content="非常购物导航，随心所欲的看，随心所欲的购物，购买心意心仪的商品">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="./index.html" class="smooth">
+                            <span>返回首页</span><i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#tuijian" class="ti-arrow smooth">
+                            <span>购物推荐</span><i class="fa-star"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#zonghe" class="ti-arrow smooth">
+                            <span>综合商家</span><i class="fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fushi" class="ti-arrow smooth">
+                            <span>服饰鞋帽</span><i class="fa-graduation-cap"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shipin" class="ti-arrow smooth">
+                            <span>食品酒水</span><i class="fa-glass"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tuangou" class="ti-arrow smooth">
+                            <span>团购商家</span><i class="fa-users"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shuji" class="ti-arrow smooth">
+                            <span>音像书籍</span><i class="fa-book"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#baihuo" class="ti-arrow smooth">
+                            <span>日用百货</span><i class="fa-life-ring"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#huli" class="ti-arrow smooth">
+                            <span>美妆护理</span><i class="fa-paint-brush"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shuma" class="ti-arrow smooth">
+                            <span>数码家电</span><i class="fa-binoculars"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#zhifu" class="ti-arrow smooth">
+                            <span>网上支付</span><i class="fa-credit-card"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#qita" class="ti-arrow smooth">
+                            <span>其他商家</span><i class="fa-sitemap"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="main">
+				<h4><a class="c0"><i class="fa-bookmark"></i>购物推荐</a> <span onclick="moreHref('tuijian');"class="more open"></span></h4>
+				<ul class="row show"id="tuijian">
+					<li onclick="openHref('https://www.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东JD.COM-专业的综合网上购物商城"> 
+						京东
+					</li>
+					<li onclick="openHref('https://www.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天猫tmall.com--理想生活上天猫"> 
+						天猫
+					</li>
+					<li onclick="openHref('https://www.taobao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="淘宝网 - 亚洲较大的网上交易平台"> 
+						淘宝网
+					</li>
+					<li onclick="openHref('http://www.dangdang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="全球领先的综合性网上购物中心"> 
+						当当网
+					</li>
+					<li onclick="openHref('https://www.pinduoduo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="拼多多 - 新电商开创者"> 
+						拼多多
+					</li>
+					<li onclick="openHref('https://www.suning.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="苏宁易购-综合网上购物平台"> 
+						苏宁易购
+					</li>
+					<li onclick="openHref('https://www.kongfz.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="孔夫子旧书网是国内领先的古旧书交易平台"> 
+						孔夫子
+					</li>
+					<li onclick="openHref('https://www.gome.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国美(Gome.com.cn)国美电器唯一官方网上商城"> 
+						国美电器
+					</li>
+					<li onclick="openHref('https://www.amazon.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="亚马逊中国（z.cn）坚持“以客户为中心”的理念，秉承“天天低价，正品行货”信念"> 
+						亚马逊
+					</li>
+					<li onclick="openHref('https://www.smzdm.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="消费门户网站，实时推送优质的网购优惠信息，真实的原创购物攻略"> 
+						什么值得买
+					</li>
+					<li onclick="openHref('https://www.vmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华为旗下面向全国服务的电子商务平台官网"> 
+						华为商城
+					</li>
+					<li onclick="openHref('https://www.vip.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="唯品会vip购物网以1-7折超低折扣对全球各大品牌进行限时特卖"> 
+						唯品会
+					</li>
+					<li onclick="openHref('https://www.asus.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="ASUS华硕电脑官方商城，销售华硕全产品"> 
+						华硕商城
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>综合商家</a> <span onclick="moreHref('zonghe');"class="more"></span></h4>
+				<ul class="row"id="zonghe">
+					<li onclick="openHref('https://ai.taobao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爱淘宝PC新版">	
+						爱淘宝
+					</li>
+					<li onclick="openHref('https://www.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天猫,中国线上购物的地标网站,亚洲超大的综合性购物平台">	
+						天猫
+					</li>
+					<li onclick="openHref('https://www.yhd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="1号店(yhd.com)_全球超市，轻松到家！">	
+						1号店
+					</li>
+					<li onclick="openHref('https://www.amazon.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="亚马逊中国（z.cn）坚持“以客户为中心”的理念，秉承“天天低价，正品行货”信念"> 
+						亚马逊
+					</li>
+					<li onclick="openHref('https://www.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东JD.COM-专业的综合网上购物商城"> 
+						京东
+					</li>
+					<li onclick="openHref('http://www.yixun.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="易迅网_综合选购_轻松发现您的品质生活！"> 
+						易迅网
+					</li>
+					<li onclick="openHref('http://www.dangdang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="全球领先的综合性网上购物中心"> 
+						当当网
+					</li>
+					<li onclick="openHref('https://www.suning.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="苏宁易购-综合网上购物平台"> 
+						苏宁易购
+					</li>
+					<li onclick="openHref('https://www.vip.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="唯品会vip购物网以1-7折超低折扣对全球各大品牌进行限时特卖"> 
+						唯品会
+					</li>
+					<li onclick="openHref('https://www.pinduoduo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="拼多多 - 新电商开创者，是国内主流的手机购物APP"> 
+						拼多多
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>服装鞋包</a> <span onclick="moreHref('fushi');"class="more"></span></h4>
+				<ul class="row"id="fushi">
+					<li onclick="openHref('http://www.vancl.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="凡客VANCL-互联网快时尚品牌">	
+						凡客
+					</li>
+					<li onclick="openHref('https://www.yougou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="优购时尚商城-时尚服饰鞋包网购首选-优生活，购时尚">	
+						优购
+					</li>
+					<li onclick="openHref('http://www.s.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="S.cn名鞋库,专业运动鞋服网站">	
+						名鞋库
+					</li>
+					<li onclick="openHref('https://new.letao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="乐淘网 | 全球正品运动轻奢定制直营平台">	
+						乐淘网
+					</li>
+					<li onclick="openHref('https://www.banggo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="banggo.com 邦购网,年轻人的时尚有范购物平台">	
+						邦购网
+					</li>
+					<li onclick="openHref('https://handuyishe.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="韩都衣舍连续7年行业销量第一">	
+						韩都衣舍
+					</li>
+					<li onclick="openHref('https://store.lining.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="李宁官方网站，为你展现李宁运动鞋,李宁，一切皆有可能">	
+						李宁
+					</li>
+					<li onclick="openHref('http://www.septwolves.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="七匹狼官方商城">	
+						七匹狼
+					</li>
+					<li onclick="openHref('https://www.nike.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="耐克(Nike)官网,在线销售最新款产品,尽在Nike.com">	
+						耐克
+					</li>
+					<li onclick="openHref('http://www.xtep.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="特步官方商城">	
+						特步
+					</li>
+					<li onclick="openHref('https://www.yohobuy.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="YOHO!BUY 有货-潮流服饰购物网站,时尚潮流购物风向标">	
+						有货
+					</li>
+					<li onclick="openHref('http://www.moonbasa.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="梦芭莎(www.moonbasa.com)全球购物时尚官方网站">	
+						梦芭莎
+					</li>
+					<li onclick="openHref('https://www.gap.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Gap服饰中国官网">	
+						Gap
+					</li>
+					<li onclick="openHref('http://www.aimer.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Aimer爱慕官网-你对自己的爱 是我给你的爱慕内衣">	
+						爱慕内衣
+					</li>
+					<li onclick="openHref('https://www.m18.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="趣天麦网–畅享优质网上购物体验，数万款精品女装">	
+						趣天麦网
+					</li>
+					<li onclick="openHref('http://www.shopin.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="上品折扣网-品牌女装,名牌男装,运动,户外,鞋,包包,内衣,配饰打折促销">	
+						上品折扣
+					</li>
+					<li onclick="openHref('http://www.5lux.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="第五大道（www.5lux.com）,是中国奢侈品O2O网购平台">	
+						第五大道
+					</li>
+					<li onclick="openHref('https://fairwhale.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="马克华菲（Mark Fairwhale）是国际设计大师Mark Cheung为世界都市新贵度身定制的中国原创设计时尚品牌">	
+						马克华菲
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>食品酒水 &raquo;</a> <span onclick="moreHref('shipin');"class="more"></span></h4>
+				<ul class="row"id="shipin">
+					<li onclick="openHref('http://www.jiuxian.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="【酒仙网】酒水在线销售专业品牌">	
+						酒仙网
+					</li>
+					<li onclick="openHref('http://www.sfbest.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="顺丰优选顺丰旗下全球美食优选网购商城，精选来自60多个国家和地区的进口食品">	
+						顺丰优选
+					</li>
+					<li onclick="openHref('https://www.womai.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="世界500强中粮集团旗下食品网上购物网站">	
+						中粮我买网
+					</li>
+					<li onclick="openHref('https://www.gjw.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="购酒网是一家线上酒类零售商,在线供应各种酒水">	
+						购酒网
+					</li>
+					<li onclick="openHref('https://www.lecake.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="诺心甜品店，拥有自主品牌曲奇，蝴蝶酥，获得世界食品品质品鉴大会金奖">	
+						诺心甜品店
+					</li>
+					<li onclick="openHref('https://www.zuipin.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="醉品茶城是中国专业的正宗品牌茶叶,茶具,花茶购物商城">	
+						醉品茶城
+					</li>
+					<li onclick="openHref('http://www.wdmcake.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="味多美,选用全球优质原料,全国300多家直营店，提供天然各种蛋糕">	
+						味多美
+					</li>
+					<li onclick="openHref('http://www.lingshi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国零食网是休闲食品商城,24小时提供好吃的零食">	
+						中国零食网
+					</li>
+					<li onclick="openHref('http://www.jiumei.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="提供美丽的葡萄酒">	
+						酒美网
+					</li>
+					<li onclick="openHref('http://www.fruitday.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="一站式购齐全球水果生鲜">	
+						天天果园
+					</li>
+					<li onclick="openHref('http://www.hecha.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="趣呵茶、智能茶饮专家、专业的智能饮茶服务提供商、智能饮茶产业生态平台开创者">	
+						趣呵茶
+					</li>
+					<li onclick="openHref('http://www.boqii.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="波奇宠物网是属于宠物爱好者的综合型网站.这里是宠物猫，宠物狗等宠物爱好者们的集中地">	
+						波奇宠物
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>团购商家 &raquo;</a> <span onclick="moreHref('tuangou');"class="more"></span></h4>
+				<ul class="row"id="tuangou">
+					<li onclick="openHref('http://t.dianping.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="大众点评网团购">	
+						点评网团购
+					</li>
+					<li onclick="openHref('https://www.meituan.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美团网精选美食餐厅,酒店预订,电影票,旅游景点,外卖订餐">	
+						美团网
+					</li>
+					<li onclick="openHref('http://www.nuomi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度糯米团购客户端下载页">	
+						糯米团购
+					</li>
+					<li onclick="openHref('http://www.jumei.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="聚美优品是国内知名正品女性团购网站,也是领先的品牌化妆品团购和护肤品团购网">	
+						聚美优品
+					</li>
+					<li onclick="openHref('http://www.shihuo.cn/tuangou',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="识货团购为您精心推荐近期热门品牌运动鞋、篮球鞋、跑步鞋、运动服等团购">	
+						识货团购
+					</li>
+					<li onclick="openHref('http://tuan.zol.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="ZOL团购强大的销售网络为您提供最新的团购信息大全">	
+						ZOL团购
+					</li>
+					<li onclick="openHref('https://tuan.ctrip.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="携程团购提供团购导航,让你快速选择酒店团购">	
+						携程团购
+					</li>
+					<li onclick="openHref('http://www.lvmama.com/tuangou/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="驴妈妈旅游团购网">	
+						驴妈妈
+					</li>
+					<li onclick="openHref('https://tuan.qunar.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="去哪儿网酒店团购为您精选全国各地精品酒店，周边游，餐饮美食、休闲娱乐">	
+						去哪儿网
+					</li>
+					<li onclick="openHref('http://qianggou.yhd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="1号店超级单品_1号店超级单品频道整点抢购、限时限量特价">	
+						超级单品
+					</li>
+					<li onclick="openHref('http://www.tuangouba.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="团购吧是专业性集团采购服务网站！">	
+						团购吧
+					</li>
+					<li onclick="openHref('http://www.tuanche.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="团车全程精致服务，让您轻松购车">	
+						团车网
+					</li>
+					<li onclick="openHref('http://www.chetuanwang.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="汽车团购门户网站,“免费“参团,汽车团购网引领低价狂潮">	
+						车团网
+					</li>
+					<li onclick="openHref('https://miaosha.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东秒杀 每日10场爆款轮番上、品牌精选每日上新抢">	
+						京东秒杀
+					</li>
+					<li onclick="openHref('http://www.my6767.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="团购网站大全,团购导航,团购网站">	
+						好团网
+					</li>
+					<li onclick="openHref('http://tuan.gome.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国美团购网是国美在线唯一官方团购网站">	
+						国美团购
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>音像书籍 &raquo;</a> <span onclick="moreHref('shuji');"class="more"></span></h4>
+				<ul class="row"id="shuji">
+					<li onclick="openHref('https://www.amazon.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="亚马逊网上购物商城，给你更大的世界">	
+						亚马逊图书
+					</li>
+					<li onclick="openHref('http://book.dangdang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="当当网图书频道-全球最大中文网上书店">	
+						当当图书
+					</li>
+					<li onclick="openHref('https://book.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东JD.COM图书频道,专业提供网上购书,折扣图书">	
+						京东图书
+					</li>
+					<li onclick="openHref('https://book.suning.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="苏宁易购网上书店为您提供丰富的图书产品和最佳的购书体验！">	
+						苏宁图书
+					</li>
+					<li onclick="openHref('https://www.wl.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="蔚蓝网—国内创办早、规模大网上书店之一">	
+						蔚蓝图书
+					</li>
+					<li onclick="openHref('http://www.bookschina.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国图书网（中图网）：网上书店，创办于1998年">	
+						中国图书网
+					</li>
+					<li onclick="openHref('http://www.winxuan.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="文轩网，新华文轩集团旗下的购书网站，80万册正版图书">	
+						文轩网
+					</li>
+					<li onclick="openHref('https://www.kongfz.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="孔夫子旧书网是国内领先的古旧书交易平台，展示多达9000万种书籍">	
+						孔夫子网
+					</li>
+					<li onclick="openHref('http://www.china-pub.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="china-pub网上书店是国内成立最早,规模最大,最专业的中国图书网站之一">	
+						互动图书
+					</li>
+					<li onclick="openHref('http://www.bjbb.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京图书大厦-首页-新华书店,正品保证！">	
+						图书大厦
+					</li>
+					<li onclick="openHref('https://www.bookuu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="博库网品种丰富的中文网上书店，160万种图书在线热销！">	
+						博库网
+					</li>
+					<li onclick="openHref('http://www.zazhipu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="杂志铺-专业的杂志订阅商城,订杂志上杂志铺,低价、方便的杂志折扣订阅网">	
+						杂志铺
+					</li>
+					<li onclick="openHref('https://www.taoshu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="淘书网提供百万种图书在线购买，30万正版特价好书">	
+						淘书网
+					</li>
+					<li onclick="openHref('http://www.gg1994.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华南地区最大的网上书店：经营60万种正版图书">	
+						广购书城
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>日用百货 &raquo;</a> <span onclick="moreHref('baihuo');"class="more"></span></h4>
+				<ul class="row"id="baihuo">
+					<li onclick="openHref('https://www.yhd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="1号店(yhd.com)网上超市精选全球好货">	
+						1号店
+					</li>
+					<li onclick="openHref('https://chaoshi.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天猫超市-理想生活上天猫">	
+						天猫超市
+					</li>
+					<li onclick="openHref('https://www.bl.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百联（BL.COM）-专业的综合网上购物商城，在线销售进口商品">	
+						百联商城
+					</li>
+					<li onclick="openHref('http://www.ocj.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="东方电视购物,积分,全国免费配送,全国免费退换">	
+						东方购物
+					</li>
+					<li onclick="openHref('https://www.happigo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="快乐购商城 - www.happigo.com">	
+						快乐购
+					</li>
+					<li onclick="openHref('https://www.luolai.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="罗莱家纺网上商城，罗莱家纺官方网站">	
+						罗莱家纺
+					</li>
+					<li onclick="openHref('https://www.lovo.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="LOVO 罗莱家纺官方旗舰店 为消费者带来高性价比的时尚家纺体验！">	
+						LOVO家纺
+					</li>
+					<li onclick="openHref('http://www.dapu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="LOVO 大朴网（www.dapu.com）,贴身纺织品安全专家">	
+						大朴网
+					</li>
+					<li onclick="openHref('https://www.hao24.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="好享购物官方商城-正品行货、无忧退换-江苏卫视电视购物官方网站">	
+						好享购物
+					</li>
+					<li onclick="openHref('https://www.muji.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="无印良品，创造了商品的一天到一天的生活在一般家庭用品">	
+						无印良品
+					</li>
+					<li onclick="openHref('http://www.beyond.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="博洋社交电商官方商城，博洋集团旗下网购商城">	
+						博洋商城
+					</li>
+					<li onclick="openHref('https://www.staples.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="史泰博中国官网 - 办公用品一站式采购">	
+						史泰博
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>海外商家 &raquo;</a> <span onclick="moreHref('haiwai');"class="more"></span></h4>
+				<ul class="row"id="haiwai">
+					<li onclick="openHref('https://www.ebay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="eBay中国官网,致力于推动中国跨境交易电子商务的发展">	
+						eBay
+					</li>
+					<li onclick="openHref('https://www.coach.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="总部位于纽约的COACH是美国高端生活方式时尚品牌，为男士、女士提供精致配饰与礼品">	
+						Coach
+					</li>
+					<li onclick="openHref('https://www.amazon.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="亚马逊网上购物商城，给你更大的世界">	
+						亚马逊
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>美妆护理 &raquo;</a> <span onclick="moreHref('huli');"class="more"></span></h4>
+				<ul class="row"id="huli">
+					<li onclick="openHref('http://www.jumei.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="聚美优品是国内知名正品、领先的品牌化妆品团购和护肤品团购网">	
+						聚美优品
+					</li>
+					<li onclick="openHref('http://www.dhc.net.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="DHC中国官方网站-100%日本原装进口化妆品品牌">	
+						DHC中国
+					</li>
+					<li onclick="openHref('https://www.strawberrynet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="草莓网-正品护肤品、化妆品、香水特卖网站">	
+						草莓网
+					</li>
+					<li onclick="openHref('http://www.uzise.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="柚子舍UZISE官网 - 柚子护肤_让肌肤畅享自然味道">	
+						柚子舍
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>数码家电 &raquo;</a> <span onclick="moreHref('shuma');"class="more"></span></h4>
+				<ul class="row"id="shuma">
+					<li onclick="openHref('https://www.gome.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国美(Gome.com.cn)国美电器唯一官方网上商城"> 
+						国美电器
+					</li>
+					<li onclick="openHref('https://www.suning.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="苏宁易购-综合网上购物平台"> 
+						苏宁易购
+					</li>
+					<li onclick="openHref('https://www.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东JD.COM-专业的综合网上购物商城"> 
+						京东
+					</li>
+					<li onclick="openHref('https://www.mi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="小米官网直营小米公司旗下所有产品"> 
+						小米商城
+					</li>
+					<li onclick="openHref('https://www.vmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华为旗下面向全国服务的电子商务平台官网"> 
+						华为商城
+					</li>
+					<li onclick="openHref('http://www.shunguang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="海尔智家官方商城"> 
+						海尔商城
+					</li>
+					<li onclick="openHref('https://shop.lenovo.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="联想lenovo中国商城,提供联想笔记本电脑以及手机官网价格报价"> 
+						联想商城
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>网上支付 &raquo;</a> <span onclick="moreHref('zhifu');"class="more"></span></h4>
+				<ul class="row"id="zhifu">
+					<li onclick="openHref('https://auth.alipay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="支付宝-全球领先的独立第三方支付平台">	
+						支付宝
+					</li>
+					<li onclick="openHref('https://www.tenpay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="财付通，在线支付专家，带给您安全快捷的网上付款体验">	
+						财付通
+					</li>
+					<li onclick="openHref('https://www.paypal.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="全球精致生活，一付到位。使用PayPal支付，恣享海购乐趣，轻松拥有全球品味高质生活">	
+						PayPal支付
+					</li>
+					<li onclick="openHref('https://www.99bill.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="快钱第三方支付平台www.99bill.com">	
+						快钱支付
+					</li>
+					<li onclick="openHref('http://www.chinabank.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="领先的第三方电子支付专家，主打安全快捷支付">	
+						网银在线
+					</li>
+					<li onclick="openHref('https://www.yeepay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="易宝支付-快乐支付 绿色生活">	
+						易宝支付
+					</li>
+					<li onclick="openHref('https://www.chinapay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="银联在线隶属中国银联，致力于为广大银联卡持卡人提供网上支付">	
+						银联在线
+					</li>
+					<li onclick="openHref('https://www.ips.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="环迅支付-价值之选，值得托付">	
+						环迅支付
+					</li>
+					<li onclick="openHref('https://www.beijing.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="汇通全球，国际领先的支付平台">	
+						首信易支付
+					</li>
+					<li onclick="openHref('http://www.baifubao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="度小满金融(钱包)，你的个人金融管家">	
+						度小满钱包
+					</li>
+					<li onclick="openHref('https://www.shengpay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="盛付通 - 第三方网上在线支付平台 - 支付改变生活">	
+						盛付通
+					</li>
+					<li onclick="openHref('https://www.cmpay.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国移动和包支付是中国移动面向个人和企业客户提供的一项综合性移动支付业务">	
+						和包支付
+					</li>
+					<li onclick="openHref('https://www.soopay.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="“U付” – 说付就付，安全快速！">	
+						U付
+					</li>
+					<li onclick="openHref('http://www.chinapnr.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="汇付天下，中国领先的独立第三方支付公司">	
+						汇付天下
+					</li>
+					<li onclick="openHref('https://www.shfft.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="付费通,公共事业查询缴费平台,提供网上交费">	
+						付费通
+					</li>
+					<li onclick="openHref('https://www.epaylinks.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="支付链接生活,让生意更简单,易票联支付，您的移动支付专家">	
+						易票联支付
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>其他商家 &raquo;</a> <span onclick="moreHref('qita');"class="more"></span></h4>
+				<ul class="row"id="qita">
+					<li onclick="openHref('http://www.kede.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="可得眼镜网KEDE.COM-中国眼镜网络">	
+						可得眼镜
+					</li>
+					<li onclick="openHref('https://www.vsigo.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="视客眼镜网SIGO.CN-正品隐形眼镜网购平台!">	
+						视客眼镜
+					</li>
+					<li onclick="openHref('http://www.meijing.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美睛眼镜网是专业的网上隐形眼镜商城">	
+						美睛眼镜
+					</li>
+					<li onclick="openHref('https://www.111.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="1药网网上药店是全国正规合法网上药店平台，100%正品保障">	
+						1药网
+					</li>
+					<li onclick="openHref('https://www.aizhigu.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爱之谷官方商城-进口性爱成人用品、两性生活性用品成人网站">	
+						爱之谷
+					</li>
+					<li onclick="openHref('https://www.j1.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="健一网,专业的医药网上药店!">	
+						健一网
+					</li>
+					<li onclick="openHref('http://www.zbird.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="钻石小鸟官网专业钻石珠宝品牌,钻石婚戒定制知名品牌">	
+						钻石小鸟
+					</li>
+					<li onclick="openHref('https://www.damai.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="大麦网-全球演出赛事官方购票平台-100%正品，安全快捷">	
+						大麦网
+					</li>
+					<li onclick="openHref('http://www.wangpiao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网票网官网，国内知名团体产品供应商">	
+						网票网
+					</li>
+					<li onclick="openHref('https://www.228.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="【永乐票务】中国领先的专业演出票务网，为您提供全国近期演出信息">	
+						永乐票务
+					</li>
+					<li onclick="openHref('https://www.sinopecsales.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国石化加油卡网上营业厅是专门为中国石化加油卡用户提供安全便捷的互联网应用服务">	
+						中石化
+					</li>
+				</ul>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号</span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+        </div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

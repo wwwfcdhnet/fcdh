@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>个人免费邮箱,企业VIP邮箱大全 - 非常导航</title>
+    <meta name="keywords" content="免费邮箱,电子邮箱,收费邮箱,企业邮箱,VIP邮箱">
+    <meta name="description" content="免费邮箱,电子邮箱,收费邮箱,企业邮箱,VIP邮箱">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="http://www.fcdh.net/" class="smooth">
+                            <span>返回首页</span>
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#mianfei" class="ti-arrow smooth">
+                            <span>免费邮箱</span>
+                            <i class="fa-fire"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#vip" class="ti-arrow smooth">
+                            <span>VIP邮箱</span>
+                            <i class="fa-flag-o"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#qiye" class="ti-arrow smooth">
+                            <span>企业邮箱</span>
+                            <i class="fa-flask"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#yuming" class="ti-arrow smooth">
+                            <span>域名邮箱</span>
+                            <i class="fa-filter"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="main">
+				<h4><a class="c0"><i class="fa-bookmark"></i>免费邮箱</a><span onclick="moreHref('mianfei');"class="more open"></span></a>
+				</h4>
+				<ul class="row show"id="mianfei">
+					<li onclick="openHref('https://www.126.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="126网易免费邮--你的专业电子邮">
+						126邮箱
+					</li>
+					<li class="c5"onclick="openHref('https://email.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="163网易免费邮--中文邮箱第一品牌">							
+						<strong>163邮箱</strong>
+					</li>
+					<li onclick="openHref('https://mail.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="QQ邮箱，为亿万用户提供高效稳定便捷的电子邮件服务">
+						QQ邮箱
+					</li>
+					<li onclick="openHref('https://mail.aliyun.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="阿里邮箱个人版，免费注册邮箱送2G超大附件，60G容量">
+						阿里邮箱
+					</li>
+					<li onclick="openHref('https://mail.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪邮箱，提供以@sina.com和@sina.cn为后缀的免费邮箱">
+						新浪邮箱
+					</li>
+					<li onclick="openHref('https://mail.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐闪电邮箱，快如闪电">
+						搜狐邮箱
+					</li>
+					<li onclick="openHref('http://gmail.google.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="GMAIL，谷歌邮箱，国内无法访问">
+						GMAIL
+					</li>
+					<li onclick="openHref('https://outlook.live.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Outlook - 来自 Microsoft 的免费个人电子邮件和日历">
+						Outlook
+					</li>
+					<li onclick="openHref('https://www.yeah.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易YEAH免费邮箱--快乐 分享 成长。容量自动翻倍，支持50兆附件">
+						YEAH
+					</li>
+					<li onclick="openHref('https://mail.10086.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国移动139邮箱-移动体验最优的服务型邮箱">
+						139邮箱
+					</li>
+					<li onclick="openHref('http://mail.tom.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="TOM免费邮箱—中文邮箱最早期品牌之一">
+						TOM邮箱
+					</li>
+					<li onclick="openHref('https://www.foxmail.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="更高效，更专业，处理邮件更轻松">
+						Foxmail
+					</li>
+					<li onclick="openHref('https://www.188.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易VIP188邮箱 - 更安全稳定的个人商务收费邮箱">
+						188邮箱
+					</li>
+					<li onclick="openHref('https://mail.21cn.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="21CN免费邮箱--中文电子邮箱著名品牌之一">
+						21cn邮箱
+					</li>
+					<li onclick="openHref('https://mail.xinhuanet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新华网电子邮局">
+						新华邮箱
+					</li>
+					<li onclick="openHref('https://webmail30.189.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="189免费邮箱是面向所有互联网用户的新型工作和商务邮箱">
+						189邮箱
+					</li>
+					<li onclick="openHref('https://mail.wo.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="联通沃邮箱">
+						沃邮箱
+					</li>
+					<li onclick="openHref('http://www.eyou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Eyou个人电子邮件系统">
+						Eyou邮箱
+					</li>
+					<li onclick="openHref('https://www.2980.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="2980邮件个人电子邮件系统">
+						2980邮箱
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>VIP邮箱</a><span onclick="moreHref('vip');"class="more"></span></h4>
+				<ul class="row"id="vip">
+					<li onclick="openHref('https://www.263.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京二六三企业通信有限公司（简称二六三企业通信）">
+						263邮箱
+					</li>
+					<li onclick="openHref('https://vip.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易VIP163邮箱是网易旗下高端邮箱品牌">
+						网易VIP
+					</li>
+					<li onclick="openHref('https://www.188.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易VIP188邮箱登录注册-更安全稳定的个人商务收费邮箱">
+						188VIP
+					</li>
+					<li onclick="openHref('http://vip.163.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="TOM vip邮箱是收费邮箱领域高端品牌">
+						TOMVIP
+					</li>
+					<li onclick="openHref('https://vip.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪VIP邮箱，新浪邮箱团队倾力打造的高端个人商务邮箱">
+						新浪VIP
+					</li>
+					<li onclick="openHref('https://vip.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪VIP邮箱，新浪邮箱团队倾力打造的高端个人商务邮箱">
+						搜狐VIP
+					</li>
+					<li onclick="openHref('http://mail.china.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中华邮是一种新型的网络邮件，让电子邮件更直观">
+						中华邮
+					</li>
+				</ul>
+			
+				<h4><a><i class="fa-bookmark"></i>企业邮箱</a><span onclick="moreHref('qiye');"class="more"></span></h4>
+				<ul class="row"id="qiye">	
+					<li onclick="openHref('https://mail.sina.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪企业邮箱安全、稳定、快速，十年企业邮箱运营经验">
+						新 浪
+					</li>			
+					<li onclick="openHref('http://mail.sohu.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐企业邮箱分免费企业邮箱和收费企业邮箱">
+						搜 狐
+					</li>	
+					<li onclick="openHref('http://www.163vip.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="TOM免费邮箱—中文邮箱最早期品牌之一">
+						TOM邮箱
+					</li>
+					<li onclick="openHref('https://qiye.21cn.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国电信斥资打造的高端企业云邮箱，系统安全稳定">
+						21CN邮箱
+					</li>	
+					<li onclick="openHref('https://qiye.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易企业邮箱 - 企业邮箱信息化专业解决方案">
+						网 易
+					</li>	
+					<li onclick="openHref('https://qiye.aliyun.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="阿里企业邮箱，构建在阿里云飞天平台上的企业邮箱">
+						阿 里
+					</li>	
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>域名邮箱</a><span onclick="moreHref('yuming');"class="more"></span></h4>
+				<ul class="row"id="yuming">
+					<li onclick="openHref('http://ym.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易免费企业邮箱 -- 自主域名，企业专属">
+						网 易
+					</li>	
+					<li onclick="openHref('http://domain.mail.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="QQ域名邮箱，有域名，就有您的域名邮箱">
+						QQ邮箱
+					</li>	
+				</ul>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more"><a href="http://beian.miit.gov.cn/">渝ICP备20001609号</a></a>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

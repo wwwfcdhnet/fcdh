@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>各种搜索网站 - 非常导航</title>
+    <meta name="keywords" content="搜索网站,PDF搜索,动态图搜索,文档搜索,电影搜索">
+    <meta name="description" content="搜索网站,搜索txt,doc,PDF,电子书，资源，软件等搜索,动态图搜索,文档搜索,电影搜索">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="http://www.fcdh.net/" class="smooth">
+                            <span>返回首页</span>
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#zonghe" class="ti-arrow smooth">
+                            <span>综合搜索</span>
+                            <i class="fa-search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tupian" class="ti-arrow smooth">
+                            <span>图片搜索</span>
+                            <i class="fa-picture-o"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#wendang" class="ti-arrow smooth">
+                            <span>文档搜索</span>
+                            <i class="fa-file-word-o"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#yinyue" class="ti-arrow smooth">
+                            <span>音乐搜索</span>
+                            <i class="fa-music"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shipin" class="ti-arrow smooth">
+                            <span>视频搜索</span>
+                            <i class="fa-film"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ziyuan" class="ti-arrow smooth">
+                            <span>资源搜索</span>
+                            <i class="fa-life-ring"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="main">
+				<h4><a class="c0"><i class="fa-bookmark"></i>综 合</a><span onclick="moreHref('zonghe');"class="more open"></span></a>
+				</h4>
+				<ul class="row show"id="zonghe">
+					<li onclick="openHref('https://www.baidu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度一下，你就知道！">
+						
+						百度搜索
+					</li>
+					<li onclick="openHref('https://www.so.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="360搜索是安全、精准、可信赖的新一代搜索引擎。">							
+						
+						360搜索
+					</li>
+					<li onclick="openHref('https://cn.bing.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Bing（必应）搜索 —— 微软旗下搜索引擎">
+						
+						Bing搜索
+					</li>
+					<li onclick="openHref('https://www.sogou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狗搜索是全球第三代互动式搜索引擎。">
+						
+						搜狗搜索
+					</li>
+					<li onclick="openHref('https://m.sm.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="神马是全球第一款完全基于移动互联网的搜索引擎。">
+						
+						神马搜索
+					</li>
+					<li onclick="openHref('https://www.dogedoge.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="DogeDoge 多吉搜索 — 不追踪，不误导">
+						
+						多吉搜索
+					</li>
+					<li onclick="openHref('https://mijisou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="一个不追踪你的中文搜索引擎">
+						
+						秘迹搜索
+					</li>
+					<li onclick="openHref('https://s.weibo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="微博搜索s.weibo.com">
+						
+						微博搜索
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>图 片</a><span onclick="moreHref('tupian');"class="more"></span></h4>
+				<ul class="row"id="tupian">
+					<li onclick="openHref('http://soso.nipic.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="昵图网素材图库psd提供各种图片搜索">
+						昵图网
+					</li>
+					<li onclick="openHref('http://image.baidu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度图片为用户甄选海量的高清美图，用更流畅、更快捷">
+						
+						百度图片
+					</li>
+					<li onclick="openHref('https://pic.sogou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狗图片搜索">
+						
+						搜狗图片
+					</li>
+				</ul>
+			
+				<h4><a><i class="fa-bookmark"></i>文 档</a><span onclick="moreHref('wendang',this);"class="more"></span></h4>
+				<ul class="row"id="wendang">				
+					<li onclick="openHref('http://www.rufengso.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="如风搜，全网网盘搜索工具。">
+						
+						如风搜索
+					</li>		
+					<li onclick="openHref('https://www.jiumodiary.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="文档搜索引擎">
+						
+						鸠摩搜索
+					</li>		
+					<li onclick="openHref('https://booksc.org/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="英文电子书搜索">
+						BookSC
+					</li>	
+					<li onclick="openHref('https://www.kuaidi100.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="一站式快递服务平台，提供超800家快递查询及网点、电话查询">
+						
+						快递100
+					</li>	
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>音 乐</a><span onclick="moreHref('yinyue',this);"class="more"></span></h4>
+				<ul class="row"id="yinyue">
+					<li onclick="openHref('https://www.zhaogepu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="专业歌谱搜索引擎，30万首热门歌谱、简谱、钢琴谱、吉他谱">
+						
+						找歌谱网
+					</li>	
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>视 频</a><span onclick="moreHref('shipin',this);"class="more"></span></h4>
+				<ul class="row"id="shipin">
+					<li onclick="openHref('https://search.bilibili.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="bilibili是国内知名的视频弹幕网站">
+						
+						哔哩哔哩
+					</li>	
+					<li onclick="openHref('https://www.acgsou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="繁体字网站，ACG资源搜索动画,漫画,同人志,片源,galgame,动漫下载">
+						
+						动漫搜索
+					</li>	
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>资 源</a><span onclick="moreHref('ziyuan',this);"class="more"></span></h4>
+				<ul class="row"id="ziyuan">					
+					<li onclick="openHref('https://www.easyicon.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="提供★超过六十万个★SVG、PNG、ICO、ICNS图标搜索、图标下载服务">
+						
+						图标下载
+					</li>
+					<li onclick="openHref('https://www.soogif.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="免费的gif动态图片搜索引擎、在线制作压缩动图表情素材">
+						
+						soogif动图
+					</li>					
+					<li onclick="openHref('https://www.openhub.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="英文网，开源代码搜索，英文不过关的不好用">
+						openhub
+					</li>		
+					<li onclick="openHref('https://github.com/search',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="英文网，全球最大的开源代码基地">
+						github
+					</li>		
+					<li onclick="openHref('http://www.innojoy.com/search/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Innojoy专利搜索引擎收录全球100多个国家1亿多件商业专利数据">
+						innojoy
+					</li>
+				</ul>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more"><a href="http://beian.miit.gov.cn/">渝ICP备20001609号</a></a>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>我的网址收藏主页 - 非常导航</title>
+    <meta name="keywords" content="自定义,网址夹,本地网址,收藏主页,非常导航,上网导航">
+    <meta name="description" content="记录每一个本地网址，按编辑按钮，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端，真真你自己意义上的收藏主页">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="http://www.fcdh.net/" class="smooth">
+                            <span>返回首页</span><i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#records1" class="ti-arrow smooth">
+                            <span>常用网站</span><i class="fa-support"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#records2" class="ti-arrow smooth">
+                            <span>我的爱好</span><i class="fa-heart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#records3" class="ti-arrow smooth">
+                            <span>我的专业</span><i class="fa-slack"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#records4" class="ti-arrow smooth">
+                            <span>实用工具</span><i class="fa-legal"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#records5" class="ti-arrow smooth">
+                            <span>其他网站</span><i class="fa-ioxhost"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#records0" class="ti-arrow smooth">
+                            <span>浏览记录</span><i class="fa-eye"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+            <!-- 自我收藏网站 -->
+			<div id="simi">
+				<h4><a class="c0"><i class="fa-bookmark"></i>常 用</a>
+				<span onclick="moreHref('records1');"class="more open"></span>				
+				<a href="edit.html" title="编辑网址"class="ti-more"><i class="fa-edit"></i></a>
+				</h4>
+				<ul class="row show"id="records1">
+				</ul>
+				
+				<!-- END 网址收藏 -->
+			   
+				 <!-- 自我收藏网站 -->
+				<h4><a><i class="fa-bookmark"></i>爱 好</a><span onclick="moreHref('records2');"class="more"></span></h4>
+				<ul class="row"id="records2">
+				</ul>
+				<!-- END 网址收藏 -->
+				
+
+				<!-- 自我收藏网站 -->
+				<h4><a><i class="fa-bookmark"></i>专 业</a><span onclick="moreHref('records3');"class="more"></span></h4>
+				<ul class="row"id="records3">
+				</ul>
+				<!-- END 网址收藏 -->
+
+				<!-- 自我收藏网站 -->
+				<h4><a><i class="fa-bookmark"></i>工 具</a><span onclick="moreHref('records4');"class="more"></span></h4>
+				<ul class="row"id="records4">
+				</ul>
+				<!-- END 网址收藏 -->
+
+				<!-- 自我收藏网站 -->
+				<h4><a><i class="fa-bookmark"></i>其 他</a><span onclick="moreHref('records5');"class="more"></span></h4>
+				<ul class="row"id="records5">
+				</ul>
+				<!-- END 网址收藏 -->
+
+				<!-- 自我收藏网站 -->
+				<h4><a><i class="fa-bookmark"></i>记 录</a><span onclick="moreHref('records0');"class="more"></span></h4>
+				<ul class="row"id="records0">
+				</ul>
+			</div>
+            <!-- END 网址收藏 -->
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号</span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+        </div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

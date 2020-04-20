@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>新闻荟萃 - 非常导航</title>
+    <meta name="keywords" content="新闻导航，时事导航，焦点导航">
+    <meta name="description" content="非常有名站的新闻网站导航，时事导航，看焦点，看热点，看你所看，看新闻就是这么简单，随心所欲的看">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="http://www.fcdh.net/" class="smooth">
+                            <span>返回首页</span>
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#zonghe" class="ti-arrow smooth">
+                            <span>新闻综合</span>
+                            <i class="fa-search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#zhuanti" class="ti-arrow smooth">
+                            <span>专题新闻</span>
+                            <i class="fa-picture-o"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ti-hand">
+                            <span>地方新闻</span>
+                            <i class="fa-picture-o"></i>
+                        </a>
+						<ul class="ti-arrow">
+							<li><a href="#beijing" class="smooth"><span>北京</span></a></li>
+							<li><a href="#chongqing" class="smooth"><span>重庆</span></a></li>
+							<li><a href="#shanghai" class="smooth"><span>上海</span></a></li>
+							<li><a href="#tianjin" class="smooth"><span>天津</span></a></li>
+							<li><a href="#xianggang" class="smooth"><span>香港</span></a></li>
+							<li><a href="#aomen" class="smooth"><span>澳门</span></a></li>
+							<li><a href="#taiwan" class="smooth"><span>台湾</span></a></li>
+							<li><a href="#anhui" class="smooth"><span>安徽</span></a></li>
+							<li><a href="#fujian" class="smooth"><span>福建</span></a></li>
+							<li><a href="#gansu" class="smooth"><span>甘肃</span></a></li>
+							<li><a href="#guangdong" class="smooth"><span>广东</span></a></li>
+							<li><a href="#guangxi" class="smooth"><span>广西</span></a></li>
+							<li><a href="#guizhou" class="smooth"><span>贵州</span></a></li>
+							<li><a href="#hainan" class="smooth"><span>海南</span></a></li>
+							<li><a href="#hebei" class="smooth"><span>河北</span></a></li>
+							<li><a href="#henan" class="smooth"><span>河南</span></a></li>
+							<li><a href="#heilongjiang" class="smooth"><span>黑龙江</span></a></li>
+							<li><a href="#hubei" class="smooth"><span>湖北</span></a></li>
+							<li><a href="#hunan" class="smooth"><span>湖南</span></a></li>
+							<li><a href="#jilin" class="smooth"><span>吉林</span></a></li>
+							<li><a href="#jiangsu" class="smooth"><span>江苏</span></a></li>
+							<li><a href="#jiangxi" class="smooth"><span>江西</span></a></li>
+							<li><a href="#liaoning" class="smooth"><span>辽宁</span></a></li>
+							<li><a href="#neimenggu" class="smooth"><span>内蒙古</span></a></li>
+							<li><a href="#ningxia" class="smooth"><span>宁夏</span></a></li>
+							<li><a href="#qinghai" class="smooth"><span>青海</span></a></li>
+							<li><a href="#shandong" class="smooth"><span>山东</span></a></li>
+							<li><a href="#shanxi" class="smooth"><span>山西</span></a></li>
+							<li><a href="#shanxi2" class="smooth"><span>陕西</span></a></li>
+							<li><a href="#sichuan" class="smooth"><span>四川</span></a></li>
+							<li><a href="#xizang" class="smooth"><span>西藏</span></a></li>
+							<li><a href="#xinjiang" class="smooth"><span>新疆</span></a></li>
+							<li><a href="#yunnan" class="smooth"><span>云南</span></a></li>
+							<li><a href="#zhejiang" class="smooth"><span>浙江</span></a></li>
+						</ul>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="main">
+				<h4><a class="c0"><i class="fa-bookmark"></i>综合新闻</a>
+					<span onclick="moreHref('zhonghe');"class="more open"></span>
+				</h4>
+				<ul class="row show"id="zhonghe">
+					<li onclick="openHref('http://www.people.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="人民网，是世界十大报纸之一">						
+						人民网
+					</li>	
+					<li onclick="openHref('http://www.china.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国家重点新闻网站，拥有十个语种独立新闻采编、报道和发布权">						
+						中国网
+					</li>	
+					<li onclick="openHref('http://news.baidu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度新闻——海量中文资讯平台">						
+						百度新闻
+					</li>	
+					<li onclick="openHref('http://www.xinhuanet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国主要重点新闻网站,依托新华社遍布全球的采编网络">						
+						新华网
+					</li>
+					<li onclick="openHref('http://www.eastday.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="东方新闻网-www.eastday.com">						
+						东方网
+					</li>	
+
+					<li onclick="openHref('https://www.huanqiu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="环球网是中国领先的国际资讯门户">						
+						环球网
+					</li>	
+					<li onclick="openHref('https://www.cctv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="以视频为特色的中央重点新闻网站">						
+						央视网
+					</li>	
+					<li onclick="openHref('http://www.chinanews.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国新闻网是知名的中文新闻门户网站，也是全球互联网中文新闻资讯最重要的原创内容供应商之一">				中国新闻网
+					</li>	
+					<li onclick="openHref('http://www.chinadaily.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国日报英文网站-English">	
+						日报英文版
+					</li>	
+					<li onclick="openHref('https://www.thepaper.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="澎湃是植根于中国上海的时政思想类互联网平台">	
+						澎湃新闻
+					</li>	
+					<li onclick="openHref('https://news.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪网新闻中心是新浪网最重要的频道之一">	
+						新浪新闻
+					</li>	
+					<li onclick="openHref('https://news.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="优质资讯推荐_腾讯网">	
+						QQ新闻
+					</li>
+					<li onclick="openHref('https://news.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="专业时事新闻报道门户网站">	
+						网易新闻
+					</li>
+					<li onclick="openHref('https://www.toutiao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="为用户推荐有价值的、个性化的信息，提供连接人与信息的新型服务">	
+						今日头条
+					</li>
+					<li onclick="openHref('http://www.gmw.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国内唯一一家定位于思想理论领域的中央重点新闻网站">	
+						光明网
+					</li>
+					<li onclick="openHref('http://www.cnwnews.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中网资讯是国内专业的商业经济资讯站点">	
+						中网资讯
+					</li>
+					<li onclick="openHref('https://www.guancha.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="观察者网-中国关怀 全球视野">	
+						观察者
+					</li>
+					<li onclick="openHref('https://www.zhonghongwang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="致力于打造国家经济视窗，提供国内、国外、军事、图片视频、财经新闻">	
+						中宏网
+					</li>
+					<li onclick="openHref('http://www.haiwainet.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="人民日报海外版官方网站_全球华人的网上家园">	
+						海外网
+					</li>
+					<li onclick="openHref('http://www.qianlong.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国首都网是中共北京市委宣传部主管主办">	
+						千龙网
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>专题新闻</a> <span onclick="moreHref('zhuanti');"class="more"></span></h4>
+				<ul class="row"id="zhuanti">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						中国青年网
+					</li>
+					<li onclick="openHref('http://www.cyol.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中青在线：中国青年报官网 24小时中青报">	
+						中青在线
+					</li>
+					<li onclick="openHref('https://www.tmtpost.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="集信息交流融合、IT技术信息、新媒体于一身的媒体平台">	
+						钛媒体
+					</li>
+					<li onclick="openHref('https://www.jiemian.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="界面新闻是中国具有影响力的原创财经新媒体，以财经、商业新闻为核心">	
+						界面新闻
+					</li>
+					<li onclick="openHref('http://www.chinatimes.cc/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华夏时报为财经人士打造一个全媒体的新闻资讯平台">	
+						华夏时报
+					</li>
+				</ul>
+
+				<h4><a href="#this"><i class="fa-bookmark"></i>北京网站 &raquo;</a> <span onclick="moreHref('beijing',this);"class="more"></span></h4>
+				<ul class="row"id="beijing">
+					<li onclick="openHref('http://www.bjd.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京报网-bjd.com.cn">	
+						京报网
+					</li>
+					<li onclick="openHref('http://www.ynet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="YNET.com北青网">	
+						北青网
+					</li>
+					<li onclick="openHref('https://www.takefoto.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北晚新视觉网是北京晚报主办的网上新媒体">	
+						北晚新视觉
+					</li>
+					<li onclick="openHref('http://www.bj.chinanews.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国新闻网-北京新闻">	
+						北京新闻
+					</li>
+					<li onclick="openHref('http://beijing.qianlong.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="千龙网(北京)中国首都网是中共北京市委宣传部主管主办">	
+						千龙网(北京)
+					</li>
+					<li onclick="openHref('http://www.bj.xinhuanet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新华(北京频道)，新华网北京频道_北京新闻_首都">	
+						新华(北京频道)
+					</li>
+					<li onclick="openHref('https://www.btime.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京时间的北京新闻">	
+						北京时间
+					</li>
+					<li onclick="openHref('http://www.bjnews.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新京报 - 好新闻，无止境">	
+						新京报
+					</li>
+					<li onclick="openHref('https://bj.news.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易北京-有态度的北京门户">	
+						网易北京
+					</li>
+					<li onclick="openHref('https://bj.jjj.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="大燕网北京站，是由腾讯网及《新京报》联合创办的腾讯大燕网的子站点">	
+						大燕网北京站
+					</li>
+					<li onclick="openHref('https://www.010lf.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国家重点新闻网站-环京津新闻网">	
+						京津新闻
+					</li>
+					<li onclick="openHref('http://bj.people.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京频道--人民网_网上的人民日报">	
+						北京频道
+					</li>
+					<li onclick="openHref('http://www.beijing.gov.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京市政府网站,重量新闻在北京">	
+						北京市政府
+					</li>
+					<li onclick="openHref('http://www.cyol.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中青在线：中国青年报官网 24小时中青报">	
+						中青在线
+					</li>
+					<li onclick="openHref('http://www.beijingreview.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="《北京周报》是中国唯一的国家级英文新闻周刊">	
+						北京周报
+					</li>
+					<li onclick="openHref('http://www.bbtnews.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="北京商报_财经头条新闻">	
+						北京商报
+					</li>
+				</ul>
+				<h4><a href="#this"><i class="fa-bookmark"></i>重庆网站 &raquo;</a> <span onclick="moreHref('chongqing',this);"class="more"></span></h4>
+				<ul class="row"id="chongqing">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+
+				<h4><a href="#this"><i class="fa-bookmark"></i>上海网站 &raquo;</a> <span onclick="moreHref('shanghai',this);"class="more"></span></h4>
+				<ul class="row"id="shanghai">
+					<li onclick="openHref('https://news.online.sh.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国的上海 世界的上海 -- 最上海的热线">	
+						上海热线
+					</li>
+				</ul>
+
+				<h4><a href="#this"><i class="fa-bookmark"></i>天津网站 &raquo;</a> <span onclick="moreHref('tianjin',this);"class="more"></span></h4>
+				<ul class="row"id="tianjin">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>香港网站 &raquo;</a> <span onclick="moreHref('xianggang',this);"class="more"></span></h4>
+				<ul class="row"id="xianggang">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>澳门网站 &raquo;</a> <span onclick="moreHref('aomen',this);"class="more"></span></h4>
+				<ul class="row"id="aomen">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>台湾网站 &raquo;</a> <span onclick="moreHref('taiwan',this);"class="more"></span></h4>
+				<ul class="row"id="taiwan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>安徽网站 &raquo;</a> <span onclick="moreHref('anhui',this);"class="more"></span></h4>
+				<ul class="row"id="anhui">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>甘肃网站 &raquo;</a> <span onclick="moreHref('gansu',this);"class="more"></span></h4>
+				<ul class="row"id="gansu">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>广东网站 &raquo;</a> <span onclick="moreHref('guangdong',this);"class="more"></span></h4>
+				<ul class="row"id="guangdong">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>广西网站 &raquo;</a> <span onclick="moreHref('guangxi',this);"class="more"></span></h4>
+				<ul class="row"id="guangxi">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>贵州网站 &raquo;</a> <span onclick="moreHref('guizhou',this);"class="more"></span></h4>
+				<ul class="row"id="guizhou">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>海南网站 &raquo;</a> <span onclick="moreHref('hainan',this);"class="more"></span></h4>
+				<ul class="row"id="hainan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>河北网站 &raquo;</a> <span onclick="moreHref('hebei',this);"class="more"></span></h4>
+				<ul class="row"id="hebei">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>河南网站 &raquo;</a> <span onclick="moreHref('henan',this);"class="more"></span></h4>
+				<ul class="row"id="henan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>黑龙江网站 &raquo;</a> <span onclick="moreHref('heilongjiang',this);"class="more"></span></h4>
+				<ul class="row"id="heilongjiang">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>湖北网站 &raquo;</a> <span onclick="moreHref('hubei',this);"class="more"></span></h4>
+				<ul class="row"id="hubei">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>湖南网站 &raquo;</a> <span onclick="moreHref('hunan',this);"class="more"></span></h4>
+				<ul class="row"id="hunan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>吉林网站 &raquo;</a> <span onclick="moreHref('jilin',this);"class="more"></span></h4>
+				<ul class="row"id="jilin">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>江苏网站 &raquo;</a> <span onclick="moreHref('jiangsu',this);"class="more"></span></h4>
+				<ul class="row"id="jiangsu">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>江西网站 &raquo;</a> <span onclick="moreHref('jiangxi',this);"class="more"></span></h4>
+				<ul class="row"id="jiangxi">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>辽宁网站 &raquo;</a> <span onclick="moreHref('liaoning',this);"class="more"></span></h4>
+				<ul class="row"id="liaoning">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>内蒙古网站 &raquo;</a> <span onclick="moreHref('neimenggu',this);"class="more"></span></h4>
+				<ul class="row"id="neimenggu">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>宁夏网站 &raquo;</a> <span onclick="moreHref('ningxia',this);"class="more"></span></h4>
+				<ul class="row"id="ningxia">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>青海网站 &raquo;</a> <span onclick="moreHref('qinghai',this);"class="more"></span></h4>
+				<ul class="row"id="qinghai">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>山东网站 &raquo;</a> <span onclick="moreHref('shandong',this);"class="more"></span></h4>
+				<ul class="row"id="shandong">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>山西网站 &raquo;</a> <span onclick="moreHref('shanxi',this);"class="more"></span></h4>
+				<ul class="row"id="shanxi">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>陕西网站 &raquo;</a> <span onclick="moreHref('shanxi2',this);"class="more"></span></h4>
+				<ul class="row"id="shanxi2">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>四川网站 &raquo;</a> <span onclick="moreHref('sichuan',this);"class="more"></span></h4>
+				<ul class="row"id="sichuan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>西藏网站 &raquo;</a> <span onclick="moreHref('xizang',this);"class="more"></span></h4>
+				<ul class="row"id="xizang">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>新疆网站 &raquo;</a> <span onclick="moreHref('xinjiang',this);"class="more"></span></h4>
+				<ul class="row"id="xinjiang">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>云南网站 &raquo;</a> <span onclick="moreHref('yunnan',this);"class="more"></span></h4>
+				<ul class="row"id="yunnan">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+				
+				<h4><a href="#this"><i class="fa-bookmark"></i>浙江网站 &raquo;</a> <span onclick="moreHref('zhejiang',this);"class="more"></span></h4>
+				<ul class="row"id="zhejiang">
+					<li onclick="openHref('http://www.youth.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国青年网_青年温度、青春靓度、青网态度">	
+						xxx
+					</li>
+				</ul>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号</span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+        </div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

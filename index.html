@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>非常导航 - 非常绿色安全的上网导航</title>
+    <meta name="keywords" content="非常导航，绿色导航，安全导航，绿色上网，安全上网，上网导航">
+    <meta name="description" content="非常导航成立于冠状病毒爆发的2020年。本着网址收藏的爱好，所以要求导航网站既能自定义网址、上传下载网址，又能看着简洁美丽、不臃肿杂乱，还要绿色安全、无毒无弹窗，这是导航站的宗旨，也是上网爱好者的底线。www.fcdh.net">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu">            
+					<li>
+						<a class="ti-hand">
+                            <span>分类直达</span><i class="fa-paper-plane"></i>
+                        </a>  
+						<ul class="ti-arrow">
+							<li class="active">
+								<a href="#records" class="smooth">
+									<span>常 用</span>
+								</a>
+							</li>
+							<li>
+								<a href="#mingzhan" class="smooth">
+									<span>名 站</span>
+								</a>
+							</li>
+							<li>
+								<a href="#sousuo" class="smooth">
+									<span>搜 索</span>
+								</a>
+							</li>
+							<li>
+								<a href="#shipin" class="smooth">
+									<span>视 频</span>
+								</a>
+							</li>
+							<li>
+								<a href="#xinwen" class="smooth">
+									<span>新 闻</span>
+								</a>
+							</li>
+							<li>
+								<a href="#xiaoshuo" class="smooth">
+									<span>小 说 </span>
+								</a>
+							</li>
+							<li>
+								<a href="#tiyu" class="smooth">
+									<span>体 育</span>
+								</a>
+							</li>
+							<li>
+								<a href="#youxi" class="smooth">
+									<span>游 戏</span>
+								</a>
+							</li>
+							<li>
+								<a href="#yinyue" class="smooth">
+									<span>音 乐</span>
+								</a>
+							</li>
+							<li>
+								<a href="#caijing" class="smooth">
+									<span>财 经</span>
+								</a>
+							</li>
+							<li>
+								<a href="#meishi" class="smooth">
+									<span>美 食</span>
+								</a>
+							</li>
+							<li>
+								<a href="#youxiang" class="smooth">
+									<span>邮 箱</span>
+								</a>
+							</li>
+							<li>
+								<a href="#lvyou" class="smooth">
+									<span>旅 游</span>
+								</a>
+							</li>
+							<li>
+								<a href="#youlian" class="smooth">
+									<span>友 链</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>娱乐休闲</span><i class="fa-music"></i>
+                        </a>  
+						<ul>
+							<li>
+								<a href="yingShi.html" class="smooth">
+									<span>影视</span>
+								</a>
+							</li>
+                            <li>
+                                <a href="shiPin.html" class="smooth">
+                                    <span>视频</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="meiNv.html" class="smooth">
+                                    <span>美女</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="xiaoShuo.html" class="smooth">
+                                    <span>小说</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="xingZuo.html" class="smooth">
+                                    <span>星座</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ziXun.html" class="smooth">
+                                    <span>资讯</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="xiaoHua.html" class="smooth">
+                                    <span>笑话</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shouCang.html" class="smooth">
+                                    <span>收藏</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="music.html" class="smooth">
+                                    <span>音乐</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="youXi.html" class="smooth">
+                                    <span>游戏</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tuPian.html" class="smooth">
+                                    <span>图片</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tiYu.html" class="smooth">
+                                    <span>体育</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mingXing.html" class="smooth">
+                                    <span>明星</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="caiJing.html" class="smooth">
+                                    <span>财经</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="boKe.html" class="smooth">
+                                    <span>博客</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="heKa.html" class="smooth">
+                                    <span>贺卡</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="junShi.html" class="smooth">
+                                    <span>军事</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dongMan.html" class="smooth">
+                                    <span>动漫</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="xinWen.html" class="smooth">
+                                    <span>新闻</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="TiYu/NBA.html" class="smooth">
+                                    <span>NBA</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="yuLe.html" class="smooth">
+                                    <span>娱乐</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="lunTan.html" class="smooth">
+                                    <span>论坛</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="moTe.html" class="smooth">
+                                    <span>模特</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="liaoTian.html" class="smooth">
+                                    <span>QQ聊天</span>
+                                </a>
+                            </li>
+                        </ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>生活服务</span><i class="fa-coffee"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>电脑网络</span><i class="fa-desktop"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					
+					<li>
+						<a class="ti-hand">
+                            <span>商业经济</span><i class="fa-money"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>教育文化</span><i class="fa-graduation-cap"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>体育健身</span><i class="fa-soccer-ball-o"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>医疗健康</span><i class="fa-ambulance"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>艺术爱好</span><i class="fa-flag"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>媒体资讯</span><i class=" fa-pie-chart"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>行业企业</span><i class="fa-database"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>综合其他</span><i class="fa-ioxhost"></i>
+                        </a>  
+						<ul>
+							<a href="#this" class="smooth">
+                               <span>正在开发中。。。</span>
+                            </a>
+						</ul>
+					</li>
+					<li>
+						<a class="ti-hand">
+                            <span>国家地区</span><i class="fa-sitemap"></i>
+                        </a>  
+						<ul>
+							<li><a href="#guowai"class="smooth"><span>国外</span></a></li>
+							<li><a href="#xianggang"class="smooth"><span>香港</span></a></li>
+							<li><a href="#aomen"class="smooth"><span>澳门</span></a></li>
+							<li><a href="#taiwan"class="smooth"><span>台湾</span></a></li>
+							<li><a href="#beijing"class="smooth"><span>北京</span></a></li>
+							<li><a href="#shanghai"class="smooth"><span>上海</span></a></li>
+							<li><a href="#chongqing"class="smooth"><span>重庆</span></a></li>
+							<li><a href="#tianjin"class="smooth"><span>天津</span></a></li>
+							<li><a href="#anhui"class="smooth"><span>安徽</span></a></li>
+							<li><a href="#fujian"class="smooth"><span>福建</span></a></li>
+							<li><a href="#gansu"class="smooth"><span>甘肃</span></a></li>
+							<li><a href="#guangdong"class="smooth"><span>广东</span></a></li>
+							<li><a href="#guangxi"class="smooth"><span>广西</span></a></li>
+							<li><a href="#guizhou"class="smooth"><span>贵州</span></a></li>
+							<li><a href="#hainan"class="smooth"><span>海南</span></a></li>
+							<li><a href="#hebei"class="smooth"><span>河北</span></a></li>
+							<li><a href="#henan"class="smooth"><span>河南</span></a></li>
+							<li><a href="#heilongjiang"class="smooth"><span>黑龙江</span></a></li>
+							<li><a href="#hubei"class="smooth"><span>湖北</span></a></li>
+							<li><a href="#hunan"class="smooth"><span>湖南</span></a></li>
+							<li><a href="#jilin"class="smooth"><span>吉林</span></a></li>
+							<li><a href="#jiangsu"class="smooth"><span>江苏</span></a></li>
+							<li><a href="#jiangxi"class="smooth"><span>江西</span></a></li>
+							<li><a href="#liaoning"class="smooth"><span>辽宁</span></a></li>
+							<li><a href="#neimenggu"class="smooth"><span>内蒙古</span></a></li>
+							<li><a href="#ningxia"class="smooth"><span>宁夏</span></a></li>
+							<li><a href="#qinghai"class="smooth"><span>青海</span></a></li>
+							<li><a href="#shandong"class="smooth"><span>山东</span></a></li>
+							<li><a href="#shanxi"class="smooth"><span>山西</span></a></li>
+							<li><a href="#shaanxi"class="smooth"><span>陕西</span></a></li>
+							<li><a href="#sichuan"class="smooth"><span>四川</span></a></li>
+							<li><a href="#xizang"class="smooth"><span>西藏</span></a></li>
+							<li><a href="#xinjiang"class="smooth"><span>新疆</span></a></li>
+							<li><a href="#yunnan"class="smooth"><span>云南</span></a></li>
+							<li><a href="#zhejiang"class="smooth"><span>浙江</span></a></li>
+						</ul>
+					</li>
+                </ul>
+            
+        </div>
+		</div>
+
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>	
+					
+					<li>
+                        <div id="ti-search">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="simi">
+				<!-- 浏览记录 -->
+				<h4><a href="home.html"class="c0"><i class="fa-bookmark"></i>常 用 &raquo;</a><span onclick="moreHref('records');"class="more open"></span>
+				<a href="http://bbs.fcdh.net/" title="用户留言"class="ti-more">◆留言</a>
+				</h4>
+				<ul class="row show"id="records">
+				</ul>
+				<!-- end 浏览记录 -->
+			</div>
+			<div id="main">
+				<!-- 常用推荐 -->
+				<h4><a href="mingzhan.html"><i class="fa-bookmark"></i>名 站 &raquo;</a> <span onclick="moreHref('mingzhan');"class="more"></span></h4>
+				<ul class="row" id="mingzhan">
+					<li class="c1" onclick="openHref('https://www.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪网为全球用户24小时提供全面及时的中文资讯"> 
+						<img src="assets/logos/wwwsinacomcn.png">新浪首页
+					</li>
+
+					<li class="c2"onclick="openHref('http://www.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐网为用户提供24小时不间断的最新资讯">  
+						<img src="assets/logos/wwwsohucom.png"><strong>搜狐</strong>
+					</li>
+
+					<li class="c3" onclick="openHref('https://www.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="集新闻信息，区域垂直生活服务、社会化媒体资讯和产品为一体的互联网媒体平台">
+						<img src="assets/logos/wwwqqcom.png">腾讯网
+					</li>
+
+					<li class="c4" onclick="openHref('https://www.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易是中国领先的互联网技术公司">                        
+						<img src="assets/logos/www163com.png">网易
+					</li>
+
+					<li class="c5" onclick="openHref('http://www.people.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="世界十大报纸之一，以新闻为主的大型网上信息发布平台">
+						<img src="assets/logos/wwwpeoplecomcn.png">人民网
+					</li>
+
+					<li class="c6" onclick="openHref('https://www.cctv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="以视频为特色的中央重点新闻网站，是央视的融合传播平台">
+						<img src="assets/logos/wwwcctvcom.png">央视网
+					</li>
+					<li class="c7" onclick="openHref('http://www.cac.gov.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中共中央网络安全和信息化委员会办公室">
+						<img src="assets/logos/wwwcacgovcn.png">网信网
+					</li>
+
+					<li onclick="openHref('https://www.toutiao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="今日头条是国内移动互联网领域成长最快的产品服务之一">
+						<img src="assets/logos/wwwtoutiaocom.png">今日头条
+					</li>
+
+					<li class="c9" onclick="openHref('https://www.12306.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国铁路(12306)客户服务中心网站是铁路服务客户的重要窗口">
+						<img src="assets/logos/www12306cn.png">中国铁路
+					</li>
+
+					<li class="c0" onclick="openHref('https://www.ifeng.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="凤凰网是中国领先的综合门户网站">
+						<img src="assets/logos/wwwifengcom.png">凤凰网
+					</li>
+
+					<li onclick="openHref('https://www.weibo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="随时随地发现新鲜事！微博带你欣赏世界上每一个精彩瞬间">
+						<img src="assets/logos/wwwweibocom.png">新浪微博
+					</li>
+
+					<li onclick="openHref('https://www.iqiyi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爱奇艺是拥有海量、优质、高清的网络视频的大型视频网站">
+						爱奇艺
+					</li>
+					<li class="c8" onclick="openHref('http://www.china.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国家重点新闻网站，拥有十个语种独立新闻采编、报道和发布权">
+						中国网
+					</li>
+
+					<li onclick="openHref('https://www.qunar.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="去哪儿Qunar.com提供机票,飞机票,特价机票,打折机票的查询预订">
+						去哪儿网
+					</li>
+
+					<li onclick="openHref('https://huaban.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="花瓣，陪你做生活的设计师">
+						花瓣网
+					</li>
+
+					<li onclick="openHref('https://www.cnki.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国知网知识发现网络平台">
+						中国知网
+					</li>
+
+					<li onclick="openHref('https://www.zhihu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="知乎 - 有问题，上知乎">
+						知乎网
+					</li>
+
+					<li onclick="openHref('https://www.douban.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="提供图书、电影、音乐唱片的推荐、评论和价格比较，以及城市独特的文化生活">
+						豆瓣网
+					</li>
+
+					<li onclick="openHref('https://www.58.com',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="为你提供房产、招聘、黄页、团购、交友、二手、宠物、车辆、周边游等海量分类信息">
+						58同城
+					</li>
+
+					<li onclick="openHref('http://www.eastmoney.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="东方财富网，专业的互联网财经媒体">
+						东方财富
+					</li>
+
+					<li onclick="openHref('https://www.taobao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="淘宝网 - 亚洲较大的网上交易平台">
+						淘宝网
+					</li>
+
+					<li onclick="openHref('https://www.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="专业的综合网上购物商城">
+						京东网
+					</li>
+					<li onclick="openHref('https://www.360.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="360免费安全软件平台和智能硬件家居平台">                        
+						360卫士
+					</li>
+
+					<li onclick="openHref('http://www.xinhuanet.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国主要重点新闻网站,依托新华社遍布全球">
+						新华网
+					</li>
+
+					<li onclick="openHref('https://auth.alipay.com/login/index.htm',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="支付宝，全球领先的独立第三方支付平台">
+						支付宝
+					</li>
+
+					<li onclick="openHref('https://www.csdn.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="CSDN是全球知名中文IT技术交流平台">                        
+						CSDN
+					</li>
+
+					<li onclick="openHref('http://www.babytree.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="大型育儿网站社区">
+						宝宝树
+					</li>
+
+					<li onclick="openHref('http://www.tianya.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天涯社区提供论坛、部落、博客、问答、文学、相册、个人空间等服务">
+						天涯社区
+					</li>
+
+					<li onclick="openHref('http://www.jrj.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="金融界是中国领先的以证券交易为核心的互联网综合理财平台">
+						金融界
+					</li>
+				</ul>
+				
+				<!-- END 常用推荐 -->
+
+				
+				<h4><a href="gouwu.html"><i class="fa-bookmark"></i>购 物 &raquo;</a> <span onclick="moreHref('gouwu');"class="more"></span></h4>
+				<ul class="row" id="gouwu">
+					<li onclick="openHref('https://www.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东JD.COM-专业的综合网上购物商城"> 
+						京东
+					</li>
+					<li onclick="openHref('https://www.tmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天猫tmall.com--理想生活上天猫"> 
+						天猫
+					</li>
+					<li onclick="openHref('https://www.taobao.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="淘宝网 - 亚洲较大的网上交易平台"> 
+						淘宝网
+					</li>
+					<li onclick="openHref('http://www.dangdang.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="全球领先的综合性网上购物中心"> 
+						当当网
+					</li>
+					<li onclick="openHref('https://www.pinduoduo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="拼多多 - 新电商开创者"> 
+						拼多多
+					</li>
+					<li onclick="openHref('https://www.suning.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="苏宁易购-综合网上购物平台"> 
+						苏宁易购
+					</li>
+					<li onclick="openHref('https://www.kongfz.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="孔夫子旧书网是国内领先的古旧书交易平台"> 
+						孔夫子
+					</li>
+					<li onclick="openHref('https://www.gome.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国美(Gome.com.cn)国美电器唯一官方网上商城"> 
+						国美电器
+					</li>
+					<li onclick="openHref('https://www.amazon.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="亚马逊中国（z.cn）坚持“以客户为中心”的理念，秉承“天天低价，正品行货”信念"> 
+						亚马逊
+					</li>
+					<li onclick="openHref('https://www.smzdm.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="消费门户网站，实时推送优质的网购优惠信息，真实的原创购物攻略"> 
+						什么值得买
+					</li>
+					<li onclick="openHref('https://www.vmall.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华为旗下面向全国服务的电子商务平台官网"> 
+						华为商城
+					</li>
+					<li onclick="openHref('https://www.vip.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="唯品会vip购物网以1-7折超低折扣对全球各大品牌进行限时特卖"> 
+						唯品会
+					</li>
+					<li onclick="openHref('https://www.asus.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="ASUS华硕电脑官方商城，销售华硕全产品"> 
+						华硕商城
+					</li>
+				</ul>
+
+				<!-- 搜索引擎 -->
+				<h4><a href="sousuo.html"><i class="fa-bookmark"></i>搜 索 &raquo;</a><span onclick="moreHref('sousuo');" class="more"></span></h4>
+				<ul class="row" id="sousuo">
+					<li onclick="openHref('https://www.baidu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度一下，你就知道！">
+						百 度
+					</li>
+					<li onclick="openHref('https://www.so.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="360搜索是安全、精准、可信赖的新一代搜索引擎。">
+						360
+					</li>
+					<li onclick="openHref('https://cn.bing.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Bing（必应）搜索 —— 微软旗下搜索引擎">
+						Bing
+					</li>
+					<li onclick="openHref('https://www.sogou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狗搜索是全球第三代互动式搜索引擎。">
+						搜 狗
+					</li>
+					<li onclick="openHref('http://www.rufengso.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="如风搜，全网网盘搜索工具。">
+						如 风
+					</li>
+					<li onclick="openHref('https://m.sm.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="神马是全球第一款完全基于移动互联网的搜索引擎。">
+						神 马
+					</li>
+					<li onclick="openHref('https://www.dogedoge.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="DogeDoge 多吉搜索 — 不追踪，不误导">
+						多 吉
+					</li>
+					<li onclick="openHref('https://mijisou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="一个不追踪你的中文搜索引擎">
+						秘 迹
+					</li>
+					<li onclick="openHref('https://s.weibo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="微博搜索s.weibo.com">
+						搜微博
+					</li>
+					<li onclick="openHref('https://www.easyicon.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="提供★超过六十万个★SVG、PNG、ICO、ICNS图标搜索、图标下载服务">
+						搜图标
+					</li>
+					<li onclick="openHref('https://www.soogif.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="免费的gif动态图片搜索引擎、在线制作压缩动图表情素材">
+						SOOGIF
+					</li>
+				</ul>
+				
+				<!--END 搜索引擎 --> 
+				
+				<!-- 视 频 -->
+				<h4><a href="#this"><i class="fa-bookmark"></i>视 频 &raquo;</a><span onclick="moreHref('shipin');" class="more"></span></h4>
+				<ul class="row" id="shipin">
+					<li onclick="openHref('https://www.dytt8.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="最好的迅雷电影下载网">
+						电影天堂
+					</li>
+
+					<li onclick="openHref('https://tv.kaliorg.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爱看电影tv.kaliorg.com">
+						爱看电影
+					</li>
+
+					<li onclick="openHref('https://v.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国领先的在线视频媒体平台,海量高清视频在线观看">
+						腾讯视频
+					</li>
+
+					<li onclick="openHref('https://www.mgtv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="芒果TV是湖南卫视在线视频媒体平台">
+						芒果TV
+					</li>
+
+					<li onclick="openHref('https://www.bilibili.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="bilibili是国内知名的视频弹幕网站">
+						哔哩哔哩
+					</li>
+					<li onclick="openHref('https://tv.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="互联网行业深度阅读与学习平台">
+						搜狐视频
+					</li>
+					<li onclick="openHref('https://www.youku.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="优酷 - 这世界很酷">
+						优酷
+					</li>
+					<li onclick="openHref('https://www.huya.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="虎牙直播是以游戏直播为主的弹幕式互动直播平台">
+						虎牙直播
+					</li>
+					<li onclick="openHref('https://www.douyu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="斗鱼 - 每个人的直播平台">
+						斗鱼
+					</li>
+					<li onclick="openHref('http://www.yizhibo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美女帅哥集结地，中国社交直播媒体平台">
+						一直播
+					</li>
+					<li onclick="openHref('http://www.pptv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="PP视频是国内领先的综合视频门户网站平台">
+						PP视频
+					</li>
+				</ul>
+				<!--END 视 频 -->
+
+				<!-- 新 闻	 -->
+				<h4><a href="xinwen.html"><i class="fa-bookmark"></i>新 闻 &raquo;</a><span onclick="moreHref('xinwen');" class="more"></span></h4>
+				<ul class="row" id="xinwen">
+					<li onclick="openHref('https://news.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="24小时滚动报道国内、国际及社会新闻">
+						新浪新闻
+					</li>
+					<li onclick="openHref('http://www.cri.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国际在线（CRI Online）是由中国国际广播电台主办的中央重点新闻网站">
+						国际在线
+					</li>
+					<li onclick="openHref('https://www.huanqiu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="环球网是中国领先的国际资讯门户，拥有独立采编权的中央重点新闻网站">
+						环球网
+					</li>
+					<li onclick="openHref('http://www.chinanews.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国新闻网是知名的中文新闻门户网站，也是全球互联网中文新闻资讯最重要的原创内容供应商之一">
+						中国新闻
+					</li>
+					<li onclick="openHref('https://news.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易新闻●专业时事报道门户网站">
+						网易新闻
+					</li>
+					<li onclick="openHref('http://cn.chinadaily.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国日报网是中国最优质的新闻发布平台">
+						中国日报
+					</li>
+				</ul>
+				<!--END 新 闻 -->   
+				
+				<!-- 小说	 -->
+				<h4><a href="xiaoshuo.html"><i class="fa-bookmark"></i>小 说 &raquo;</a><span onclick="moreHref('xiaoshuo');" class="more"></span></h4>
+				<ul class="row" id="xiaoshuo">
+					<li onclick="openHref('https://www.qidian.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="小说阅读,精彩小说尽在起点中文网">
+						起点小说
+					</li>
+
+					<li onclick="openHref('http://book.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="精彩小说尽在腾讯文学">
+						QQ阅读
+					</li>
+
+					<li onclick="openHref('https://www.xs8.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="最新全本免费手机小说阅读推荐,精彩尽在言情小说吧">
+						言情小说
+					</li>
+					<li onclick="openHref('https://www.hongxiu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="红袖添香www.hongxiu.com">
+						红袖添香
+					</li>
+					<li onclick="openHref('http://hjsm.tom.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="幻剑书盟是中国首家永久免费原创文学门户">
+						幻剑书盟
+					</li>
+					<li onclick="openHref('https://www.17k.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="17K小说网是中文在线旗下集创作、阅读于一体的在线阅读网站">
+						17K小说
+					</li>
+				</ul>
+				<!--END 小说	 -->
+				
+				<!-- 体育		 -->
+				<h4><a href="#this"><i class="fa-bookmark"></i>体 育 &raquo;</a><span onclick="moreHref('tiyu');" class="more"></span></h4>
+				<ul class="row" id="tiyu">
+					<li onclick="openHref('https://china.nba.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="NBA中国官方网站">
+						NBA中国
+					</li>
+					<li onclick="openHref('https://www.hupu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="虎扑是一个认真而有趣的社区">
+						虎扑
+					</li>
+					<li onclick="openHref('http://sports.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐体育是中国知名的体育媒体，是受体育迷欢迎的网络资讯及互动平台">
+						搜狐体育
+					</li>
+					<li onclick="openHref('http://sports.cctv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="央视网(cctv.com)体育提供最全面专业的体育赛事直播点播">
+						CCTV体育
+					</li>
+					<li onclick="openHref('http://www.lottery.gov.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="国家体育总局体育彩票管理中心唯一指定官方网站">
+						体彩网
+					</li>
+					<li onclick="openHref('https://www.zhibo8.cc/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="直播吧是知名体育平台">
+						体育直播吧
+					</li>
+				</ul>            
+				<!--END 笑 话	 -->
+				
+				<!-- 游戏		 -->
+				<h4><a href="#this"><i class="fa-bookmark"></i>游 戏 &raquo;</a><span onclick="moreHref('youxi');" class="more"></span></h4>
+				<ul class="row" id="youxi">
+					<li onclick="openHref('https://www.17173.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="17173是中国游戏门户站">
+						17173游戏
+					</li>
+					<li onclick="openHref('http://www.4399.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="www.4399.com小游戏">
+						4399小游戏
+					</li>
+					<li onclick="openHref('http://www.pcgames.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="太平洋游戏网是国内专业悠久的游戏资讯门户网">
+						太平洋游戏
+					</li>
+					<li onclick="openHref('https://www.9you.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="互动娱乐社区2.0，娱乐时尚尽在久游">
+						久游网
+					</li>
+					<li onclick="openHref('http://game.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="我和你一样，我们都是游戏热爱者">
+						网易游戏
+					</li>
+					<li onclick="openHref('https://game.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国最大的网络游戏社区，也是全球用户最多的数字娱乐平台">
+						腾讯网游
+					</li>
+				</ul>            
+				<!--END 游戏		 -->
+				
+				<!-- 音乐	 -->
+				<h4><a href="yinyue.html"><i class="fa-bookmark"></i>音 乐 &raquo;</a><span onclick="moreHref('yinyue');" class="more"></span></h4>
+				<ul class="row" id="yinyue">
+					<li onclick="openHref('https://www.1ting.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="一听音乐网是在线音乐网站，提供免费歌曲在线试听">
+						一听音乐
+					</li>
+					<li onclick="openHref('http://www.9ku.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="九酷音乐网是专业的在线音乐试听网站">
+						九酷音乐
+					</li>
+					<li onclick="openHref('https://music.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易云音乐是一款专注于发现与分享的音乐产品，为用户打造全新的音乐生活">
+						网易音乐
+					</li>
+					<li onclick="openHref('https://y.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台">
+						QQ音乐
+					</li>
+					<li onclick="openHref('http://www.9sky.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="九天音乐网是目前国内最悠久的音乐服务品牌">
+						九天音乐
+					</li>
+					<li onclick="openHref('http://music.taihe.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="千千音乐，听见世界，其是中国音乐门户之一">
+						千千音乐
+					</li>
+				</ul>            
+				<!--END 音乐	 -->
+				
+				<!-- 财经	 -->
+				<h4><a href="#this"><i class="fa-bookmark"></i>财 经 &raquo;</a><span onclick="moreHref('caijing');" class="more"></span></h4>
+				<ul class="row" id="caijing">
+					<li onclick="openHref('https://finance.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪财经提供7X24小时财经资讯及全球金融市场报价">
+						新浪财经
+					</li>
+					<li onclick="openHref('http://www.stockstar.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="证券之星——专为华人交易者提供服务的财经门户网站">
+						证券之星
+					</li>
+					<li onclick="openHref('http://business.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐财经，做专业财经资讯领跑者">
+						搜狐财经
+					</li>
+					<li onclick="openHref('http://www.hexun.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="和讯网-中国财经网络领袖和中产阶级网络家园">
+						和讯网
+					</li>
+					<li onclick="openHref('http://www.591hx.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华讯财经-权威的财经门户网站">
+						华讯财经
+					</li>
+					<li onclick="openHref('https://money.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易财经-有态度的财经门户">
+						网易财经
+					</li>
+				</ul>
+				
+				<!--END 财经 -->
+				
+				<!-- 美食	 -->
+				<h4><a href="#thsi"><i class="fa-bookmark"></i>美 食 &raquo;</a><span onclick="moreHref('meishi');" class="more"></span></h4>
+				<ul class="row" id="meishi">
+					<li onclick="openHref('http://www.dianping.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="通过海量真实消费评论的聚合，帮您选到满意商家">
+						大众点评
+					</li>
+					<li onclick="openHref('https://www.meishichina.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美食天下是最大的中文美食网站与厨艺交流社区">
+						美食天下
+					</li>
+					<li onclick="openHref('http://www.greatchef.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="名厨－好厨师 在这里">
+						名厨网
+					</li>
+					<li onclick="openHref('https://www.meishij.net/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美食网 - 做你最喜爱的美食">
+						美食杰
+					</li>
+					<li onclick="openHref('http://www.chinacaipu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="菜谱知识的专业网站">
+						中国菜谱
+					</li>
+					<li onclick="openHref('http://www.ttmeishi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天天美食网-国内最专业的美食网">
+						天天美食
+					</li>
+				</ul>
+				
+				<!--END 美食	 -->
+
+				<!-- 邮箱	 -->
+				<h4><a href="youxiang.html"><i class="fa-bookmark"></i>邮 箱 &raquo;</a><span onclick="moreHref('youxiang');" class="more"></span></h4>
+				<ul class="row" id="youxiang">
+					<li onclick="openHref('https://mail.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="QQ邮箱登录 - mail.qq.com">
+						QQ邮箱
+					</li>
+					<li onclick="openHref('https://email.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易免费邮箱 - 中国第一大电子邮件服务商">
+						163邮箱
+					</li>
+					<li onclick="openHref('https://www.126.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="数字媒体及职业招聘网站">
+						126邮箱
+					</li>
+					<li onclick="openHref('https://mail.10086.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="中国移动139邮箱-移动体验最优的服务型邮箱">
+						139邮箱
+					</li>
+					<li onclick="openHref('https://mail.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪邮箱，提供以@sina.com和@sina.cn为后缀的免费邮箱">
+						新浪邮箱
+					</li>
+					<li onclick="openHref('https://outlook.live.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Outlook - 来自 Microsoft 的免费个人电子邮件和日历">
+						OutLook
+					</li>
+					<li onclick="openHref('http://gmail.google.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Google.com - 来自谷歌的免费个人电子邮件">
+						Gmail邮箱
+					</li>
+					<li onclick="openHref('https://mail.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="sohu.com - 搜狐闪电邮箱">
+						搜狐邮箱
+					</li>
+					<li onclick="openHref('http://mail.tom.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="TOM免费邮箱—中文邮箱最早期品牌之一">
+						TOM邮箱
+					</li>
+					<li onclick="openHref('https://www.foxmail.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="更高效，更专业，处理邮件更轻松">
+						Foxmail
+					</li>
+					<li onclick="openHref('https://www.188.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易VIP188邮箱 - 更安全稳定的个人商务收费邮箱">
+						188邮箱
+					</li>
+				</ul>            
+				<!--END 邮箱	 -->
+
+				
+				<!-- 旅游	 -->
+				<h4><a href="lvyou.html"><i class="fa-bookmark"></i>旅 游 &raquo;</a><span onclick="moreHref('lvyou');" class="more"></span></h4>
+				<ul class="row" id="lvyou">
+					<li onclick="openHref('https://www.ctrip.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="携程旅行网是中国领先的在线旅行服务公司">
+						携程旅行
+					</li>
+					<li onclick="openHref('http://www.elong.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="艺龙旅行网是中国领先的在线旅行服务提供商，纳斯达克上市公司(NASDAQ: LONG)">
+						艺龙旅行
+					</li>
+					<li onclick="openHref('https://www.fliggy.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="飞猪是阿里巴巴旗下的综合性旅游出行服务平台">
+						飞猪旅行
+					</li>
+					<li onclick="openHref('https://hotel.jd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="京东酒店 - hotel.jd.com">
+						京东酒店
+					</li>
+					<li onclick="openHref('http://www.qmango.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="青芒果旅行 - www.qmango.com">
+						青芒果
+					</li>
+					<li onclick="openHref('http://www.lvmama.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="驴妈妈旅游网-中国新型的B2C旅游电子商务网站">
+						驴妈妈
+					</li>
+				</ul>
+				
+				<!--END 旅游	 -->
+				
+				<!-- 友情链接	 -->
+				<h4><a><i class="fa-bookmark"></i>友情链接</a><span onclick="moreHref('youlian');" class="more"></span></h4>
+				<ul class="row" id="youlian">
+					<li>
+						 <a class="c2"href="https://www.5566.net/"title="中国最早最方便的网址导航站"target="_blank">
+						 精彩网址
+						 </a>
+					</li>
+					<li>       
+						 <a href="https://www.pp93.com/"title="致力于打造绿色无广告的网址导航"target="_blank">
+						 <strong>泡泡导航</strong>
+						 </a>
+					</li>
+				</ul>
+			</div>
+            <!--END 友情链接	 -->
+
+            <br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <a href="http://www.fcdh.net/"><strong>fcdh.net</strong></a> Based on <a href="http://webstack.cc/" target="_blank"><strong>WebStack</strong></a>&nbsp;<span class="ti-more"><i class="c2">本站已运行 <strong id="days"class="c8">000</strong> 天</i>&nbsp;&nbsp;<a href="http://beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a></span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng">
+			</div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+	<!-- Scripts -->
+	<script src="./assets/js/fcdh.js"></script>
+	<script>
+		var dateBegin = new Date('2020/03/04 00:00:00');
+		var dateEnd = new Date();
+		var dateDiff = dateEnd.getTime() - dateBegin.getTime();//时间差的毫秒数
+		var dayDiff = Math.floor(dateDiff / 86400000);//计算出相差天数(24 * 3600 * 1000)
+		$('#days').html(dayDiff);
+	</script>
+</body>
+</html>
