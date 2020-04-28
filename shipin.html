@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>视频、短视频网址大全 - 非常导航</title>
+    <meta name="keywords" content="视频，短视频，趣味视频，搞笑视频，视频直播">
+    <meta name="description" content="最新视频抢先看，免费看，搞笑看视频，看免费视频，免费视频播放，在线视频播放，视频大全，应用尽用">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="http://www.fcdh.net/"class="smooth">
+                            <span>返回首页</span>
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#zonghe" class="ti-arrow smooth">
+                            <span>综合视频</span>
+                            <i class="fa-fire"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sousuo" class="ti-arrow smooth">
+                            <span>视频搜索</span>
+                            <i class="fa-flag-o"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ruanjian" class="ti-arrow smooth">
+                            <span>视频软件</span>
+                            <i class="fa-flag-o"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="index.html">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+
+			<div id="main">
+				<h4><a class="c0"><i class="fa-bookmark"></i>综合视频</a><span onclick="moreHref('zonghe');"class="more open"></span></h4>
+				<ul class="row show"id="zonghe">
+					<li onclick="openHref('https://www.youku.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="优酷 - 这世界很酷">
+						优酷
+					</li>
+					<li onclick="openHref('https://www.tudou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="土豆 - 召唤全球有趣短视频，全球领先短视频平台">
+						土豆
+					</li>
+					<li onclick="openHref('https://v.qq.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="腾讯视频 - 中国领先的在线视频媒体平台,海量高清视频在线观看">
+						腾讯视频
+					</li>
+					<li onclick="openHref('http://video.sina.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新浪视频是新浪旗下的专业视频网站">
+						新浪视频
+					</li>
+					<li onclick="openHref('http://v.ifeng.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="凤凰视频首页-最具媒体价值的视频门户">
+						凤凰视频
+					</li>
+					<li onclick="openHref('https://tv.sohu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狐视频是搜狐旗下专业的综合视频网站">
+						搜狐视频
+					</li>
+					<li onclick="openHref('https://www.iqiyi.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爱奇艺-在线视频网站-海量正版高清视频在线观看">
+						爱奇艺
+					</li>
+					<li onclick="openHref('https://www.6.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="六间房是真人互动视频直播社区">
+						六间房
+					</li>
+					<li onclick="openHref('http://www.pp1v.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="街拍视频网(www.pp1v.com)为你提供各种福利视频">
+						街拍视频
+					</li>
+					<li onclick="openHref('http://www.le.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="乐视视频 - 乐视旗下专业的影视剧视频网站_高清视频在线观看">
+						乐视网
+					</li>
+					<li onclick="openHref('http://www.56.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="56网是中国原创视频网站,免费上传搞笑逗趣生活视频">
+						56视频
+					</li>
+					<li onclick="openHref('https://www.bilibili.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="bilibili是国内知名的视频弹幕网站">
+						哔哩哔哩
+					</li>
+					<li onclick="openHref('https://www.mgtv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="芒果TV-天生青春">
+						芒果TV
+					</li>
+					<li onclick="openHref('https://weibo.com/tv',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="视频 微博-随时随地发现新鲜事">
+						微博视频
+					</li>
+					<li onclick="openHref('https://www.pearvideo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="梨视频官网-做最好看的资讯短视频-Pear Video">
+						梨视频
+					</li>
+					<li onclick="openHref('https://krcom.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="酷燃视频-优质短节目视频播放平台,高清短视频在线观看">
+						酷燃视频
+					</li>
+					<li onclick="openHref('http://www.fun.tv/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="风行网-新一代视频平台">
+						风行网
+					</li>
+					<li onclick="openHref('http://www.pptv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="PP视频是国内领先的综合视频门户网站平台">
+						PP视频
+					</li>
+					<li onclick="openHref('https://www.ku6.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="酷6网 中国领先视频门户">
+						酷6网
+					</li>
+					<li onclick="openHref('http://www.kankan.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="天天看看是一个综合高清影视视频平台">
+						天天看看
+					</li>
+					<li onclick="openHref('https://www.acfun.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐">
+						AcFun视频
+					</li>
+					<li onclick="openHref('http://tv.cctv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="CCTV节目官网_央视网">
+						CCTV
+					</li>
+					<li onclick="openHref('http://www.pps.tv/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="PPS影音集P2P直播点播于一身.能够在线收看高清电影电视剧">
+						PPS影音
+					</li>
+					<li onclick="openHref('http://www.joy.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="激动网-中国领先的视频门户">
+						激动网
+					</li>
+					<li onclick="openHref('http://www.smgbb.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="SMG旗下网站-BesTV百视通">
+						百视通
+					</li>
+					<li onclick="openHref('https://www.wasu.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="华数TV全网影视-超新超全超热门电影电视剧综艺动漫直播在线观看">
+						华数TV
+					</li>
+					<li onclick="openHref('https://v.163.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="网易直播频道是集游戏等多频道内容于一体的综合性资讯直播平台">
+						网易直播
+					</li>
+					<li onclick="openHref('http://www.v1.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="第一视频-中国短视频新闻媒体平台">
+						第一视频
+					</li>
+					<li onclick="openHref('http://www.news.cn/video/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="新华视频">
+						新华视频
+					</li>
+					<li onclick="openHref('http://www.51live.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="51LIVE直播—免费高清看球神器">
+						51LIVE直播
+					</li>
+					<li onclick="openHref('https://www.vmovier.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="场库_高品质短片分享平台">
+						场库
+					</li>
+					<li onclick="openHref('http://tv.people.com.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="人民视频--人民网">
+						人民视频
+					</li>
+					<li onclick="openHref('https://v.huanqiu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="具有环球资讯、环球社会、高端人物访谈等内容版块和高品质的国际、国内视频">
+						环球视频
+					</li>
+					<li onclick="openHref('http://www.cutv.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="城市联合网络电视台 CUTV.COM城视网">
+						城视网
+					</li>
+					<li onclick="openHref('http://www.boosj.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="播视网-引领现代生活方式的视频播放互动平台">
+						播视网
+					</li>
+					<li onclick="openHref('https://www.pipi.cn/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="皮皮网 - pipi.cn">
+						皮皮网
+					</li>
+					<li onclick="openHref('http://www.miguvideo.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="咪咕视频 - miguvideo.com">
+						咪咕视频
+					</li>
+					<li onclick="openHref('https://www.meipai.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="美拍 - 在美拍，每天都有新收获">
+						美拍网
+					</li>
+					<li onclick="openHref('https://www.baomihua.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="爆米花网--爆出精彩视界">
+						爆米花网
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>视频搜索</a><span onclick="moreHref('sousuo');"class="more"></span></a>
+				</h4>
+				<ul class="row"id="sousuo">
+					<li onclick="openHref('https://www.soku.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜库-专找视频">
+						搜库视频
+					</li>
+					<li onclick="openHref('http://v.baidu.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="百度视频搜索是业界领先的中文视频搜索引擎之一">
+						百度视频
+					</li>
+					<li onclick="openHref('https://v.sogou.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="搜狗视频，视频聚合平台，拥有全网更新更热视频内容">
+						搜狗视频
+					</li>
+					<li onclick="openHref('http://www.flvcd.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="FLVCD - 硕鼠官网|FLV下载|视频下载">
+						硕鼠视频下载
+					</li>
+				</ul>
+
+				<h4><a><i class="fa-bookmark"></i>视频软件</a><span onclick="moreHref('ruanjian');"class="more"></span></h4>
+				<ul class="row"id="ruanjian">
+					<li onclick="openHref('http://www.baofeng.com/',this)" data-toggle="tooltip" data-placement="bottom" data-original-title="暴风影音 - 精简轻量版，聚焦播放功能">
+						暴风影音
+					</li>
+				</ul>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more"><a href="http://beian.miit.gov.cn/">渝ICP备20001609号</a></a>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+    <script src="./assets/js/fcdh.js"></script>
+</body>
+
+</html>

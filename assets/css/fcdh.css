@@ -20,7 +20,7 @@ center{
 }
 p{margin:10px auto;padding:0;}
 p label{font-size:15px;font-weight:700;color:gray}
-p label,p select{height:35px;;}
+p select{height:35px;padding:0 0 0 10px;}
 p strong{color:red;}
 a{color:gray;text-decoration:none;outline: 0!important}
 a:hover{color:#444;}

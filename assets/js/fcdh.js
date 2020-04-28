@@ -451,7 +451,7 @@ var _thisSearch='https://www.baidu.com/s?word='; // 默认搜索引擎
 var now = -1;
 var resLength = 0;
 var _this='undefined',  // 当前左侧导航打开或关闭的节点对象
-	_num=5,			// index.html页面记录和收藏各显示的最大记录数量
+	_num=20,			// index.html页面记录和收藏各显示的最大记录数量
 	_maxnum=10,		// records,edit.html 页面记录和收藏各显示的最大记录数量 超过自动删除剩余的
 	_logo='assets/logos/';			// logo图片保存路径
 
@@ -622,7 +622,7 @@ $(document).ready(function()
 				upht=Math.round(_this.offset().top-win.scrollTop()),
 				dwht=win.height()-upht-50,
 				ulblock=_this.children('ul');
-			var ulh=parseInt(ulblock.css('height')); // 子栏目的高度
+			var ulh=parseInt(ulblock.css('height'))-25; // 子栏目的高度
 			ulblock.css('left','80px');
 			if(ulh>dwht){
 				if(dwht<0)dwht=0;
@@ -881,12 +881,10 @@ function openHref(url,obj,opt){
 	if(opt==undefined)opt=0;
 	window.open(url, '_blank');
 	key = opt+getHrefKey(url);
-	if(null==localStorage.getItem(key)){ // 如果记录有，则不增加
-		var max=getMaxLocalNum();
-		var html=max+'@'+url+'@'+opt+'@'+obj.getAttribute("data-original-title")+'@'+obj.getAttribute('class')+'@'+obj.innerHTML.trim();
-		localStorage.setItem(key,html);
-		localStorage.setItem('max', ++max); // 记录存储数量的标记最大值
-	}
+	var max=getMaxLocalNum();
+	var html=max+'@'+url+'@'+opt+'@'+obj.getAttribute("data-original-title")+'@'+obj.getAttribute('class')+'@'+obj.innerHTML.trim();
+	localStorage.setItem(key,html);
+	localStorage.setItem('max', ++max); // 记录存储数量的标记最大值
 	return false;
 }
 
