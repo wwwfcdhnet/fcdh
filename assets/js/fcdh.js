@@ -452,7 +452,7 @@ var now = -1;
 var resLength = 0;
 var _this='undefined',  // 当前左侧导航打开或关闭的节点对象
 	_num=20,			// index.html页面记录和收藏各显示的最大记录数量
-	_maxnum=10,		// records,edit.html 页面记录和收藏各显示的最大记录数量 超过自动删除剩余的
+	_maxnum=120,		// records,edit.html 页面记录和收藏各显示的最大记录数量 超过自动删除剩余的
 	_logo='assets/logos/';			// logo图片保存路径
 
 var public_vars = public_vars || {};
