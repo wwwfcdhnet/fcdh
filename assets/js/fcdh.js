@@ -631,7 +631,7 @@ $(document).ready(function()
 			ulblock.css('top',upht+'px');
 		});
 	}
-
+	
 	$("#menu a.smooth").click(function(ev) {
 		ev.stopPropagation();
 
@@ -1119,7 +1119,7 @@ function moreHref(rowid,tn){
 		obj2=$('.open:first');
 		if(!obj2.is(obj)){
 			obj2.removeClass('open');
-			obj2.prev().removeClass('c0');
+			obj2.parent().children('a:first').removeClass('c0');
 			$('.show:first').removeClass('show');
 		}
 	}else if(!curobj.is(_catobj)){

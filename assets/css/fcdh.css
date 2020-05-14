@@ -29,7 +29,7 @@ h4{
 	line-height:150%;
 	margin:4px auto 0px auto;
 	padding-bottom:2px;
-	font-size:17px;1background:red;
+	font-size:17px;
 }
 h4 i{
 	width:17px;
@@ -205,7 +205,6 @@ span.more:before,#sidebar #menu li.has-sub>a:before {
     -o-transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out
 }
-
 span.more.open:before,#sidebar #menu li.has-sub.expanded>a:before {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -232,7 +231,7 @@ span.more.open:before,#sidebar #menu li.has-sub.expanded>a:before {
 }
 span.more{
 	padding-right:5px;
-	width:20px;
+	width:60%;
 	float:right;
 	cursor:pointer;
 }
