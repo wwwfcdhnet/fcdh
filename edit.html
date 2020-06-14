@@ -127,11 +127,10 @@
 			<div id="simi">
 				<!-- 自我收藏网站 -->
 				<h4><a href="home.html"class="c0"><i class="fa-bookmark"></i>常 用 &raquo;</a>
-					<span onclick="moreHref('records1');"class="more open"></span>
-					<strong id="info"class="c2"></strong>
 					<a title="自己收藏的网址上传到云端"class="ti-more"><i class="fa-cloud-upload" data-toggle="modal"data-target="#upsite"></i></a>
 					<a title="从云端下载自己收藏的网址"class="ti-more"><i class="fa-cloud-download" data-toggle="modal"data-target="#downsite"></i></a>
 					<a title="增加收藏网址"class="ti-more"><i class="fa-plus-square" data-toggle="modal"data-target="#addsite"></i></a>
+					<span onclick="moreHref('records1');"class="more open"><strong id="info"class="c2"></strong></span>
 				</h4>
 				<ul class="row show"id="records1">
 				</ul>            
@@ -169,8 +168,9 @@
 			   
 				 <!-- 浏览记录 -->
 				<h4><a href="home.html"><i class="fa-bookmark"></i>浏 览 &raquo;</a>
+				<a onclick="clearRecords();"title="清除所以收藏记录网址"class="ti-more"><i class="fa-trash"></i></a>
 				<span onclick="moreHref('records0');"class="more"></span>
-				<a onclick="clearRecords();"title="清除所以收藏记录网址"class="ti-more"><i class="fa-trash"></i></a></h4>
+				</h4>
 				<ul class="row"id="records0">
 				</ul>
             <!-- end 浏览记录 -->
