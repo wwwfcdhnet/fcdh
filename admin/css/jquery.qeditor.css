@@ -1,1 +1,124 @@
+  
+.qeditor_toolbar {
+	margin: 0; 
+	border: 1px solid #e4e4e4;
+	padding:4px 8px;
+	border-bottom:none;
+ }
+.qeditor_toolbar span.vline {
+    border-left: 1px solid #bbb;
+    padding-right: 10px; 
+}
 
+.qeditor_toolbar a, .qeditor_toolbar .qe-icon {
+    font-size: 16px;
+    margin-right: 8px; 
+	color:gray;
+}
+
+.qeditor_toolbar a:hover, .qeditor_toolbar .qe-icon:hover {
+	color: #43be4d; 
+}
+
+.qeditor_toolbar a.qe-state-on {
+	color: #43be4d; 
+}
+
+.qeditor_toolbar .qe-heading {
+    position: relative;
+}
+
+.qeditor_toolbar .qe-heading .qe-menu {
+	width: 120px;
+	display: none;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: -25px;
+	top: 15px;
+	border: 1px solid #eee;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	z-index: 99;
+	background: #FFF;
+	list-style: none;
+}
+
+
+
+
+.qeditor_toolbar .qe-heading .qe-menu a {
+	display: block;
+	margin: 0;
+	padding: 2px 10px;
+}
+
+
+.qeditor_toolbar .qe-heading .qe-menu a:hover {
+	background: #f0f0f0; 
+}
+
+.qeditor_toolbar .qe-heading .qe-menu .qe-h2
+{
+	font-size: 16px;
+	font-weight: bold; 
+}
+.qeditor_toolbar .qe-heading .qe-menu .qe-h3
+{
+	font-size: 15px;
+	font-weight: bold;
+}
+.qeditor_toolbar .qe-heading .qe-menu .qe-h4
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+.qeditor_toolbar .qe-heading .qe-menu .qe-h5
+{
+	font-size: 13px;
+	font-weight: bold; 
+}
+.qeditor_toolbar .qe-heading .qe-menu .qe-p {
+	font-size: 13px;
+	border-top: 1px solid #ccc; 
+}
+
+.qeditor_toolbar .qe-heading.hover {
+	background: #eee; 
+}
+
+.qeditor_toolbar .qe-heading.hover .qe-menu {
+	background: #fff;
+	display: block; 
+}
+
+
+
+.qeditor_fullscreen {
+	position:absolute;
+	background: #FFF;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+	padding: 0;
+	width:100%;
+}
+
+.qeditor_fullscreen .qeditor_preview {
+	width: 100%;
+	height:95%;
+	padding: 10px; 
+	overflow-y: scroll;
+}
+
+
+.qeditor_fullscreen .qeditor_toolbar {
+	padding: 10px; 
+}
+
+
+.qeditor_fullscreen .qeditor_toolbar a, .qeditor_fullscreen .qeditor_toolbar .qe-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
