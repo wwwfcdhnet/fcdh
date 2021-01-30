@@ -1,14 +1,14 @@
 // 对记录或收藏的网址进行操作
-var _ajaxurl='http://fcdh.net/ajax.php';
-//var _ajaxurl='http://127.0.0.1/ajax.php';
+var _ajaxurl='https://bbs.fcdh.net/ajax.php';
+//var _ajaxurl='https://127.0.0.1/ajax.php';
 var _editmodal=$('#edithref');
 function editHref(url,obj,opt){
 	$('input:radio[name="cate"][value="'+opt+'"]').prop('checked',true);
-	$('#url').html(url);
+	$('#url').val(url);
 	var keys=getHrefKey(url),
 		key=opt+keys,
 		html=localStorage.getItem(key),
-		del=$('#del'),
+		del=$('#delete'),
 		ok=$('#move');
 	if(html!=null){
 		ok.unbind('click').click(function(){
@@ -16,54 +16,64 @@ function editHref(url,obj,opt){
 		});
 		del.unbind('click').click(function(){
 			localStorage.removeItem(key);
+			var ulobj=$(obj).parent();
 			obj.remove(); // 删除
+			var ulhtml=ulobj.html();
+			if(ulhtml==''){
+				ulobj.html('<li><span class="c8">【暂无数据】</span></li>');
+			}
 
 		});
 	}
 	_editmodal.modal('show');
 }
-
+$('#upsite').on('show.bs.modal', function () {
+  $('input[name=upname]').val(localStorage.getItem('uname'));
+})
+$('#downsite').on('show.bs.modal', function () {
+  $('#downsite input').val(localStorage.getItem('uname'));
+})
 function optHref(keys,obj,opt){
 	var curopt=$('input:radio[name="cate"]:checked').val(),
 		key=opt+keys,
 		html=localStorage.getItem(key),
 		arr=html.split('@'),
-		max=getMaxLocalNum();
+		max=getMaxLocalNum(),
+		newurl=$('#url').val();
+	var	newkey=getHrefKey(newurl);
+	key1=curopt+newkey;
+	html=localStorage.getItem(key1);
+	//alert(newurl);
+	if(html==null){ // key值不存在
+		html=max+'@'+newurl+'@'+curopt+'@'+arr[3]+'@'+arr[4]+'@'+arr[5];
+		arr=html.split('@')
+		localStorage.setItem(key1,html);
+		localStorage.setItem('max',++max);
+		localStorage.removeItem(key);
+		//var temp456=temp7='';
+		//alert(html);
+		var sites=getHtmlDiv(arr,curopt);
+		obj.remove();
+		$('#records'+curopt).prepend(sites);
 
-	if(opt==curopt){// 如果是同一类则是置顶操作
+	}else if(key1!=key){ // key值存在
+		arr=html.split('@');
+		html=max+'@'+arr[1]+'@'+curopt+'@'+arr[3]+'@'+arr[4]+'@'+arr[5];
+		localStorage.setItem(key1,html);
+		localStorage.setItem('max',++max);
+		var warning=$('#warning');
+		warning.find('.modal-body p').html('<strong>网站键值与 '+key1+' 重复!</strong> <br/>按F5刷新查看');
+		warning.modal('show');
+		$("#cancel").prop("hidden",true);
+		$("#ok").attr('value','10');
+		$("#ok").html(' 确定 ');
+	}else{
 		html=max+'@'+arr[1]+'@'+curopt+'@'+arr[3]+'@'+arr[4]+'@'+arr[5];
 		localStorage.setItem(key,html);
 		localStorage.setItem('max',++max);
 		var sites=getHtmlDiv(arr,curopt);
 		obj.remove();
 		$('#records'+curopt).prepend(sites);
-	}else{// 如果非同一类
-		key1=curopt+keys;
-		html=localStorage.getItem(key1);
-		if(html==null){ // key值不存在
-			html=max+'@'+arr[1]+'@'+curopt+'@'+arr[3]+'@'+arr[4]+'@'+arr[5];
-			localStorage.setItem(key1,html);
-			localStorage.setItem('max',++max);
-			localStorage.removeItem(key);
-			//var temp456=temp7='';
-			
-			var sites=getHtmlDiv(arr,curopt);
-			obj.remove();
-			$('#records'+curopt).prepend(sites);
-
-		}else{ // key值存在
-			arr=html.split('@');
-			html=max+'@'+arr[1]+'@'+curopt+'@'+arr[3]+'@'+arr[4]+'@'+arr[5];
-			localStorage.setItem(key1,html);
-			localStorage.setItem('max',++max);
-
-			var warning=$('#warning');
-			warning.find('.modal-body p').html('<strong>网站键值与 '+key1+' 重复!</strong> <br/>按F5刷新查看');
-			warning.modal('show');
-			$("#cancel").prop("hidden",true);
-			$("#ok").attr('value','10');
-			$("#ok").html(' 确定 ');
-		}
 	}
 }
 
@@ -145,54 +155,12 @@ function optSite(obj){
 			break;
 		case '3': // 从云端下载收藏网址
 			var dwname=$("input[name='dwname']").val().replace(/^\s*|\s*$/g,"");
+			var all=Number($('#allurl').is(':checked'));
 			if(dwname==''){
 				$("input[name='dwname']").focus();
 				return;
 			}
-
-			var fData = new FormData();
-			fData.append("uname",dwname);
-			var xhr = new XMLHttpRequest();
-			var info=document.getElementById('info');
-			xhr.onreadystatechange=function(){
-				info.innerHTML='<img src="assets/images/loading.gif">';
-				if(xhr.readyState == 4 && xhr.status==200){
-					var strArr = JSON.parse(xhr.responseText);
-					//alert(xhr.responseText);
-					if(strArr['0']){
-						var max = getMaxLocalNum();
-
-						var temp6,temp3,temp4,temp345;
-
-						for(var i=strArr.length-1;i>2;i--){
-							var arr=strArr[i].split('@');
-							var key=arr[1]+getHrefKey(arr[0]);
-							if(localStorage.getItem(key)!=null){ // 本地存在则跳过
-								continue;
-							}
-							temp3='';
-							if(arr[3]!='null'){// 字体颜色
-								temp3=' class="'+arr[3]+'"';
-							}
-							localStorage.setItem(key,max+'@'+strArr[i]);
-							++max;
-							var sites = '<li'+temp3+' onclick="editHref(\''+arr[0]+'\',this,'+arr[1]+')" title="'+arr[2]+'">'+arr[4] +'</li>';
-							$('#records'+arr[1]).prepend(sites);
-						}
-						localStorage.setItem('max',max);
-						info.innerHTML=strArr['1'];
-						
-					}else{
-						info.innerHTML=strArr['2'];
-					}
-				}
-				if(xhr.status==500 || xhr.status==502 ||xhr.status==503 ||xhr.status==504){
-					info.innerHTML='下载失败!';
-				}
-			}
-			xhr.open("POST",_ajaxurl);
-			xhr.send(fData);
-			$('#downsite').modal('hide');
+			get_userself_hrefs(dwname,'info',all);
 			break;
 		case '4': // 上传收藏网址到云端
 			var upname=$("input[name='upname']").val().replace(/^\s*|\s*$/g,""),
@@ -207,6 +175,7 @@ function optSite(obj){
 				return;
 			}
 			var strArr=[],first='0';
+
 			strArr.push(upname);
 			strArr.push(psw);
 			for(var i=0,len=localStorage.length; i<len; i++){
@@ -227,8 +196,16 @@ function optSite(obj){
 					var strArr = JSON.parse(xhr.responseText);
 					if(strArr['0']){
 						info.innerHTML=strArr['1'];
+						localStorage.setItem('uname', upname);
+						//window.location.href="home.html";
 					}else{
 						info.innerHTML=strArr['2'];
+						if(strArr['1']=='forbid'){
+							var subup=$('#subup');
+							subup.attr("disabled",true);
+							subup.removeClass('btn-primary');
+							subup.addClass('btn-gray');
+						}
 					}
 				}
 				if(xhr.status==500 || xhr.status==502 ||xhr.status==503 ||xhr.status==504){
@@ -241,12 +218,7 @@ function optSite(obj){
 			break;
 		case '9': //清除记录网址
 			localStorage.clear();
-			document.getElementById('records0').innerHTML='';
-			document.getElementById('records1').innerHTML='';
-			document.getElementById('records2').innerHTML='';
-			document.getElementById('records3').innerHTML='';
-			document.getElementById('records4').innerHTML='';
-			document.getElementById('records5').innerHTML='';
+			document.getElementById('records0').innerHTML=document.getElementById('records1').innerHTML=document.getElementById('records2').innerHTML=document.getElementById('records3').innerHTML=document.getElementById('records4').innerHTML=document.getElementById('records5').innerHTML='<li><span class="c8">【暂无数据】</span></a></li>';
 			warning.modal('hide');
 			break;
 		default:
@@ -255,11 +227,10 @@ function optSite(obj){
 }
 
 
-
 /* 清除浏览记录*/
 function clearRecords(){ // 清除浏览记录
 	var warning=$('#warning');
-	warning.find('.modal-body p').html('单击“确定”清除记录。单击“取消”返回。');
+	warning.find('.modal-body p').html('“确定”清除记录。“取消”返回。');
 	$("#ok").html(' 确定 ');
 	$("#ok").attr('value','9');
 	warning.modal('show');
