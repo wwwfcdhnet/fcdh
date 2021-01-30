@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="fcdh.net" />
+    <title>非常资源导航搜索(fcdh.net)</title>
+    <meta name="keywords" content="非常资源，非常导航，资源搜索，资源导航，资源">
+    <meta name="description" content="非常资源导航搜索大全，想你所想，搜你想搜">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	<!-- Scripts -->
+	<script src="./assets/js/fcdh.js"></script>			
+	<script>		/*
+		function getQueryVariable()
+		{
+			var btnsub=$('#ti-search button');
+			var url = window.location.search;
+			if (url.indexOf("?") != -1){
+			   var query=url.substring(1);
+			   var vars = query.split("&");
+			   for (var i=0;i<vars.length;i++) {
+					   var pair = vars[i].split("=");
+					   if(pair[0] == 'wd' || pair[0] == 'tag' || pair[0] == 'blog'){
+							var soinput=$('#txt');
+							soinput.attr('name',pair[0]);	
+
+							if(pair[0] == 'blog'){
+								btnsub.html(' 博客');
+							}else if(pair[0] == 'tag'){
+								btnsub.html(' 标签');
+							}else{
+								btnsub.html(' 站内');
+							}
+							return pair;
+						}
+						return(false);
+			   }
+			}
+			return(false);
+		}*/
+	</script>
+</head>
+<body>
+    <!-- 鏈€澶栧眰瀹瑰櫒 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="//www.fcdh.net/" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="//www.fcdh.net/" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu">
+					<li><a href="./index.html"class="smooth"><span>返回首页</span><i class="fa-mail-reply"title="返回首页"></i></a></li>
+					<li class="has-sub expanded">
+						<a class="ti-hand">
+							<span>搜索类型</span><i class="fa-search-plus"></i>
+						</a> 
+						<ul style="display:block">
+							<li><a id="href" href="?href="class="smooth"><span>网站</span></a></li>
+							<li><a id="tag" href="?tag="class="smooth"><span>标签</span></a></li>
+							<li><a id="blog" href="?blog="class="smooth"><span>博客</span></a></li>
+						</ul>
+					</li>
+					 <li class="has-sub">
+						<a class="ti-hand">
+							<span>网站搜索</span><i class="fa-chain"></i>
+						</a> 
+						<ul>
+						<li>
+							<a href="search.html?href=mingzhan" class="smooth">
+								<span>名 站</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=gouwu" class="smooth">
+								<span>购 物</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=sousuo" class="smooth">
+								<span>搜 索</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=shipin" class="smooth">
+								<span>视 频</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=xinwen" class="smooth">
+								<span>新 闻</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=xiaoshuo" class="smooth">
+								<span>小 说</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=youxi" class="smooth">
+								<span>游 戏</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=yinyue" class="smooth">
+								<span>音 乐</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=lvyou" class="smooth">
+								<span>旅 游</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=youxiang" class="smooth">
+								<span>邮 箱</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=meishi" class="smooth">
+								<span>美 食</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=caijing" class="smooth">
+								<span>财 经</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=ruanjian" class="smooth">
+								<span>软 件</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=chaxun" class="smooth">
+								<span>查 询</span>
+							</a>
+						 </li><li>
+							<a href="search.html?href=tiyu" class="smooth">
+								<span>体 育</span>
+							</a>
+						 </li></ul>
+					 </li>
+
+					 <li class="has-sub">
+						<a class="ti-hand">
+							<span>标签搜索</span><i class="fa-tags"></i>
+						</a> 
+						<ul>
+						<li>
+							<a href="search.html?tag=mingzhan" class="smooth">
+								<span>名 站</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=gouwu" class="smooth">
+								<span>购 物</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=sousuo" class="smooth">
+								<span>搜 索</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=shipin" class="smooth">
+								<span>视 频</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=xinwen" class="smooth">
+								<span>新 闻</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=xiaoshuo" class="smooth">
+								<span>小 说</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=youxi" class="smooth">
+								<span>游 戏</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=yinyue" class="smooth">
+								<span>音 乐</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=lvyou" class="smooth">
+								<span>旅 游</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=youxiang" class="smooth">
+								<span>邮 箱</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=meishi" class="smooth">
+								<span>美 食</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=caijing" class="smooth">
+								<span>财 经</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=ruanjian" class="smooth">
+								<span>软 件</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=chaxun" class="smooth">
+								<span>查 询</span>
+							</a>
+						 </li><li>
+							<a href="search.html?tag=tiyu" class="smooth">
+								<span>体 育</span>
+							</a>
+						 </li></ul>
+					 </li>
+					 <li class="has-sub">
+						<a class="ti-hand">
+							<span>博客搜索</span><i class="fa-share-alt"></i>
+						</a> 
+						<ul>
+						<li>
+							<a href="search.html?blog=mingzhan" class="smooth">
+								<span>名 站</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=gouwu" class="smooth">
+								<span>购 物</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=sousuo" class="smooth">
+								<span>搜 索</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=shipin" class="smooth">
+								<span>视 频</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=xinwen" class="smooth">
+								<span>新 闻</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=xiaoshuo" class="smooth">
+								<span>小 说</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=youxi" class="smooth">
+								<span>游 戏</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=yinyue" class="smooth">
+								<span>音 乐</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=lvyou" class="smooth">
+								<span>旅 游</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=youxiang" class="smooth">
+								<span>邮 箱</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=meishi" class="smooth">
+								<span>美 食</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=caijing" class="smooth">
+								<span>财 经</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=ruanjian" class="smooth">
+								<span>软 件</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=chaxun" class="smooth">
+								<span>查 询</span>
+							</a>
+						 </li><li>
+							<a href="search.html?blog=tiyu" class="smooth">
+								<span>体 育</span>
+							</a>
+						 </li></ul>
+					 </li>
+
+                </ul>
+        </div>
+</div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词  -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<i class="fa-times-circle"id="del"></i>
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+			<br/>
+			<br/>
+			<div id="main">
+				<h4><a><i class="fa-bookmark"></i> 搜索说明</a> &nbsp; <span id="info"class="c9"></span></h4>
+				<div class="ti-ulbg">
+					<ul class="rowso">
+						<li>①在搜索栏里选择“<img src="//www.fcdh.net/assets/images/fcdh.png">”图标可以在搜索本站在库的所有网站信息。比如，你想搜索自己网站<strong class="c6">“http://www.fcdh.net”</strong>是否存在，最好的方式是搜索<strong class="c4">“fcdh”</strong>关键词，当然搜索<strong class="c1">“绿色导航”</strong>也可以，那样的话，你可能搜索到更多结果。
+							<br>②如果显示的是<strong class="c9">“N/A”</strong>表示结果数为<strong class="c7">“0”</strong>
+							<br>③搜索关键词，字尾尽量不要加<strong class="c9">“网”</strong>，比如搜索<strong>“新浪”</strong>，尽量不要搜索<strong>“新浪网”</strong>，当然，有些网名自带网字，比如<strong>“华夏名网”</strong>，那肯定得加<strong class="c9">“网”</strong>字。</li>
+					</ul>
+				</div>
+			</div>
+            <br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">Since 2020 <a href="//www.fcdh.net/"><strong>fcdh.net</strong></a> &nbsp;<span class="ti-more"><a href="//beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a></span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng">
+			</div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+</body>
+</html>

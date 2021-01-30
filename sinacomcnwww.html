@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="fcdh.net" />
+    <title>新浪首页 - 非常导航(fcdh.net)</title>
+    <meta name="keywords" content="新浪,新浪网,SINA,sina,sina.com.cn,新浪首页,门户,资讯">
+    <meta name="description" content="新浪网为全球用户24小时提供全面及时的中文资讯，内容覆盖国内外突发新闻事件、体坛赛事、娱乐时尚、产业资讯、实用信息等，设有新闻、体育、娱">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+<body>
+    <!-- 鏈€澶栧眰瀹瑰櫒 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="//www.fcdh.net/" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="//www.fcdh.net/" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                     <li><a href="./index.html"class="smooth"><span>返回首页</span><i class="fa-mail-reply"title="返回首页"></i></a></li>
+                </ul>
+        </div>
+</div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词  -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<i class="fa-times-circle"id="del"></i>
+										<button type="submit"class="btn btn-primary fa-search">百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+			<br/>
+			<br/>
+			<div id="main">
+				<h4><a><i class="fa-bookmark"></i> 网站摘要</a> &nbsp; <span id="info"class="c9"></span></h4>
+				<div class="ti-ulbg">
+					<ul class="rowso">
+					<li>【网站名称】<strong class="c0">新浪</strong></li>
+					<li><span>【网站地址】</span><strong class="c7">https://www.sina.com.cn/</strong> </li>
+					<li><span>【网站标题】</span><strong class="c3"id="htitle">新浪首页</strong></li>
+					<li><span>【关键字词】</span><strong class="c4">新浪,新浪网,SINA,sina,sina.com.cn,新浪首页,门户,资讯</strong> </li>
+					<li><span>【网站介绍】</span><strong class="c5">新浪网为全球用户24小时提供全面及时的中文资讯，内容覆盖国内外突发新闻事件、体坛赛事、娱乐时尚、产业资讯、实用信息等，设有新闻、体育、娱乐、财经、科技、房产、汽车等30多个内容频道，同时开设博客、视频、论坛等自由互动交流空间。</strong></li>
+					<li><span>【网站类型】</span><strong></strong> </li>
+					<li><span>【网站状态】</span><strong id="state"class="c1">正常</strong></li>
+					<li><span>【访问次数】</span><strong class="c10" id="view">100</strong> </li>
+					<li><span>【收录时间】</span><strong class="c6">2021-01-30 17:35:14</strong> </li>
+					<li>
+					<button onclick="openHref('https://www.sina.com.cn/',0,'0#0#新浪')"  type="submit"class="btn btn-primary fa-paper-plane"> 访问</button>
+					<button onclick="heartHref('https://www.sina.com.cn/','0#0#新浪')"  id="heart" class="btn btn-primary fa-heart"> 收藏</button>
+					<button data-toggle="modal"data-target="#error" id="report" class="btn btn-primary fa-exclamation-triangle"> 报错</button>
+					</li>
+					</ul>
+				</div>
+			</div>
+
+            <br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">Since 2020 <a href="//www.fcdh.net/"><strong>fcdh.net</strong></a> &nbsp;<span class="ti-more"><a href="https://beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a></span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng">
+			</div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+	
+		<!-- 确定信息 --> 
+	<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog"> 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+				<h3 class="modal-title" id="myModalLabel"> 提示信息 </h3> 
+			</div>
+			<div class="modal-body">
+				<p>类别：
+				<strong>
+					<label><input type="radio" name="err" value="1" checked><span class="c2">正常</span></label> &nbsp; 
+					<label><input type="radio" name="err" value="0"><span class="c9">死链</span></label> &nbsp; 
+					<label><input type="radio" name="err" value="2"><span class="c4">异常</span></label> &nbsp; 
+					<label><input type="radio" name="err" value="3"><span class="c5">改版</span></label>
+				</strong>
+				</p>
+				<p>
+				 <a href="30205165.html"><strong>死链</strong>或<strong>异常</strong>链接检测方法 &raquo;</a></strong> <strong id="err" class="c8"></strong>
+				</p>
+			</div>
+			<div class="modal-footer"> 
+				<button id="cancel"type="submit" class="btn btn-primary" data-dismiss="modal"> 取 消 </button> 
+				<button id="ok"type="submit" class="btn btn-primary"value="0"onclick="addHrefView(1000002,'sinacomcnwww')" data-dismiss="modal"> 上 报 </button> 
+			</div> 
+		</div><!-- end 模态 -->
+	</div>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
+	<script type="text/javascript">
+		heartHref('https://www.sina.com.cn/');
+		addHrefView(1000002);
+
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?05028fb3e2f8681720b1333d57db02d0";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+</html>
