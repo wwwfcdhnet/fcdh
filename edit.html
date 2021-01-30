@@ -10,17 +10,18 @@
     <meta name="description" content="在本地编辑网址，保存在本地，纯静态无毒绿色安全网址编辑，在本地浏览，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
     <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
-	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <link rel="stylesheet" href="./assets/css/bbs.css">
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
-	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
 	<style>
 	.main-content{background-image: url('assets/images/edit.png');}
 	</style>
 </head>
 
-<body>
+<body class="main-content">
     <!-- 最外层容器 -->
     <div id="container">
         <div id="sidebar"class="toggle-others">
@@ -28,23 +29,28 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="index.html" class="logo-expanded">
+                        <a href="https://www.fcdh.net/" class="logo-expanded">
                             <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
                         </a>
-                        <a href="index.html" class="logo-collapsed">
+                        <a href="https://www.fcdh.net/" class="logo-collapsed">
                             <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
                         </a>
                     </div>
                 </header>
                 <ul id="menu"> 
                     <li>
-                        <a href="http://www.fcdh.net/" class="smooth">
+                        <a href="index.html" class="smooth">
                             <span>返回首页</span><i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="home.html" class="smooth">
+                            <span>我的主页</span><i class="fa-meanpath"></i>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#records1" class="ti-arrow smooth">
-                            <span>常用网站</span><i class="fa-support"></i>
+                            <span>常用网站</span><i class="fa-star"></i>
                         </a>
                     </li>
                     <li>
@@ -107,6 +113,7 @@
 									<!-- 搜索热词 -->
 									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
 									<span class="input-group-btn">
+										<i class="fa-times-circle"id="del"></i>
 										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
 									</span>	
 									<ul id="box">	
@@ -118,67 +125,85 @@
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+					<li><a href="https://www.fcdh.net/">非常导航</a></li>
 				</ul>
             </nav>
 			<br/>
 			<br/>
 
+					
 			<div id="simi">
 				<!-- 自我收藏网站 -->
-				<h4><a href="home.html"class="c0"><i class="fa-bookmark"></i>常 用 &raquo;</a>
-					<a title="自己收藏的网址上传到云端"class="ti-more"><i class="fa-cloud-upload" data-toggle="modal"data-target="#upsite"></i></a>
-					<a title="从云端下载自己收藏的网址"class="ti-more"><i class="fa-cloud-download" data-toggle="modal"data-target="#downsite"></i></a>
-					<a title="增加收藏网址"class="ti-more"><i class="fa-plus-square" data-toggle="modal"data-target="#addsite"></i></a>
-					<span onclick="moreHref('records1');"class="more open"><strong id="info"class="c2"></strong></span>
+				<h4 id="scroll">
+					<ul class="ti-scroll">
+						<li><a class="open" onclick="moreHref('records1',this);">常 用<span class="more"></span></a></li>
+						<li><a href="#this" title="增加收藏网址" data-toggle="modal"data-target="#addsite"><i class="fa-plus-square"></i></a></li>
+						
+						<li><a href="#this" title="从云端下载自己收藏的网址" data-toggle="modal"data-target="#downsite"><i class="fa-cloud-download"></i></a></li>
+						<li><a href="#this" title="自己收藏的网址上传到云端" data-toggle="modal"data-target="#upsite"><i class="fa-cloud-upload"></i></a></li>
+						<li><a onclick="clearRecords();"title="清除所以收藏记录网址"><i class="fa-trash"></i></a></li>
+						<li><a href="user.html"title="用户资料修改"><i class="fa-user"></i></a> <strong id="info"class="c9"></strong></li>
+					</ul>
 				</h4>
+				<div class="ti-ulbg">
 				<ul class="row show"id="records1">
-				</ul>            
+					<li><span class="c8">【暂无数据】</span></li>
+				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a href="home.html"><i class="fa-bookmark"></i>爱 好 &raquo;</a>
-				<span onclick="moreHref('records2');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records2',this)"><i class="fa-heart"></i> 爱 好<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records2">
+					<li><span class="c8">【暂无数据】</span></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 				
 
 				<!-- 自我收藏网站 -->
-				<h4><a href="home.html"><i class="fa-bookmark"></i>专 业 &raquo;</a>
-				<span onclick="moreHref('records3');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records3',this)"><i class="fa-slack"></i> 专 业<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records3">
+					<li><span class="c8">【暂无数据】</span></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a href="home.html"><i class="fa-bookmark"></i>工 具 &raquo;</a>
-				<span onclick="moreHref('records4');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records4',this)"><i class="fa-legal"></i> 工 具<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records4">
+					<li><span class="c8">【暂无数据】</span></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a href="home.html"><i class="fa-bookmark"></i>其 他 &raquo;</a>
-				<span onclick="moreHref('records5');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records5',this)"><i class="fa-ioxhost"></i> 其 他<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records5">
+					<li><span class="c8">【暂无数据】</span></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 			   
 				 <!-- 浏览记录 -->
-				<h4><a href="home.html"><i class="fa-bookmark"></i>浏 览 &raquo;</a>
-				<a onclick="clearRecords();"title="清除所以收藏记录网址"class="ti-more"><i class="fa-trash"></i></a>
-				<span onclick="moreHref('records0');"class="more"></span>
+				<h4><a onclick="moreHref('records0',this)"><i class="fa-eye"></i> 记 录<span class="more"></span></a>
 				</h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records0">
+					<li><span class="c8">【暂无数据】</span></li>
 				</ul>
+				</div>
             <!-- end 浏览记录 -->
 			</div>
 			<br/><br/><br/>
             <footer class="footer">
                     <div class="vcenter">
-                         Since 2020 <a href="http://www.fcdh.net/"><strong>www.fcdh.net</strong></a> <span class="ti-more">渝ICP备20001609号</span>
+                         Since 2020 <a href="https://www.fcdh.net/"><strong>www.fcdh.net</strong></a> <span class="ti-more">渝ICP备20001609号</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -200,7 +225,7 @@
 			<div class="modal-body"><p><strong>网址增加后不能删除，请小心操作</strong></p></div>
 			<div class="modal-body"> 
 				<p><label>名称：</label><input type="text" class="form-control" name="title" maxlength="25" style="width:50%" placeholder="非常导航">*</p>
-				<p><label>网址：</label><input type="text" class="form-control" name="url"maxlength="63" style="width:70%" placeholder="http://www.fcdh.net/">*</p>
+				<p><label>网址：</label><input type="text" class="form-control" name="url"maxlength="63" style="width:70%" placeholder="https://www.fcdh.net/">*</p>
 				<p><label>描述：</label><input type="text" class="form-control" name="desc"maxlength="63" style="width:80%" placeholder="你个家伙一定要留点哈利"></p>
 
 				<p>
@@ -214,13 +239,12 @@
 				</p>
 
 				<p>
-				<strong><label>分类:</label>
+				<label>分类:</label>
 					<label><input type="radio" name="opt" value="1" checked="checked">常用</label>
 					<label><input type="radio" name="opt" value="2">爱好</label>
 					<label><input type="radio" name="opt" value="3">专业</label>
 					<label><input type="radio" name="opt" value="4">工具</label>
 					<label><input type="radio" name="opt" value="5">其他</label>
-				</strong>
 				</p>
 			</div> 
 			<div class="modal-footer"> 
@@ -238,7 +262,8 @@
 				<h3 class="modal-title" id="myModalLabel"> 从云端下载网址 </h3> 
 			</div>
 			<div class="modal-body"> 
-				<p><label>用户名称：</label><input type="text" class="form-control" name="dwname" maxlength="15" style="width:50%"  placeholder="4-15个数字英文"> *</p>
+				<p><label>用户名称：</label><input type="text" class="form-control" name="dwname" maxlength="15" style="width:50%"  placeholder="4-15个数字英文"> * <label><input type="checkbox"id="allurl">ALL</label></p>
+				<p>『演示账户』<strong class="c7">demo</strong>『演示密码』<strong class="c3">demo</strong></p>
 			</div> 
 			<div class="modal-footer"> 
 				<button type="submit" class="btn btn-primary" data-dismiss="modal"> 取消 </button> 
@@ -254,14 +279,14 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
 				<h3 class="modal-title" id="myModalLabel"> 自动注册并上传网址到云端 </h3> 
 			</div>
-			<div class="modal-body"><p class="modal-body"><strong>自动注册，请牢记你的账号和密码</strong>  <br>非认证用户仅保存<strong>15条</strong>记录  <br>(认证联系QQ：2281195245)</p></div>
+			<div class="modal-body"><p class="modal-body"><strong>自动注册，请牢记你的账号和密码</strong>  <br>用户仅保存<strong>100条</strong>记录  <br>(联系QQ：2281195245)</p></div>
 			<div class="modal-body"> 
 				<p><label>用户名称：</label><input type="text" class="form-control" name="upname"maxlength="15"  style="width:50%" placeholder="4-15个数字英文"> *</p>
 				<p><label>用户密码：</label><input type="password" class="form-control" name="psw"maxlength="15" style="width:50%" placeholder="4-15个字符"> *</p>
 			</div> 
 			<div class="modal-footer"> 
 				<button type="submit" class="btn btn-primary" data-dismiss="modal"> 取消 </button> 
-				<button type="submit" class="btn btn-primary"value="4"onclick="optSite(this)"> 上传 </button> 
+				<button type="submit" id="subup"class="btn btn-primary"value="4"onclick="optSite(this)"> 上传 </button> 
 			</div> 
 		</div><!-- end 模态 -->
 	</div>
@@ -291,8 +316,7 @@
 			</div>
 			<div class="modal-body">
 			<p style="text-align:center;font-size:15px;word-break:break-all;">
-			<strong id="url">
-			</strong>
+			<label>网址：</label><input type="text" class="form-control" name="url"id="url"maxlength="127" style="width:80%" placeholder="https://www.fcdh.net/">
 			</p>
 			<p class="modal-body">
 			<center>
@@ -306,8 +330,8 @@
 			</p>
 			</div>
 			<div class="modal-footer"> 
-				<button id="del"type="submit" class="btn btn-primary" data-dismiss="modal"> 删 除 </button> 
-				<button id="move"type="submit" class="btn btn-primary" data-dismiss="modal"> 移 动 </button> 
+				<button id="delete"type="submit" class="btn btn-primary" data-dismiss="modal"> 删 除 </button> 
+				<button id="move"type="submit" class="btn btn-primary" data-dismiss="modal"> 编 辑 </button> 
 			</div> 
 		</div><!-- end 模态 -->
 	</div>

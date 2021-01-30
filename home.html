@@ -10,11 +10,12 @@
     <meta name="description" content="记录每一个本地网址，按编辑按钮，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端，真真你自己意义上的收藏主页">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
     <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
-	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <link rel="stylesheet" href="./assets/css/bbs.css">
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
-	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-	<script src="http://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
 </head>
 
 <body>
@@ -25,23 +26,23 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="index.html" class="logo-expanded">
+                        <a href="https://www.fcdh.net/" class="logo-expanded">
                             <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
                         </a>
-                        <a href="index.html" class="logo-collapsed">
+                        <a href="https://www.fcdh.net/" class="logo-collapsed">
                             <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
                         </a>
                     </div>
                 </header>
                 <ul id="menu"> 
                     <li>
-                        <a href="http://www.fcdh.net/" class="smooth">
+                        <a href="index.html" class="smooth">
                             <span>返回首页</span><i class="fa-home"></i>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#records1" class="ti-arrow smooth">
-                            <span>常用网站</span><i class="fa-support"></i>
+                            <span>常用网站</span><i class="fa-star"></i>
                         </a>
                     </li>
                     <li>
@@ -103,6 +104,7 @@
 									<!-- 搜索热词 -->
 									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
 									<span class="input-group-btn">
+										<i class="fa-times-circle"id="del"></i>
 										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
 									</span>	
 									<ul id="box">	
@@ -114,7 +116,7 @@
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="http://www.fcdh.net/">非常导航</a></li>
+					<li><a href="https://www.fcdh.net/">非常导航</a></li>
 				</ul>
             </nav>
 			<br/>
@@ -122,50 +124,70 @@
 
             <!-- 自我收藏网站 -->
 			<div id="simi">
-				<h4><a class="c0"><i class="fa-bookmark"></i>常 用</a>		
-				<a href="edit.html" title="编辑网址"class="ti-more"><i class="fa-edit"></i></a>
-				<span onclick="moreHref('records1');"class="more open"></span>		
+				<!-- 自我收藏网站 -->
+				<h4 id="scroll">
+					<ul class="ti-scroll">
+						<li><a class="open" onclick="moreHref('records1',this);"><i class="fa-star"></i> 常 用<span class="more"></span></a></li>
+						<li><strong id="info"class="c9"></strong><a href="edit.html"><i class="fa-edit"></i></a></li>
+					</ul>
 				</h4>
+				<div class="ti-ulbg">
 				<ul class="row show"id="records1">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
-				
+				</div>
 				<!-- END 网址收藏 -->
 			   
 				 <!-- 自我收藏网站 -->
-				<h4><a><i class="fa-bookmark"></i>爱 好</a><span onclick="moreHref('records2');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records2',this);"><i class="fa-heart"></i> 爱 好<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records2">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 				
 
 				<!-- 自我收藏网站 -->
-				<h4><a><i class="fa-bookmark"></i>专 业</a><span onclick="moreHref('records3');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records3',this);"><i class="fa-slack"></i> 专 业<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records3">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a><i class="fa-bookmark"></i>工 具</a><span onclick="moreHref('records4');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records4',this);"><i class="fa-legal"></i> 工 具<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records4">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a><i class="fa-bookmark"></i>其 他</a><span onclick="moreHref('records5');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records5',this);"><i class="fa-ioxhost"></i> 其 他<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records5">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
+				</div>
 				<!-- END 网址收藏 -->
 
 				<!-- 自我收藏网站 -->
-				<h4><a><i class="fa-bookmark"></i>记 录</a><span onclick="moreHref('records0');"class="more"></span></h4>
+				<h4><a onclick="moreHref('records0',this);"><i class="fa-eye"></i> 记 录<span class="more"></span></a></h4>
+				<div class="ti-ulbg">
 				<ul class="row"id="records0">
+					<li class="c8">【暂无数据】</a></li>
 				</ul>
+				</div>
 			</div>
             <!-- END 网址收藏 -->
 			<br/><br/><br/>
             <footer class="footer">
                     <div class="vcenter">
-                         Since 2020 <strong><a href="http://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号</span>
+                         Since 2020 <strong><a href="https://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
