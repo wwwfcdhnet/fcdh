@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="fcdh.net" />
+    <title>{{ttitle}} - 非常导航</title>
+    <meta name="keywords" content="{{tkey}}">
+    <meta name="description" content="{{tdesc}}">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+    <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
+	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+</head>
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="//www.fcdh.net/" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="//www.fcdh.net/" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    {{sider}}
+                </ul>
+        </div>
+</div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<i class="fa-times-circle"id="del"></i>
+										<button type="submit"class="btn btn-primary fa-search">百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<a id="soso"onclick="showsoso(1);"><i class="fa-search"></i></a>
+					<li><a href="//www.fcdh.net/">非常导航</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+			{{simi}}
+			<div id="main">
+				{{hrefall}}
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since 2020 <a href="//www.fcdh.net/"><strong>fcdh.net</strong></a>&nbsp;<span class="ti-more">{{indexday}}<a href="https://beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a></span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng">
+			</div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+	<!-- Scripts -->
+	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
+	{{indexjs}}
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?05028fb3e2f8681720b1333d57db02d0";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

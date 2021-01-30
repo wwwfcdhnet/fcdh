@@ -51,9 +51,9 @@ $res=$db->query("select * from content order by top desc,addtime desc limit $off
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="bbs.php">留言</a></li>
-					<li><a href="config.php">设置</a></li>
-					<li><a href="tag.php">标签</a></li>
+					<li class="cur"><a href="bbs.php">留言</a></li>
+					<li><a href="bbsConfig.php">设置</a></li>
+					<li><a href="password.php">密码</a></li>
 					<li><a href="logout.php">退出</a></li>
 				</ul>
             </nav>
