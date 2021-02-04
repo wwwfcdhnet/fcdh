@@ -501,13 +501,46 @@ function set_siteurl_state($url='https://www.fcdh.net',$index='') {
 // 生成静态html页面
 function hrefhtml($hid,$tn=0){// 0:表示生成href 2：表示生成blog
 	global $db;
-	$htmlfile='';
+	$hrelate=$htmlfile='';
 	if($tn==2){
 		$template='tempBlog.html';
 		$res=$db->query("select bindex as hindex,btitle as htitle,bkey as hkey,bdesc as hdesc,btag as htag,bview as hview,btime as htime,bcolor as hcolor,bstrong as hstrong from blog where bid=$hid limit 1")->fetch(); 
 	}else{
 		$template='tempHref.html';
-		$res=$db->query("select hindex,hname,hurl,htitle,hkey,hdesc,htag,hstate,hview,htime,hcolor,hstrong,hico from href where hid=$hid limit 1")->fetch(); 
+		$res=$db->query("select hindex,hname,hurl,htitle,hkey,hdesc,htag,hstate,hview,htime,hcolor,hstrong,hico,hrelate from href where hid=$hid limit 1")->fetch(); 
+
+		// 获取相关网站
+		//echo"select hindex,hname,hurl,htitle from href where hid IN($res[hrelate])";exit;
+		$relatearr=$db->query("select hindex,hname,hurl,htitle,hstate,hcolor,hstrong,hico from href where hid IN($res[hrelate])")->fetchAll(); 
+		$hrelate='<h4><a onclick="moreHref(\'related\',this);"><i class="fa-codepen"></i> 相关网站<span class="more"></span></a></h4><div class="ti-ulbg"><ul class="row"id="related">';
+		$items='';
+		foreach($relatearr as $arr){
+			$delwd=$del=$img=$color='';
+			if(isset($arr['hico'])){
+				if($arr['hico']==1){ // 已经上传到七牛云
+					$img='<img src="//www.fcdh.net/assets/logos/'.$arr['hindex'].'.png">';
+				}elseif(file_exists($imgsrc)){
+					$img='<img src="//bbs.fcdh.net/assets/logos/'.$arr['hindex'].'.png">';
+				}
+			}
+			if($arr['hstate']==0){ // 表示死链
+				$delwd=' del';
+				$color=$del=' class="del"';
+			}
+
+			if($arr['hcolor']){
+				$color=' class="c'.$arr['hcolor'].'"';
+			}
+			$name=$arr['hname']=strtr($arr['hname'],array(' '=>''));
+			if($arr['hstrong']){
+				$name='<strong>'.$arr['hname'].'</strong>';
+			}else{
+				$name=$arr['hname'];
+			}
+			$items.='<li><a href="'.$arr['hindex'].'.html"><span'.$color.' title="'.$arr['htitle'].'">'.$img.$name.'</span></a><p'.$del.' onclick="openHref(\''.$arr['hurl'].'\',this,-1)">'.$arr['htitle'].'</p></li>';
+		}
+		if(!empty($items))$hrelate.=$items.'</ul></div>';
+		else $hrelate='';
 	}
 	
 	$hindex=$res['hindex'];
@@ -561,6 +594,7 @@ function hrefhtml($hid,$tn=0){// 0:表示生成href 2：表示生成blog
 
 		$opt=$hcolor.'#'.$hstrong.'#'.$hname;
 		$hname=$img.'<strong class="c'.$hcolor.'">'.$hname.'</strong>';
+		$contents = str_replace('{{hrelate}}', $hrelate, $contents);
 		$contents = str_replace('{{opt}}', $opt, $contents);
 		$contents = str_replace('{{hurl}}', $hurl, $contents);
 		$contents = str_replace('{{hstate}}', '<strong id="state"class="c'.$hstate.'">'.$statearr[$hstate].'</strong>', $contents);
