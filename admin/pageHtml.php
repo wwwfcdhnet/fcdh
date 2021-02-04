@@ -198,11 +198,15 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 						}elseif($v['pstate']==5){
 							$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html"target="website">'.$href['htitle'].'</a></p></li>';
 						}else{
-							$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+							$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$del.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
 							//$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span><p>'.$href['htitle'].'</p></a></li>';
 						}	
-					}else{ // 强制外部链接  友情链接
-						$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+					}else{
+						if($v['pstate']==4){//  友情链接
+							$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+						}else{ // 强制外部链接
+							$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+						}
 					}
 				}
 				if(empty($hreflist)){
@@ -356,13 +360,14 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 							}elseif($arr['pstate']==5){
 								$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html"target="website">'.$href['htitle'].'</a></p></li>';
 							}else{
-								$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
-								//$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span><p>'.$href['htitle'].'</p></a></li>';
+								$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$del.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
 							}
-						}elseif($arr['pstate']==3){ // 强制外部链接
-							//$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
-							
-							$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+						}else{
+							if($arr['pstate']==4){ // 外部友情链接
+								$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+							}else{ // 强制外部链接
+								$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+							}
 						}
 					}
 					if(empty($hreflist))$hrefall.='<li class="c8">【暂无数据】</li>';

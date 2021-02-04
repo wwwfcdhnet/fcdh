@@ -119,6 +119,9 @@ if(isset($_GET['tid'])){
 				case 3:
 					$tnstr='fa-external-link-square';
 					break;
+				case 4:
+					$tnstr='fa-external-link';
+					break;
 				case 8:
 					$tnstr='fa-bitcoin';
 					$tntwo='bhid';
@@ -187,6 +190,7 @@ if(isset($_GET['tid'])){
 							}
 						}elseif($v['pstate']==2){ // v 表示父类状态 arr 表示子类状态
 							if($arr['pstate']==3) echo'<i class="fa-external-link-square"></i>';
+							elseif($arr['pstate']==4) echo'<i class="fa-external-link"></i>';
 							elseif($arr['pstate']==5) echo'<i class="fa-tags"></i>';
 							elseif($arr['pstate']==8) echo'<i class="fa-bitcoin"></i>';
 							else echo'<i class="fa-compress"></i>';

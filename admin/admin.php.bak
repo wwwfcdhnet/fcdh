@@ -11,4 +11,3 @@ if($_SESSION['login']!='OK') redir('login.php');
 */
 $accessKey = '';
 $secretKey = '';
-$_bucket = '';

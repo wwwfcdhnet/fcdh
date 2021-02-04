@@ -91,7 +91,7 @@ if($act=='tag'){
 	if(isset($_POST['pstate'])){
 		$pstate=intval(@$_POST['pstate']);
 		if($tidson==$tid)$pstate=2;
-		if($tidfather==1&&$pstate!=0&&$pstate!=3&&$pstate!=5&&$pstate!=8)$pstate=2;
+		if($tidfather==1&&$pstate!=0&&$pstate!=3&&$pstate!=4&&$pstate!=5&&$pstate!=8)$pstate=2;
 		$pstatestr="pstate=$pstate,";
 	}
     $rank=intval(@$_POST['rank']);
@@ -178,8 +178,11 @@ if($act=='tag'){
 				<option value="0"<?php if($pstate==0)echo'selected';?>>外页+self链接页面(0)</option>
 			<?php } ?>
 
-			<?php if(($tidfather==1 || $tidfather==3) &&($pstate==2 || $pstate==3 || $pstate==5 || $pstate==8) || $tntwo==-2){ ?>
-				<?php if($tidfather==1 || $tntwo==-2) {?><option value="3"<?php if($pstate==3)echo'selected';?> class="hide">本页+blank外部链接(3)</option><?php } ?>	
+			<?php if(($tidfather==1 || $tidfather==3) &&($pstate==2 || $pstate==3 || $pstate==4 || $pstate==5 || $pstate==8) || $tntwo==-2){ ?>
+				<?php if($tidfather==1 || $tntwo==-2) {?>
+				<option value="4"<?php if($pstate==4)echo'selected';?> class="hide">本页+blank友情链接(4)</option>
+				<option value="3"<?php if($pstate==3)echo'selected';?> class="hide">本页+blank外部链接(3)</option>
+				<?php } ?>	
 				<option value="2"<?php if($pstate==2)echo'selected';?>><?php echo$strtn;?>链接(2)</option>
 				<option value="5"<?php if($pstate==5)echo'selected';?> class="hide"><?php echo$strtn;?>标签(5)</option>
 				<option value="8"<?php if($pstate==8)echo'selected';?> class="hide"><?php echo$strtn;?>博客(8)</option>

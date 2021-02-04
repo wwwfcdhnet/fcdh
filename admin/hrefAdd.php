@@ -24,7 +24,7 @@ if(isset($_GET['rowid'])){
 	$rowid=$tid=intval($_GET['url']);
 }
 
-$hindex=$hurl=$hname=$hurl=$htitle=$hkey=$hdesc=$htip=$htag=$hstrong=$hrefwd=$msg='';
+$hrelate=$hindex=$hurl=$hname=$hurl=$htitle=$hkey=$hdesc=$htip=$htag=$hstrong=$hrefwd=$msg='';
 $hid=$hcolor=0;$hstate=1;
 $err=array('hurl'=>'','hindex'=>'');
 $eof=true;
@@ -38,11 +38,23 @@ if($act=='add'){
     $hdesc=mb_substr(filterText(htmlspecialchars(trim(@$_POST['hdesc']))),0,512);
     $htip=mb_substr(filterText(trim(@$_POST['htip'])),0,256);
     $htag=$tagstr=mb_substr(filterText(strtolower(@$_POST['htag'])),0,128);
+    $relatestr=mb_substr(filterText(@$_POST['hrelate']),0,128);
     $hrefwd=mb_substr(trim(strtolower(@$_POST['hrefwd'])),0,256);
     $hstrong=intval(trim(@$_POST['hstrong']));
     $hcolor=intval(trim(@$_POST['hcolor']));
 	$hview=100;
 	$htime=date("Y-m-d H:i:s");
+
+	if(!empty($relatestr)){
+		$arr = array('，' => ',', ';' => ',', "；" => ','); 
+		$relatestr=trim(strtr($relatestr, $arr),','); 
+		$relatearr=array_unique(explode(',',$relatestr));
+		foreach($relatearr as $v){
+			$temp=intval(trim($v));
+			$hrelate.=",".$temp;
+		}
+		$hrelate=trim($hrelate,',');
+	}
 
 	if(!_CheckInput($hindex,'numchar')){//字母
 		$err['hindex']='请输入英文字母';
@@ -54,7 +66,7 @@ if($act=='add'){
 	}
 	if($eof){
 		$msg='<strong class="c2">保存成功</strong>';
-		$eof=$db->exec("insert into href(hindex,hname,hurl,htitle,hkey,hdesc,htip,hstate,hview,htime,hcolor,hstrong) values('$hindex','$hname','$hurl','$htitle','$hkey','$hdesc','$htip',$hstate,$hview,'$htime',$hcolor,$hstrong)");
+		$eof=$db->exec("insert into href(hindex,hname,hurl,htitle,hkey,hdesc,htip,hstate,hview,htime,hcolor,hstrong,hrelate) values('$hindex','$hname','$hurl','$htitle','$hkey','$hdesc','$htip',$hstate,$hview,'$htime',$hcolor,$hstrong,'$hrelate')");
 		if(!$eof){
 			$msg='<strong class="c9">标签 '.$hindex.' 重复!</strong>';
 		}else{
@@ -262,19 +274,17 @@ if($act=='add'){
 				<textarea rows="9"maxlength="512"class="form-control"style="width:100%"placeholder="网站描述" id="hdesc"name="hdesc" required><?php echo$hdesc;?></textarea>
 			</p>
 			<p>
-				<label>隐藏内容</label> <span>(256字符)</span>
-				<input type="text" maxlength="256"class="form-control"style="width:100%"value="<?php echo$htip;?>" id="htip"name="htip">
-			</p>
-			<?php
-				//if(empty($_GET['tid'])){
-			?>
-			<p>
 				<label>网站类型</label> <span>(128字符)</span>
 				<input type="text"  maxlength="128"class="form-control"style="width:100%"value="<?php echo$htag;?>" id="htag"name="htag">
 			</p>
-			<?php
-				//}
-			?>
+			<p>
+				<label>隐藏内容</label> <span>(256字符)</span>
+				<input type="text" maxlength="256"class="form-control"style="width:100%"value="<?php echo$htip;?>" id="htip"name="htip">
+			</p>
+			<p>
+				<label>相关网站ID</label> <span>(128字符)</span>
+				<input type="text" maxlength="128"class="form-control"style="width:100%"value="<?php echo$hrelate;?>" id="hrelate"name="hrelate">
+			</p>
 			<p>
 				<label>标题粗细</label>
 				<label><input type="radio" name="hstrong" value="0" checked>正常</label><label><input type="radio" name="hstrong" value="1">粗体</label>

@@ -5,7 +5,7 @@ $rowid=intval(@$_GET['rowid']);
 
 $wd2=@$_GET['wd'];
 
-$hindex=$hurl=$hname=$hurl=$htitle=$hkey=$hdesc=$htip=$hstrong=$hrefwd=$msg=$hico='';
+$hrelate=$hindex=$hurl=$hname=$hurl=$htitle=$hkey=$hdesc=$htip=$hstrong=$hrefwd=$msg=$hico='';
 $hcolor=10;$hstate=1;
 $tn='tid';
 if(isset($_GET['rowid'])){
@@ -18,6 +18,7 @@ if($act=='edit'){
     $hid=intval(trim(@$_POST['hid']));
     $ref=@$_POST['ref'];
     $hstate=intval(@$_POST['hstate']);
+    $uptime=intval(@$_POST['uptime']);
     $hurl=mb_substr(trim(@$_POST['hurl']),0,64);
     $hname=mb_substr(filterTitle(trim(@$_POST['hname'])),0,24);
     $hindex=mb_substr(filterTitle(trim(@$_POST['hindex'])),0,32);
@@ -26,12 +27,16 @@ if($act=='edit'){
     $hdesc=mb_substr(filterText(htmlspecialchars(trim(@$_POST['hdesc']))),0,512);
     $htip=mb_substr(filterText(trim(@$_POST['htip'])),0,256);
     $tagstr=mb_substr(filterText(strtolower(@$_POST['htag'])),0,128);
+    $relatestr=mb_substr(filterText(@$_POST['hrelate']),0,128);
     $hrefwd=mb_substr(strtolower(@$_POST['hrefwd']),0,256);
     $hstrong=intval(trim(@$_POST['hstrong']));
     $hcolor=intval(trim(@$_POST['hcolor']));
 	$hview=intval(@$_POST['hview']);
 	$hico=intval(@$_POST['hico']);
-	//$htime=date("Y-m-d H:i:s");
+	$htime='';
+	if($uptime){
+		$htime=",htime='".date("Y-m-d H:i:s")."'";
+	}
 	$html=0;
 	$arr = array('，' => ',', ';' => ',', "；" => ','); 
 	$tagstr=trim(strtr($tagstr, $arr),','); 
@@ -48,9 +53,21 @@ if($act=='edit'){
 	}
 	$htag=trim($htag,',');
 
+	if(!empty($relatestr)){
+		$arr = array('，' => ',', ';' => ',', "；" => ','); 
+		$relatestr=trim(strtr($relatestr, $arr),','); 
+		$relatearr=array_unique(explode(',',$relatestr));
+		foreach($relatearr as $v){
+			$temp=intval(trim($v));
+			if($v==$hid)continue;
+			$hrelate.=",".$temp;
+		}
+		$hrelate=trim($hrelate,',');
+	}
 
 	$msg='<strong class="c2">编辑成功</strong>';
-	$eof=$db->exec("update href set hindex='$hindex',hname='$hname',hurl='$hurl',htitle='$htitle',hkey='$hkey',hdesc='$hdesc',htag='$htag',htip='$htip',hstate=$hstate,hview='$hview',hcolor=$hcolor,hstrong=$hstrong,html=$html,hico=$hico where hid=$hid");
+	$eof=$db->exec("update href set hindex='$hindex',hname='$hname',hurl='$hurl',htitle='$htitle',hkey='$hkey',hdesc='$hdesc',htag='$htag',htip='$htip',hstate=$hstate,hview='$hview'$htime,hcolor=$hcolor,hstrong=$hstrong,html=$html,hico=$hico,hrelate='$hrelate' where hid=$hid");
+	//echo"update href set hindex='$hindex',hname='$hname',hurl='$hurl',htitle='$htitle',hkey='$hkey',hdesc='$hdesc',htag='$htag',htip='$htip',hstate=$hstate,hview='$hview'$htime,hcolor=$hcolor,hstrong=$hstrong,html=$html,hico=$hico where hid=$hid";
 	if(!$eof){
 		$msg='<strong class="c9">链接 '.$hindex.' 重复!</strong>';
 	}else{
@@ -58,7 +75,7 @@ if($act=='edit'){
 		$hrefwd=strtr($hrefwd, $arr); 
 		$hrefarr=explode(';',trim($hrefwd,';'));
 		$widarr=array();
-
+		$i=0;
 		foreach($hrefarr as $str){ // 要存入数据库中的word
 			$word=filterTitle(trim($str));
 			$res=$db->query("select wid from tagword where word='$word'")->fetch();			
@@ -129,6 +146,7 @@ if($act=='edit'){
     $hcolor=$href['hcolor'];
 	$hview=$href['hview'];
 	$hico=$href['hico'];
+	$hrelate=$href['hrelate'];
 	//echo"select tindex from tag where tid in($htag)";
 	$tag=$db->query("select tindex from tag where tid in($htag)")->fetchAll();
 	$tagstr='';
@@ -226,12 +244,16 @@ if($act=='edit'){
 				<textarea rows="9"maxlength="512" class="form-control"style="width:100%" id="hdesc"name="hdesc" required><?php echo$hdesc;?></textarea>
 			</p>
 			<p>
+				<label>网站类型</label> <span>(128字符)</span>
+				<input type="text" maxlength="128" class="form-control"style="width:100%"value="<?php echo$tagstr;?>" id="htag"name="htag">
+			</p>
+			<p>
 				<label>备用网址</label> <span>(256字符)</span>
 				<input type="text" maxlength="256"class="form-control"style="width:100%"value="<?php echo$htip;?>" id="htip"name="htip">
 			</p>
 			<p>
-				<label>网站类型</label> <span>(128字符)</span>
-				<input type="text" maxlength="128" class="form-control"style="width:100%"value="<?php echo$tagstr;?>" id="htag"name="htag">
+				<label>相关网站ID</label> <span>(128字符)</span>
+				<input type="text" maxlength="128"class="form-control"style="width:100%"value="<?php echo$hrelate;?>" id="hrelate"name="hrelate">
 			</p>
 			<p>
 				<label>访问次数</label>
@@ -244,6 +266,9 @@ if($act=='edit'){
 			<p>
 				<label>网站图标</label>
 				<label><input type="radio" name="hico" value="0"<?php if($hico==0)echo'checked';?>>本地ICO</label>&nbsp;&nbsp;<label><input type="radio" name="hico" value="1"<?php if($hico==1)echo'checked';?>>七牛ICO</label>
+			</p>
+			<p>
+				<label>更新时间 <input type="checkbox" name="uptime" value="1"></label>
 			</p>
 			<p>
 				<label>标题颜色</label>
