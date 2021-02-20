@@ -20,6 +20,10 @@
   <li>可以配置七牛云，将所有静态页面上传到七牛元空间后访问</li>
 </ul>
   </p>
+ <p>
+<h3>友情提示</h3>
+因本站一直在开发中，源码难免有bug，欢迎在留言区留言。如果你使用本源码作为自己的导航站，恳请能在任何一个页面（不一定是首页）留下本官方的信息以示对开源的支持。
+ </p>
 <p>
 <h3>交流和留言</h3>
 <ul>
@@ -32,6 +36,6 @@
 <h3>感谢</h3>
 <ul>
   <li><a href="https://github.com/WebStackPage/webstack-Admin"target="_blank">webstack开源项目</a></li>
+<li>为表感谢，本官网增加webstack官网作为友情链链接，以表webstack开源项目作者的源码贡献</li>
 </ul>
-<strong>为表感谢，本官网增加webstack官网作为友情链链接，以表webstack开源项目作者的源码贡献</strong>
 </p>
