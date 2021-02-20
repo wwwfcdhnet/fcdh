@@ -22,7 +22,7 @@
   </p>
  <p>
 <h3>友情提示</h3>
-<ul><li>因本站一直在开发中，源码难免有bug，欢迎在留言区留言。如果你使用本源码作为自己的导航站，恳请能在<strong>任何一个页面（不一定是首页）留下本官方网址信息</strong>以示对本开源项目的支持。</li>
+<ul><li>因本站一直在开发中，源码难免有bug，欢迎在留言区留言。如果你使用本源码作为自己的导航站，恳请能在<font color="blue">任何一个页面（不一定是首页）留下本官方网址信息</font>以示对本开源项目的支持。</li>
   <li>后台目录为admin，登录帐号和密码都为admin，网站正式使用请修改目录和登录密码</li>
   <li>七牛云部分需要自己到<a href="https://s.qiniu.com/mAF3An"target="_blank">七牛官方</a>申请空间（免费），然后在admin/admin.php中配置	AccessKey/SecretKe </li>
   </ul>
