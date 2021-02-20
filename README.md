@@ -13,7 +13,7 @@
   将整个源码下载到服务器根目录即可使用，不用配置数据库，本地访问127.0.0.1，服务器端访问则使用自己绑定的域名。
   </p>
 <p><h3>工具使用</h3>
-<a href="http://www.fcdh.net/soft/SQLiteStudio-V3.1.1.zip"target="blank">sqlite数据库编辑工具(fcdh.db)</a>
+<strong>右键另存为</strong><a href="http://www.fcdh.net/soft/SQLiteStudio-V3.1.1.zip"target="_blank">sqlite数据库编辑工具(fcdh.db)</a>
   </p>
 <p>
 <h3>特点</h3>
