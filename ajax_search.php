@@ -36,7 +36,7 @@
 		}
 		if($table=='tag'){ // 标签搜索
 			$tableso='tagso';
-			$sql="SELECT tindex as hindex,tname as hname,tdesc as htitle FROM tagso INNER JOIN tag on tag.tid=tagso.tid WHERE tagso.wid=$wid AND html>0 LIMIT $offset,$pagesize";
+			$sql="SELECT tindex as hindex,tname as hname,ttitle as htitle FROM tagso INNER JOIN tag on tag.tid=tagso.tid WHERE tagso.wid=$wid AND html>0 LIMIT $offset,$pagesize";
 		}elseif($table=='blog'){ // 博客搜索
 			$table='blog';
 			$tableso='blogso'; 
@@ -44,7 +44,7 @@
 		}else{// 网站搜索
 			$table='href';
 			$tableso='hrefso'; 
-			$sql="SELECT hindex,hname,hurl,htitle,hview,htime FROM hrefso INNER JOIN href on href.hid=hrefso.hid WHERE hrefso.wid=$wid LIMIT $offset,$pagesize";
+			$sql="SELECT hindex,hname,hurl,htitle,hstate,hview,htime FROM hrefso INNER JOIN href on href.hid=hrefso.hid WHERE hrefso.wid=$wid LIMIT $offset,$pagesize";
 		}
 		//$res=$db->query("SELECT count(rowid) FROM $tableso WHERE wid=$wid")->fetch();  
 		//$sql="SELECT hindex,hname,hurl,htitle,hview,htime FROM href WHERE hid IN (SELECT hid FROM hrefso WHERE wid=$wid LIMIT $offset,$pagesize)";
@@ -65,6 +65,7 @@
 
 			if($table=='href'){
 				$resply[$i++]=$r['hurl'];
+				$resply[$i++]=$r['hstate'];
 			}
 			if($table!='blog'){
 				$resply[$i++]=$r['htitle'];
