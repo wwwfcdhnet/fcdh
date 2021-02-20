@@ -385,9 +385,6 @@ footer.footer #go-up i{
 	width:25.0%;
 	float:left;
 }
-
-
-
 .searchs {
   margin: 8px auto;
   width:400px;
@@ -658,6 +655,13 @@ ul.show{
 	width:20px;
 	margin-bottom:-4px;
 }
+
+
+.de,li .de,li.de{
+	text-decoration:line-through;
+	color:darkgray;
+}
+
 
 /* scrollable menus */
 .ti-scroll {
