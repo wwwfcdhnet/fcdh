@@ -33,5 +33,5 @@
 <ul>
   <li><a href="https://github.com/WebStackPage/webstack-Admin"target="_blank">webstack开源项目</a></li>
 </ul>
-<strong>为表示感谢，本官网增加 www.webstack.cc 作为友情链链接，以表支持webstack开源项目作者的源码贡献</strong>
+<strong>为表感谢，本官网增加webstack官网作为友情链链接，以表webstack开源项目作者的源码贡献</strong>
 </p>
