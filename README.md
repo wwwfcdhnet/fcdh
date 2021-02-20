@@ -28,3 +28,9 @@
 <li>留言板：<strong>http://bbs.fcdh.net</strong></li>
 </ul>
 </p>
+<p>
+<h3>感谢</h3>
+<ul>
+  <li><a href="https://github.com/WebStackPage/webstack-Admin">webstack开源项目</a></li>
+</ul>
+</p>
