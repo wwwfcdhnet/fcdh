@@ -6,6 +6,11 @@
  Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ // 全局变量，可以自己配置
+var _ajaxsearch='https://bbs.fcdh.net/ajax_search.php'; // 搜索远程数据
+var _ajaxurl='https://bbs.fcdh.net/ajax.php';  // 下载或上传到远程数据网址
+var _name='admin'; // 默认下载admin用户的网址
+
 if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires jQuery");
 
 	+function(a){
@@ -648,7 +653,7 @@ function getHrefList(wd='',type='href',page=1){
 		return;
 	}
 	$('#txt').val(wd);
-	var _ajaxurl='https://bbs.fcdh.net/ajax_search.php';
+
 	var strArr=[];
 		strArr.push(wd);
 		strArr.push(type);
@@ -678,10 +683,16 @@ function getHrefList(wd='',type='href',page=1){
 				if(strArr['0']){
 					var type=strArr['3'];
 					var count=0;
+					var de='';
 					for(var i=4,len=strArr.length;i<len;){
 						if(type=='href'){
+							de='';
+							if(strArr[i+3]==0){ //死链
+								de=' class="de"';
+							}
 							hreflist+='<h4><a><i class="fa-bookmark"></i> '+strArr[i++]+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
-							hreflist+='<li><a href="'+strArr[i+1]+'"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong>'+strArr[i++]+'</strong></a><br>'+strArr[i++];
+							hreflist+='<li><a href="'+strArr[i+1]+'"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong'+de+'>'+strArr[i++]+'</strong></a><br><span'+de+'>'+strArr[i+1]+'</span>';
+							i+=2;
 						}else if(type=='tag'){
 							hreflist+='<h4><a><i class="fa-bookmark"></i> '+strArr[i++]+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
 							hreflist+='<li><a href="'+strArr[i]+'.html"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong>'+strArr[i++]+'</strong></a>';
@@ -728,7 +739,7 @@ function getHrefList(wd='',type='href',page=1){
 				}
 			}
 		}
-		xhr.open("POST",_ajaxurl);
+		xhr.open("POST",_ajaxsearch);
 		xhr.send(fData);
 }
 
@@ -811,9 +822,13 @@ function heartHref(url,opt=null){// 收藏网址
 function openHref(url,obj,opt){
 	blank='_blank';
 	if(opt==undefined)opt=0;
+	else if(opt==-1){
+		obj=obj.previousSibling.firstChild;
+		opt=0;
+	}
 	if(obj==undefined)blank='_self';
 	if(obj!=2)window.open(url, blank);
-
+	
 	var max=getMaxLocalNum();	
 	var key=html='';
 	if(obj==0 || obj==2){ // href 页面的点击
@@ -890,7 +905,7 @@ function loadLocalSites(cate=1){
 		//	data=' title="'+array[i][2]+'"';
 		//}
 		sites = '<li onclick="'+openHref+'(\''+array[i][0]+'\',this,'+array[i][1]+')"'+data+'><span'+temp3+'>'+array[i][4] +'</span></li>';
-	
+		
 		if(array[i][1]==0){ // 记录数
 			if(--nums<0)continue;
 			cateStr[array[i][1]]+=sites;
@@ -913,7 +928,7 @@ function loadLocalSites(cate=1){
 		}
 		localStorage.getItem('max');
 		if(length<1){ // 如果本地没有网址，从云端下载
-			get_userself_hrefs('admin');
+			get_userself_hrefs(_name);
 		};
 		//document.getElementById('records0').innerHTML=cateStr['0'];
 	}
@@ -922,7 +937,6 @@ function loadLocalSites(cate=1){
 // 通过用户名获取云端网址
 function get_userself_hrefs(dwname,tn='records',all=0){
 	localStorage.clear();
-	var _ajaxurl='https://bbs.fcdh.net/ajax.php';
 	//var _ajaxurl='https://127.0.0.1/ajax.php';
 	var fData = new FormData();
 	fData.append("uname",dwname);
@@ -1223,7 +1237,6 @@ function showsoso(tn){
 
 // 增加点击数量
 function addHrefView(hid,hindex=''){// tn=1 则是用户在报错误信息 opt=1 表示正常访问
-	var _ajaxurl='https://bbs.fcdh.net/ajax_search.php';
 	var opt=1;
 	if(hindex!=0 && hindex!=''){// 链接索引不为空表示用户在报错 ''表示来源博客
 		var statearr = ["死链", "正常", "异常", "改版"];
@@ -1246,7 +1259,7 @@ function addHrefView(hid,hindex=''){// tn=1 则是用户在报错误信息 opt=1
 		},
 		async:true,
 		//请求地址
-		url : _ajaxurl,
+		url : _ajaxsearch,
 		//数据，json字符串
 	   // data : JSON.stringify(list),
 		//请求成功
