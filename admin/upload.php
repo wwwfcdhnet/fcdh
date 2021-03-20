@@ -6,6 +6,7 @@ use Qiniu\Config;
 use Qiniu\Qiniu;
 require dirname(__FILE__) . '/autoload.php';
 
+$_picture='picture/';
 $ref=$_SERVER['HTTP_REFERER'];
 $qiniu = new Qiniu($accessKey, $secretKey);
 
@@ -21,9 +22,19 @@ if(isset($_GET['up'])){ // 上传文件
 	}
 
 	if($htmlfile!='half' && file_exists($dir.$htmlfile)){ //  一个页面一个页面的上传
-		$file = $qiniu->file($_bucket, $htmlfile);
+		$suf=substr(strrchr($htmlfile, '.'), 1);
+		if('jpg'==$suf){
+			$file = $qiniu->file($_bucket, $_picture.$htmlfile);
+		}else{
+			$file = $qiniu->file($_bucket, $htmlfile);
+		}
 		$response = $file->put($dir.$htmlfile);
+
 		if((bool)$response){// 如果上传成功 ，并删除本地数据
+
+			if('jpg'==$suf){//移动图片至picture文件见
+				copy($dir.$htmlfile,'../'.$_picture.$htmlfile);
+			}
 			unlink($dir.$htmlfile);
 		}
 	}else{ // 一次上传50个页面
@@ -32,14 +43,22 @@ if(isset($_GET['up'])){ // 上传文件
 		  if (false != ($handle = opendir ( $dir ))) {
 			$i=0;
 			while ( false !== ($htmlfile = readdir ( $handle )) ) {
-				if ($htmlfile != "." && $htmlfile != ".." && 'html'==substr(strrchr($htmlfile, '.'), 1)) {
+				$suf=substr(strrchr($htmlfile, '.'), 1);
+				if ($htmlfile != "." && $htmlfile != ".." && ('html'==$suf || 'jpg'==$suf)) {
 					if($htmlfile=='404.html')continue;
 					if(1000==$i++){
 						break;
 					}
-					$file = $qiniu->file($_bucket, $htmlfile);
+					if('jpg'==$suf){
+						$file = $qiniu->file($_bucket, $_picture.$htmlfile);
+					}else{
+						$file = $qiniu->file($_bucket, $htmlfile);
+					}
 					$response = $file->put($dir.$htmlfile);
 					if((bool)$response){// 如果上传成功 ，并删除本地数据
+						if('jpg'==$suf){//移动图片至picture文件见
+							copy($dir.$htmlfile,'../'.$_picture.$htmlfile);
+						}
 						unlink($dir.$htmlfile);
 					}
 				}
@@ -86,7 +105,7 @@ if(isset($_GET['up'])){ // 上传文件
 		$response = true;
 		if((bool)$response){
 			$db->exec("update href set html=-1 where hindex='$index'");
-			$db->exec("insert into htmltn(htmlname,tn) values('$index',1)");
+			//$db->exec("insert into htmltn(htmlname,tn) values('$index',1)");
 		}
 		$file = $qiniu->file($_bucket, $htmlfile);
 		$file->delete();
@@ -103,7 +122,7 @@ if(isset($_GET['up'])){ // 上传文件
 		$response = true;
 		if((bool)$response){
 			$db->exec("update tag set html=-1 where tindex='$index'");
-			$db->exec("insert into htmltn(htmlname,tn) values('$index',2)");
+			//$db->exec("insert into htmltn(htmlname,tn) values('$index',2)");
 		}
 		$file = $qiniu->file($_bucket, $htmlfile);
 		$file->delete();

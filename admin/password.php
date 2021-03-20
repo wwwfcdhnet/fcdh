@@ -7,7 +7,7 @@ if($act=='save'){
     if($password=='' || !$password){
         $msg='密码不能为空';
     }
-    $password=md5($password);
+    $password=md5($_KEY.$password);
     $db->exec("update admin set pass='$password' where name='admin'");
     $msg='密码修改成功';
 }

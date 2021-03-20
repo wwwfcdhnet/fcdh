@@ -132,8 +132,15 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 					$info='&nbsp;&nbsp;<strong id="info"class="c9"></strong>';
 				}
 
-				if($v['html'] && $v['tidson']!=$v['tid']){
-					$url='<i><a href="'.$v['index'].'.html" class="ti-more"> More &raquo;</a></i>';
+			//	if($v['html'] && $v['tidson']!=$v['tid']){
+			//		$url='<i><a href="'.$v['index'].'.html" class="ti-more"> More &raquo;</a></i>';
+			//	}
+				$limit='';
+				if($v['tidson']!=$v['tid']){ // 自身添加
+					$limit=' limit 18';
+					if($v['html']){
+						$url='<i><a href="'.$v['index'].'.html" class="ti-more"> More &raquo;</a></i>';
+					}
 				}
 				$hrefall.='<h4><a'.$open.' onclick="moreHref(\''.$v['tindex'].'\',this);"><i class="'.$v['tico'].'"></i> '.$ttitle.'<span class="more"></span></a>'.$info.$url.'</h4><div class="ti-ulbg"><ul class="'.$crow.''.$show.'"id="'.$v['tindex'].'">';
 				
@@ -142,12 +149,12 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 				}elseif($v['pstate']==8){ // hid 表示的是博客文章
 					$res=$db->query("SELECT pagehref.rank,blog.bid as hid,blog.bindex as hindex,blog.btitle as hname,blog.bcolor as hcolor,blog.bstrong as hstrong FROM pagehref INNER JOIN blog ON pagehref.hid=blog.bid WHERE pagehref.tid=$i ORDER BY pagehref.rank DESC")->fetchAll();
 				}else{
-					$res=$db->query("SELECT pagehref.rank,href.hid,href.hindex,href.hname,href.hurl,href.htitle,href.hstate,href.hcolor,href.hstrong,href.hico FROM pagehref INNER JOIN href ON pagehref.hid=href.hid WHERE pagehref.tid=$i ORDER BY pagehref.rank DESC")->fetchAll();
+					$res=$db->query("SELECT pagehref.rank,href.hid,href.hindex,href.hname,href.hurl,href.htitle,href.hstate,href.hcolor,href.hstrong,href.hico FROM pagehref INNER JOIN href ON pagehref.hid=href.hid WHERE pagehref.tid=$i ORDER BY pagehref.rank DESC$limit")->fetchAll();
 					
 				}
 				$hreflist='';
 				foreach($res as $href){
-					$delwd=$del=$img=$color='';
+					$delwd=$de=$img=$color='';
 					if($v['pstate']!=8){
 						$imgsrc="../assets/logos/".$href['hindex'].".png";
 					}else{
@@ -156,8 +163,8 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 					
 					if($v['pstate']==2){
 						if($href['hstate']==0){ // 表示死链
-							$delwd=' del';
-							$color=$del=' class="del"';
+							$delwd=' de';
+							$color=$de=' class="de"';
 						}
 					}		
 
@@ -175,7 +182,7 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 						if($href['hico']==1){ // 已经上传到七牛云
 							$img='<img src="//www.fcdh.net/assets/logos/'.$href['hindex'].'.png">';
 						}elseif(file_exists($imgsrc)){
-							$img='<img src="//bbs.fcdh.net/assets/logos/'.$href['hindex'].'.png">';
+							$img='<img src="../assets/logos/'.$href['hindex'].'.png">';
 						}
 					}
 
@@ -198,14 +205,14 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 						}elseif($v['pstate']==5){
 							$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html"target="website">'.$href['htitle'].'</a></p></li>';
 						}else{
-							$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$del.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
+							$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$de.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
 							//$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span><p>'.$href['htitle'].'</p></a></li>';
 						}	
 					}else{
 						if($v['pstate']==4){//  友情链接
 							$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
 						}else{ // 强制外部链接
-							$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+							$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$de.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
 						}
 					}
 				}
@@ -297,9 +304,12 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 						$open=' class="open"';$show=' show';$class=' class="c10"';
 						$info='&nbsp;&nbsp;<strong id="info"class="c9"></strong>';
 					}
-
-					if($arr['html'] && $arr['tid']!=$arr['tidson']){
-						$url='<i><a href="'.$arr['index'].'.html" class="ti-more"> More &raquo;</a></i>';
+					$limit='';
+					if($arr['tid']!=$arr['tidson']){						
+						$limit=' limit 18';
+						if($arr['html']){
+							$url='<i><a href="'.$arr['index'].'.html" class="ti-more"> More &raquo;</a></i>';
+						}
 					}
 					$hrefall.='<h4><a'.$open.' onclick="moreHref(\''.$arr['tindex'].'\',this);"><i class="'.$arr['tico'].'"></i> '.$ttitle.'<span class="more"></span></a>'.$info.$url.'</h4><div class="ti-ulbg"><ul class="'.$crow.''.$show.'"id="'.$arr['tindex'].'">';
 					
@@ -308,11 +318,11 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 					}elseif($arr['pstate']==8){ // hid 表示的是博客文章
 						$res=$db->query("SELECT pagehref.rank,blog.bid as hid,blog.bindex as hindex,blog.btitle as hname,blog.bcolor as hcolor,blog.bstrong as hstrong FROM pagehref INNER JOIN blog ON pagehref.hid=blog.bid WHERE pagehref.tid=$arr[tidson] ORDER BY pagehref.rank DESC")->fetchAll();
 					}else{
-						$res=$db->query("SELECT pagehref.rank,href.hid,href.hindex,href.hname,href.hurl,href.htitle,href.hdesc,href.hstate,href.hcolor,href.hstrong,href.hico FROM pagehref INNER JOIN href ON pagehref.hid=href.hid WHERE pagehref.tid=$arr[tidson] ORDER BY pagehref.rank DESC")->fetchAll();
+						$res=$db->query("SELECT pagehref.rank,href.hid,href.hindex,href.hname,href.hurl,href.htitle,href.hdesc,href.hstate,href.hcolor,href.hstrong,href.hico FROM pagehref INNER JOIN href ON pagehref.hid=href.hid WHERE pagehref.tid=$arr[tidson] ORDER BY pagehref.rank DESC$limit")->fetchAll();
 					}
 					$hreflist='';
 					foreach($res as $href){
-						$delwd=$del=$img=$color='';
+						$delwd=$de=$img=$color='';
 						if($arr['pstate']!=8){
 							$imgsrc="../assets/logos/".$href['hindex'].".png";
 						}else{
@@ -322,8 +332,8 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 						$tname=$href['hname'];	
 						if($arr['pstate']==2){
 							if($href['hstate']==0){ // 表示死链
-								$delwd=' del';
-								$color=$del=' class="del"';
+								$delwd=' de';
+								$color=$de=' class="de"';
 							}
 						}		
 						
@@ -339,7 +349,7 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 							if($href['hico']==1){ // 已经上传到七牛云
 								$img='<img src="//www.fcdh.net/assets/logos/'.$href['hindex'].'.png">';
 							}elseif(file_exists($imgsrc)){
-								$img='<img src="//bbs.fcdh.net/assets/logos/'.$href['hindex'].'.png">';
+								$img='<img src="../assets/logos/'.$href['hindex'].'.png">';
 							}
 						}
 						if($arr['pstate']==2 || $arr['pstate']==5 || $arr['pstate']==8){ // 强制内部链接
@@ -360,13 +370,13 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 							}elseif($arr['pstate']==5){
 								$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hindex'].'.html"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html"target="website">'.$href['htitle'].'</a></p></li>';
 							}else{
-								$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$del.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
+								$hreflist.='<li><a href="'.$href['hindex'].'.html"><span'.$color.' title="'.$href['htitle'].'">'.$img.$hname.'</span></a><p'.$de.' onclick="openHref(\''.$href['hurl'].'\',this,-1)">'.$href['htitle'].'</p></li>';
 							}
 						}else{
 							if($arr['pstate']==4){ // 外部友情链接
 								$hreflist.='<li title="'.$href['htitle'].'"><a href="'.$href['hurl'].'"target="_blank"class="link"><span'.$color.'>'.$img.$hname.'</span></a><p><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
 							}else{ // 强制外部链接
-								$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$del.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
+								$hreflist.='<li><span'.$color.' onclick="openHref(\''.$href['hurl'].'\',this)" title="'.$href['htitle'].'">'.$img.$hname.'</span><p'.$de.'><a href="'.$href['hindex'].'.html">'.$href['htitle'].'</a></p></li>';
 							}
 						}
 					}
@@ -391,7 +401,7 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 	if(!empty($hrefall)){ // 如果链接为空则不生成
 		if($tag[0]=='index'){
 			echo'<li>
-					<a href="https://bbs.fcdh.net/"class="smooth">
+					<a href="bbs.php"class="smooth">
 						<span>留 言 板</span><i class="fa-weixin"title="留 言 板"></i>
 					</a>
 				 </li>';
@@ -432,10 +442,13 @@ if(isset($_GET['hid'])){// 静态化网站详细页面
 		$contents = str_replace('{{tkey}}', $tag['tkey'], $contents);
 		$contents = str_replace('{{tdesc}}', $tag['tdesc'], $contents);
 		if($tag[0]=='index'){
+			$year=load_config('year');
+			$mon=load_config('mon');
+			$day=load_config('day');
 			$indexday='<i class="c2">本站已运行 <strong id="years"class="c8">00</strong> 年 <strong id="days"class="c8">000</strong> 天</i>&nbsp;&nbsp;';
 			$indexjs="	<script>
 				var nowtime = new Date();
-				var oyear=2020,omon=1,oday=27; // 起始时间
+				var oyear=".$year.",omon=".$mon.",oday=".$day."; // 起始时间
 				var nyear=parseInt(nowtime.getFullYear()),nmon=parseInt(nowtime.getMonth())+1,nday=parseInt(nowtime.getDate()); // 当前时间
 
 				var dyear=nyear-oyear,dmon=nmon-omon,dday=nday-oday; // 相差的时间
