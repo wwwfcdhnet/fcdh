@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="author" content="viggo" />
+    <title>用户资料修改 - {{title}}</title>
+    <meta name="keywords" content="用户资料,资料修改，非常导航">
+    <meta name="description" content="用户资料,资料修改，非常导航">
+    <link rel="shortcut icon" href="./assets/images/favicon.png">
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/fcdh.css">
+    <link rel="stylesheet" href="./assets/css/bbs.css">
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 最外层容器 -->
+    <div id="container">
+        <div id="sidebar"class="toggle-others">
+		<div class="ti-fix">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="./" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
+                        </a>
+                        <a href="./" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
+                        </a>
+                    </div>
+                </header>
+                <ul id="menu"> 
+                    <li>
+                        <a href="./" class="smooth">
+                            <span>返回首页</span><i class="fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="user.html" class="smooth">
+                            <span>用户资料</span><i class="fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="home.html" class="smooth">
+                            <span>我的主页</span><i class="fa-meanpath"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="edit.html" class="smooth">
+                            <span>主页编辑</span><i class="fa-edit"></i>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <!-- User Info, Notifications and Menu Bar -->
+                <!-- Left links for user info navbar -->
+                <ul class="user-info-menu">
+                    <li id="ti-side">
+                        <a href="#">
+                            <i class="fa-bars"></i>
+                        </a>
+                    </li>					
+                    <li id="ti-menu">
+                        <a href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>	
+                    <li id="ti-home">
+                        <a href="./">
+                            <i class="fa-home"></i>
+                        </a>
+                    </li>
+					
+					<li>
+                        <div id="ti-search"class="searchs">
+                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+								<div class="input-group">
+									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<ul id="ti-engine">
+									</ul>				
+									<!-- 搜索热词 -->
+									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<span class="input-group-btn">
+										<button type="submit"class="btn btn-primary fa-search"> 百度</button>
+									</span>	
+									<ul id="box">	
+										
+									</ul>	
+								</div>
+							</form>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="ti-ads">
+					<li><a href="./">{{title}}</a></li>
+				</ul>
+            </nav>
+			<br/>
+			<br/>
+			<div id="main">
+			<form id="myform">
+				<h3><a class="c10"><i class="fa-bookmark"></i> 用户资料修改</a></h3>
+				
+				<p>
+				<strong class="c8">提示：①找回密码只需原用户名 + (QQ，email和电话中的两项)。②如果不知道QQ，email和电话，可以提交原用户名获取提示。③QQ，email和电话如果未初始化，则不能找回密码，只能修改密码。</strong>
+				</p>
+
+				<p>
+				<label><a class="c2"><i class="fa-credit-card"></i> 新用户名</a></label><input type="text" autocomplete="off" class="form-control" name="newname"maxlength="21"style="width:100%" id="newname" placeholder="新用户名">
+				</p>
+				<p>
+				<label><a class="c2"><i class="fa-envelope"></i> 新电子邮箱</a></label></label><input type="text" autocomplete="off" class="form-control" name="email"maxlength="32"style="width:100%" id="email" placeholder="新电子邮箱">
+				</p>
+
+				<p>
+				<label><a class="c2"><i class="fa-qq"></i> 新QQ号码</a></label></label><input type="number" class="form-control" name="qq"maxlength="11"style="width:100%" id="qq" placeholder="新QQ号码">
+				</p>
+
+				<p>
+				<label><a class="c2"><i class="fa-phone"></i> 新手机号码</a></label></label><input type="number" class="form-control" name="phone"maxlength="11"style="width:100%" id="phone" placeholder="新手机号码">
+				</p>
+
+				<p>
+				<label><a class="c2"><i class="fa-lock"></i> 重置密码</a></label></label><input type="password" class="form-control" name="newpsw"maxlength="21"style="width:100%" id="newpsw" placeholder="重置密码">
+				</p>
+				<p>
+				<label><a class="c8"><i class="fa-user"></i> 原用户名 *</a></label><input type="text" class="form-control" name="oldname"maxlength="21"style="width:100%" id="oldname" placeholder="原用户名">
+				</p>
+
+				<p>
+				<label><a class="c8"><i class="fa-key"></i> 原始密码</a></label><input type="password" class="form-control" name="oldpsw"maxlength="21"style="width:100%" id="oldpsw" placeholder="原始密码">
+				</p>
+
+				<p>
+				<label><img src="scode.php"alt="点击刷新" title="点击刷新" id="scodeimg" ></label><input type="text" class="form-control" name="code"maxlength="4"style="width:123px" id="scode"autocomplete="off"  placeholder="验证码"> <button type="submit" id="subedit" class="btn btn-primary"value="4">确 定</button>
+				 <strong id="info"class="c9"></strong>
+				</p>
+			</form>
+			</div>
+			<br/><br/><br/>
+            <footer class="footer">
+                    <div class="vcenter">
+                         Since {{year}} <strong><a href="./">{{domain}}</a></strong> <span class="ti-more"><a href="https://beian.miit.gov.cn/">{{beian}}</a></span>
+                    </div>
+                    <div id="go-up">
+                        <a href="#" rel="go-top"title="顶部">
+                            <i class="fa-tree"></i>
+                        </a>
+                    </div>
+            </footer>
+			<div id="ti-meng"></div>
+		</div>
+    </div> <!-- end 最处层容器 -->
+
+		<!-- 确定信息 --> 
+	<div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog"> 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+				<h3 class="modal-title" id="myModalLabel"> 提示信息 </h3> 
+			</div>
+			<div class="modal-body"><p class="modal-body"><strong id="msg"></strong></p></div>
+			<div class="modal-footer"> 
+				<button id="cancel"type="submit" class="btn btn-primary" data-dismiss="modal"> 确 定 </button> 
+			</div> 
+		</div><!-- end 模态 -->
+	</div>
+ <script src="./assets/js/fcdh.js"></script>
+	<script>
+$(function(){
+
+	$('#scodeimg').bind('click',function(){this.src='scode.php?rand='+Math.random();});
+	
+    $('#myform').bind('submit',function(){
+		var oldname=newname=email=qq=phone=newpsw=oldpsw='';
+		var oldname=$('#oldname').val().trim();
+		if(oldname==''){
+			$('#msg').html('请填写用户名');
+			$('#warning').modal('show');
+			return false;
+		}else{
+			newname=$('#newname').val().trim();
+			email=$('#email').val().trim();
+			phone=$('#phone').val().trim();
+			qq=$('#qq').val().trim();
+			newpsw=$('#newpsw').val().trim();
+			oldpsw=$('#oldpsw').val().trim();
+		}
+		if($('#scode').val()==''){
+			$('#msg').html('请填写验证码');
+			$('#warning').modal('show');
+			return false;
+		}
+		var info=document.getElementById('info');
+		info.innerHTML='<img src="assets/images/loading.gif">';
+
+
+		$.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+			data: {'oldname':oldname,'newname':newname,'email':email,'qq':qq,'phone':phone,'newpsw':newpsw,'oldpsw':oldpsw,'scode':$('#scode').val(),'rand':Math.random()},
+			//crossDomain: true,
+			xhrFields:{
+				withCredentials:true
+			},
+			async:true,
+            //请求地址
+            url : "ajax.php",
+            //数据，json字符串
+           // data : JSON.stringify(list),
+            //请求成功
+            success : function(data) {
+               var strArr = JSON.parse(data);
+				if(strArr[0]==false){
+					$('#scode').val('');
+					if(strArr[2]=='scode'){
+						$('#msg').html('验证码有误');
+						$('#warning').modal('show');
+					}else if(strArr[2]=='pswtip'){
+						if(strArr['3']!='')$('#email').attr("placeholder",strArr['3']);
+						if(strArr['4']!='')$('#phone').attr("placeholder",strArr['4']);
+						if(strArr['5']!='')$('#qq').attr("placeholder",strArr['5']);
+					}else if(strArr[2]=='forbid'){ //  操作频繁过多
+						var subedit=$('#subedit');
+						subedit.attr("disabled",true);
+						subedit.removeClass('btn-primary');
+						subedit.addClass('btn-gray');
+					}
+					info.innerHTML=strArr['1'];
+				}else{
+					if(strArr['3']!='')$('#email').val(strArr['3'])
+					if(strArr['4']!='')$('#phone').val(strArr['4'])
+					if(strArr['5']!='')$('#qq').val(strArr['5'])
+					$('#newpsw').val('');
+					info.innerHTML=strArr['1'];
+				}
+				$('#scodeimg').attr('src','scode.php?rand='+Math.random());
+            }
+        });
+
+		return false;
+	});
+
+});
+</script>
+{{tongji}}
+</body>
+
+</html>
