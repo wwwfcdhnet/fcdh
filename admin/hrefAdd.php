@@ -72,7 +72,7 @@ if($act=='add'){
 		}else{
 			$res=$db->query("select last_insert_rowid() from href")->fetch(); 
 			$hid=$res[0];
-			$rank=$hid%100;
+			$rank=150-$hid%150;
 			$arr = array('，' => ';', ',' => ';', "；" => ';', "|" => ';', "、" => ';'); 
 			$hrefwd=strtr($hrefwd, $arr); 
 			$hrefarr=explode(';',$hrefwd);
@@ -112,19 +112,23 @@ if($act=='add'){
 						$eof=$db->exec("insert into pagehref(tid,hid,rank) values($tidson,$hid,$rank)");
 					}else{
 						$tidtag=$tid;
+						$tidson=0;
 						$eof=$db->exec("insert into pagehref(tid,hid,rank) values($tid,$hid,$rank)");
 						$res=$db->query("select tindex from tag where tid=$tid limit 1")->fetch();
 						$onetags=$res['tindex'];
 						if($onetags=='index')$onetags='';
 					}
-					if($onetags=='index'){ // 如果标签是首页index则换一个标签
-						$tidtag=$tidson;
+					
+					$twotags='';
+					if($tidson){
 						$res=$db->query("select tindex from tag where tid=$tidson limit 1")->fetch();
-						$onetags=$res['tindex'];
+						$twotags=$res['tindex'];
+						if($onetags==$twotags || $twotags=='index'){$twotags='';}
+						if($onetags=='index'){$onetags='';}
 					}
 				}
 				$htag=$tidtag;
-				$tags=$onetags;
+				$tags=$onetags.','.$twotags;
 				if(!empty($tagstr)){// 如果网站类型不为空
 					$tags=$htag=',';
 					$arr = array('，' => ',', ';' => ',', "；" => ','); 
@@ -147,6 +151,9 @@ if($act=='add'){
 						}
 						if(!strstr($tags,','.$onetags.',')){ //如果字符标签不存在
 							$tags.=$onetags.',';
+						}
+						if(!strstr($tags,','.$twotags.',')){ //如果字符标签不存在
+							$tags.=$twotags.',';
 						}
 					}
 				}
@@ -307,7 +314,7 @@ if($act=='add'){
 			</p>
 			<p>
 				<label>网站状态</label>
-				<select class="form-control" name="hstate"style="width:50%"><option value="1"<?php if($hstate==1)echo'selected';?>>正常(1)</option><option value="2"<?php if($hstate==2)echo'selected';?>>异常(2)</option><option value="3"<?php if($hstate==3)echo'selected';?>>改版(3)</option><option value="0"<?php if($hstate==0)echo'selected';?>>死链(0)</option></select>
+				<select class="form-control" name="hstate"style="width:50%"><option value="1" selected>正常(1)</option><option value="2">异常(2)</option><option value="3">改版(3)</option><option value="4">被屏蔽(4)</option><option value="0">死链(0)</option></select>
 			</p>
 				<button type="submit" class="btn btn-primary btn-block">增加链接</button>
 			</form>

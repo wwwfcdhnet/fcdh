@@ -130,6 +130,12 @@
                             <i class="fa-eyedropper c8"title="链接检查"></i>
                         </a>
                     </li>
+                    <li>
+                        <a href="configSite.php"class="smooth">
+                            <span>网站配置</span>
+                            <i class="fa-gear"title="网站配置"></i>
+                        </a>
+                    </li>
                 </ul>
         </div>
 </div>
