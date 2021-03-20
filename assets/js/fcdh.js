@@ -7,8 +7,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  // 全局变量，可以自己配置
-var _ajaxsearch='https://bbs.fcdh.net/ajax_search.php'; // 搜索远程数据
-var _ajaxurl='https://bbs.fcdh.net/ajax.php';  // 下载或上传到远程数据网址
+var _ajaxsearch='ajax_search.php'; // 搜索共享数据 https://bbs.fcdh.net/ajax_search.php
+var _ajaxurl='ajax.php';  // 下载或上传共享数据 https://bbs.fcdh.net/ajax.php
 var _name='admin'; // 默认下载admin用户的网址
 
 if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires jQuery");
@@ -946,6 +946,7 @@ function get_userself_hrefs(dwname,tn='records',all=0){
 	xhr.onreadystatechange=function(){
 		records.innerHTML='<li><img src="assets/images/loading.gif"></li>';
 		if(xhr.readyState == 4 && xhr.status==200){
+			//alert(xhr.responseText);
 			var strArr = JSON.parse(xhr.responseText);
 			//alert(strArr['1']);
 			if(strArr['0']){
