@@ -125,7 +125,7 @@ function filterText($str){	// 过滤输入文本
 function filterTitle($str,$allow=true){ // 中文输入方式过滤特殊字符
 	$str=trim(addslashes(sprintf("%s",$str)));
 	//$str=trim(addslashes($str));  
-    $arr = array('`' => '', '~' => '', '!' => '', '@' => '#', '$' => '', '%' => '', '^' => '', '*' => '', '(' => '', ')' => '', '|' => '', '\\' => '', '{' => '', '[' => '', '}' => '', ']' => '', ';' => '', '"' => '\"', "'" => '\'','\"' => '\"', '\'' => '\'');
+    $arr = array('`' => '', '~' => '', '!' => '', '@' => '#', '$' => '', '%' => '', '^' => '', '*' => '', '（' => '(', '）' => ')', '|' => '', '\\' => '', '{' => '', '[' => '', '}' => '', ']' => '', ';' => '', '"' => '\"', "'" => '\'','\"' => '\"', '\'' => '\'');
 	if($allow)$str=strip_tags($str,'<img><strong>');
     return strtr($str, $arr);  
 }
@@ -518,9 +518,9 @@ function hrefhtml($hid,$tn=0){// 0:表示生成href 2：表示生成blog
 			$delwd=$del=$img=$color='';
 			if(isset($arr['hico'])){
 				if($arr['hico']==1){ // 已经上传到七牛云
-					$img='<img src="//www.fcdh.net/assets/logos/'.$arr['hindex'].'.png">';
+					$img='<img src="/assets/logos/'.$arr['hindex'].'.png">';
 				}elseif(file_exists($imgsrc)){
-					$img='<img src="//bbs.fcdh.net/assets/logos/'.$arr['hindex'].'.png">';
+					$img='<img src="/assets/logos/'.$arr['hindex'].'.png">';
 				}
 			}
 			if($arr['hstate']==0){ // 表示死链
@@ -560,7 +560,8 @@ function hrefhtml($hid,$tn=0){// 0:表示生成href 2：表示生成blog
 		$hico=$res['hico'];
 		if($hstate==0)$hstate=9;
 		elseif($hstate==2)$hstate=10;
-		$statearr=array('9'=>'死链','1'=>'正常','10'=>'异常','3'=>'改版');
+		elseif($hstate==4)$hstate=8;
+		$statearr=array('9'=>'死链','1'=>'正常','10'=>'异常','3'=>'改版','8'=>'被屏蔽');
 	}
 
 	$tag=$db->query("select tid,tindex,tname from tag where tid in($htag)")->fetchAll(); 
@@ -587,9 +588,9 @@ function hrefhtml($hid,$tn=0){// 0:表示生成href 2：表示生成blog
 		$img='';
 
 		if($hico==1){ // 已经上传到七牛云
-			$img='<img src="//www.fcdh.net/assets/logos/'.$hindex.'.png"id="ico">';
+			$img='<img src="../assets/logos/'.$hindex.'.png"id="ico">';
 		}elseif(file_exists($imgsrc)){
-			$img='<img src="//bbs.fcdh.net/assets/logos/'.$hindex.'.png"id="ico">';
+			$img='<img src="../assets/logos/'.$hindex.'.png"id="ico">';
 		}
 
 		$opt=$hcolor.'#'.$hstrong.'#'.$hname;

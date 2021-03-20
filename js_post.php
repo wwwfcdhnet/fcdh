@@ -50,7 +50,7 @@ if(isset($_POST['tname'])){ //增加网站提交信息
 		$verify=1;
 	}
 
-	$eof=$db->query("insert into contenthref(cate,hindex,url,tname,title,keyword,content,addtime,ip,email,verify,top) values($ttype,'$hindex','$url','$tname','$title','$keyword','$content',$addtime,'$ip','$email',$verify,0)");
+	$eof=$db->query("insert into contenthref(cate,hindex,url,tname,title,keyword,content,addtime,ip,verify,top) values($ttype,'$hindex','$url','$tname','$title','$keyword','$content',$addtime,'$ip',$verify,0)");
 	if(!$eof){
 		echo 'chong';
 	}else{
