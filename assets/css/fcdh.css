@@ -401,7 +401,7 @@ footer.footer #go-up i{
 .searchs button {
 	width:80px;
 }
-
+a.btn{padding:8px 10px;font-size:13px;}
 .searchs button:hover,.btn-primary:hover,#del:hover{opacity:.8;}
 
 .searchs img{
@@ -492,14 +492,14 @@ footer.footer #go-up i{
 	padding-bottom:4px;
 	display:block;
 	margin:auto -15px;
-	border-radius:0 0 10px 10px;
+	border-radius:0 0 12px 12px;
 	font-size:17px;
 }
 .ti-ulbg a{color:#3e403e;}
 .row,.rowx,.rowso{
 	margin:0 4px;
 	overflow:hidden;
-	border-radius: 0 10px 10px 10px;
+	border-radius: 0 12px 12px 12px;
 }
 
 h4>a,.tablink,#records,ul.show,.row,.rowx,.rowso{
@@ -620,7 +620,7 @@ div.rowx ol{
 	margin:0 4px;
 	overflow:hidden;
 	background-color:#f2f2f2;
-	border-radius: 0 10px 10px 10px;
+	border-radius: 0 12px 12px 12px;
 	padding:0;
 }
 
@@ -639,7 +639,6 @@ h4 img,.row li img,.rowx li img,.rowso li img{
 
 ul.show{
 	max-height:none;
-	1background-color:#f2f2f2;
 }
 #ti-meng.ti-meng{
 	width:100%;
@@ -672,7 +671,7 @@ ul.show{
 	-webkit-overflow-scrolling: touch;
 	scrollbar-width: none;
 	margin:auto 4px;
-	border-radius:15px 15px 0 0;
+	border-radius:12px 12px 0 0;
 	margin-top:3px;
 }
 ::-webkit-scrollbar{/*Òþ²Ø¹öÂÖ*/
@@ -694,7 +693,7 @@ h4>a:hover,.ti-scroll li a:hover,a.open{color:#ff8345;background-color:#f9f9f9;}
 
 
 #records{
-	border-radius:0 10px 10px 10px;
+	border-radius:0 12px 12px 12px;
 	padding-top:3px;
 }
 .menushow{
@@ -702,12 +701,10 @@ h4>a:hover,.ti-scroll li a:hover,a.open{color:#ff8345;background-color:#f9f9f9;}
 }
 h4>a{
 	margin:3px -4px 0 4px;
-	border-radius: 10px 10px 0 0;
-	1background-color:#f2f2f2;
+	border-radius: 12px 12px 0 0;
 }
-.tablink{1background-color:#f2f2f2;}
 .tablink,.ti-scroll  li,.open,.ti-scroll li a{
-	border-radius: 15px 15px 0 0;
+	border-radius: 12px 12px 0 0;
 }
 .row li,.rowx li a{1color:#777777;}
 .hidden{display:none;}
