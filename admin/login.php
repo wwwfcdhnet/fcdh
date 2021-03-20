@@ -40,7 +40,7 @@ include '../function.php';
 		<div class="modal-footer"> 
 			<button id="cancel"type="submit" class="btn btn-primary" data-dismiss="modal"> 确 定 </button> 
 		</div> 
-	</div><!-- end 模态 -->
+	</div><!-- end 模态 3eff17c13a49b6c775cc678cced01548 14cbb03dcc85b12ba1aabff470a90dcbc -->
 </div>
 <script src="../assets/js/fcdh.js"></script>
 <script>
@@ -56,6 +56,7 @@ include '../function.php';
 				return false;
 			}
 			$.post('js_login.php', { 'name': name, 'pass': pass,'scode':scode.val(), 'rand': Math.random() }, function (data) {
+				//alert(data);
 				if (data == 'success') {
 					window.location.href = 'index.php';
 				}else if(data=='scode') {

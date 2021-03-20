@@ -5,12 +5,11 @@ session_start();
 $name=@$_POST['name'];
 $pass=@$_POST['pass'];
 $scode=@strtoupper($_POST['scode']);
-$pass=md5($pass);
+$pass=md5($pass.$_KEY);
 $ps=$db->prepare("select * from admin where name=:name and pass=:pass");
 $ps->execute(array(':name'=>$name,':pass'=>$pass));
 $data=$ps->fetch();
-
-	
+//	echo$_POST['pass'],$pass;
 if($data){
 	$_SESSION['login']='OK';
 	if(load_config('scode')=='1'){
