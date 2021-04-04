@@ -795,7 +795,7 @@ function trigger_resizable(){
 */
 function getHrefKey(url)
 {
-	return md5(url).substr(12,8);
+	return md5(url.split('://')[1]).substr(12,8);
 }
 function heartHref(url,opt=null){// 收藏网址
 	if(url==0 || url=='' || url==null)return;
