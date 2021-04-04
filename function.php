@@ -45,6 +45,7 @@ function get_url_index($hurl){
 	$index='';
 	for($len=$i=count($urlarr);$i>0;$i--){
 		if($i==1){
+			//if($urlarr[0]=='www')$urlarr[0]='';
 			if($len<3){
 				$index=$urlarr[$i-1].$index;
 			}else{
