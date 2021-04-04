@@ -39,7 +39,6 @@ $_bucket = "'.$conf['Bucket'].'";';
 	fwrite($fp, $admin);
 	fclose($fp);
 
-	
 	$fp = fopen('../edit.html', "w"); 
 	$content=file_get_contents('../assets/template/edit.htm');
 	$content = str_replace('{{title}}', $conf['title'], $content);
@@ -191,7 +190,7 @@ $_bucket = "'.$conf['Bucket'].'";';
 				<input type="text" maxlength="32" class="form-control"style="width:100%" value="<?php echo$conf['domain'];?>" name="domain">
 			</p>
 			<p>
-				<label>网站创建日期</label><br/>
+				<label>网站创建日期 年-月-日</label><br/>
 				<input type="text" maxlength="4" class="form-control"style="width:32%" value="<?php echo$conf['year'];?>" name="year">
 				<input type="text" maxlength="2" class="form-control"style="width:32%" value="<?php echo$conf['mon'];?>" name="mon">
 				<input type="text" maxlength="2" class="form-control"style="width:32%" value="<?php echo$conf['day'];?>" name="day">

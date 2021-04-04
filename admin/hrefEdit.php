@@ -37,6 +37,10 @@ if($act=='edit'){
 	if($uptime){
 		$htime=",htime='".date("Y-m-d H:i:s")."'";
 	}
+	if($hstate==0){//表示死链
+		$hrefwd.=';死链';
+	}
+
 	$html=0;
 	$arr = array('，' => ',', ';' => ',', "；" => ','); 
 	$tagstr=trim(strtr($tagstr, $arr),','); 
@@ -78,6 +82,7 @@ if($act=='edit'){
 		$i=0;
 		foreach($hrefarr as $str){ // 要存入数据库中的word
 			$word=filterTitle(trim($str));
+			if($hstate!=0 && $word=='死链')continue;
 			$res=$db->query("select wid from tagword where word='$word'")->fetch();			
 			$wid=intval($res['wid']);
 			if(in_array($wid,$widarr))continue;
@@ -166,7 +171,7 @@ if($act=='edit'){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
     <meta name="author" content="viggo" />
-    <title>增加网址 - 后台管理 - 非常导航</title>
+    <title>编辑网址 - 后台管理 - 非常导航</title>
     <link rel="shortcut icon" href="../assets/images/favicon.png">
 	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/fcdh.css">
@@ -207,7 +212,7 @@ if($act=='edit'){
 			<br/>
 
 			<form method="post" action="?act=edit">
-				<h3><a><i class="fa-bookmark"></i>编辑链接</a> </h3>
+				<h3><a><i class="fa-bookmark"></i>编辑链接</a>  <span id="info"><?php echo $msg; ?></span></h3>
 			<p>
 				<label>网站索引</label><strong>*</strong> <span>(32字符)</span>
 				<input <?php if($html>-1) echo'disabled ';?>type="text" maxlength="32"class="form-control"placeholder="wwwfcdhnet"style="width:100%"value="<?php echo$hindex;?>"id="hindex" name="hindex" required>
@@ -220,8 +225,8 @@ if($act=='edit'){
 				?>
 			</p>
 			<p>
-				<label>网站网址</label><strong>*</strong> <span>(64字符)</span> <span id="info"><?php echo $msg; ?></span>
-				<input type="text"maxlength="64" class="form-control"placeholder="https://"style="width:100%"value="<?php echo$hurl;?>"id="hurl" name="hurl" onchange="getRemoteUrl(this,1);" required>
+				<label>网站网址</label><strong>*</strong> <span>(64字符)</span> <button type="button"onclick="getRemoteUrl(this,1);return true;">获取META</button>
+				<input type="text"maxlength="64" class="form-control"placeholder="https://"style="width:100%"value="<?php echo$hurl;?>"id="hurl" name="hurl" required>
 			</p>
 			<p>
 				<label class="c8">搜索字词</label><strong>*</strong> <span>(256字符)</span>
@@ -280,7 +285,7 @@ if($act=='edit'){
 			</p>
 			<p>
 				<label>网站状态</label>
-				<select class="form-control" name="hstate"style="width:50%"><option value="1"<?php if($hstate==1)echo'selected';?>>正常</option><option value="2"<?php if($hstate==2)echo'selected';?>>异常</option><option value="3"<?php if($hstate==3)echo'selected';?>>改版</option><option value="0"<?php if($hstate==0)echo'selected';?>>死链</option></select>
+				<select class="form-control" name="hstate"style="width:50%"><option value="1"<?php if($hstate==1)echo'selected';?>>正常(1)</option><option value="2"<?php if($hstate==2)echo'selected';?>>异常(2)</option><option value="3"<?php if($hstate==3)echo'selected';?>>改版(3)</option><option value="4"<?php if($hstate==4)echo'selected';?>>被屏蔽(4)</option><option value="0"<?php if($hstate==0)echo'selected';?>>死链(0)</option></select>
 			</p>
 				<input type="hidden" name="hid"value="<?php echo$hid;?>"></button>
 				<input type="hidden" name="ref"value="<?php echo$ref;?>"></button>
