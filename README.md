@@ -37,7 +37,7 @@
 <h3>交流和留言</h3>
 <ul>
 <li>非常导航官方QQ群1：<strong>690912541</strong></li>
-<li>留言板：<strong>http://bbs.fcdh.net</strong></li>
+<li>留言板：<strong>http://bbs.fcdh.net/bbs.php</strong></li>
 </ul>
 </p>
 <p>
