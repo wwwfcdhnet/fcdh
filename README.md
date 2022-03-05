@@ -10,7 +10,7 @@
   </p>
 <p>
   <h3>安装方法</h3>
-  将整个源码下载到服务器根目录即可使用，不用配置数据库，本地访问127.0.0.1，服务器端访问则使用自己绑定的域名。
+  点击根目录install.php 就可以安装
   </p>
 <p><h3>工具使用</h3>
 <ul><li><a href="https://www.fcdh.net/soft/SQLiteStudio-V3.1.1.zip"target="_blank">sqlite数据库编辑工具(fcdh.db)</a></li>
