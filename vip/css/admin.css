@@ -1,1 +1,10 @@
-admin.css
+body{background: #f2f2f2;opacity:1;}
+#menu ul li{
+	width:25.0%;
+}
+div.endnav{
+	height:59px;
+}
+footer.footer{
+	height:53px;
+}
