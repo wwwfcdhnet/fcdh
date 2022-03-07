@@ -1,6 +1,6 @@
 // 对记录或收藏的网址进行操作
-//var _ajaxurl='ajax.php';  // 下载或上传共享数据 https://bbs.fcdh.net/ajax.php
-//var _ajaxurl='http://127.0.0.1/ajax.php';
+//var _ajaxurl='https://bbs.fcdh.net/ajax.php';
+//var _ajaxurl='https://127.0.0.1/ajax.php';
 var _editmodal=$('#edithref');
 function editHref(url,obj,opt){
 	$('input:radio[name="cate"][value="'+opt+'"]').prop('checked',true);
@@ -165,6 +165,7 @@ function optSite(obj){
 		case '4': // 上传收藏网址到云端
 			var upname=$("input[name='upname']").val().replace(/^\s*|\s*$/g,""),
 				psw=$("input[name='psw']").val();
+			
 			if(upname==''){
 				$("input[name='upname']").focus();
 				return;
@@ -193,7 +194,6 @@ function optSite(obj){
 				if(xhr.readyState == 4 && xhr.status==200){
 					//alert(xhr.responseText);
 					var strArr = JSON.parse(xhr.responseText);
-					//alert(strArr);
 					if(strArr['0']){
 						info.innerHTML=strArr['1'];
 						localStorage.setItem('uname', upname);

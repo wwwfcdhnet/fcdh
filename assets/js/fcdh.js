@@ -7,10 +7,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  // 全局变量，可以自己配置
-var _ajaxsearch='ajax_search.php'; // 搜索共享数据 https://bbs.fcdh.net/ajax_search.php
-var _ajaxurl='ajax.php';  // 下载或上传共享数据 https://bbs.fcdh.net/ajax.php
+var _ajaxsearch='ajax_search.php'; // 搜索远程数据
+var _ajaxurl='ajax.php';  // 下载或上传到远程数据网址
+var _ajaxstate='ajax_state.php'; // 设置url状态
 var _name='admin'; // 默认下载admin用户的网址
-
+var _gohref='';
 if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires jQuery");
 
 	+function(a){
@@ -195,7 +196,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 
 var _pagename=null;
-var _thisSearch='https://www.baidu.com/s?word='; // 默认搜索引擎
+var _thisSearch='search.html?photo='; // 默认搜索引擎
 var now = -1;
 var resLength = 0;
 var _this='undefined',  // 当前左侧导航打开或关闭的节点对象
@@ -222,7 +223,7 @@ var _search = {
 	}, {
 		name: '谷歌',
 		img: 'assets/images/google.png',
-		url: 'https://www.google.com/search',
+		url: 'https://www.google.co.jp/search',
 		word:'q'
 	}, {
 		name: '必应',
@@ -239,7 +240,9 @@ var _search = {
 		img: 'assets/images/sogou.png',
 		url: 'https://www.sogou.com/web',
 		word:'query'
-	}, {
+	}
+	/*
+	, {
 		name: '天猫',
 		img: 'assets/images/tmall.png',
 		url: 'https://list.tmall.com/search_product.htm',
@@ -249,15 +252,19 @@ var _search = {
 		img: 'assets/images/jd.png',
 		url: 'https://search.jd.com/Search',
 		word:'keyword'
-	}, {
+	}*/
+	
+	, { // 必须放最后
 		name: '站内',
 		img: 'assets/images/fcdh.png',
 		url: 'search.html',
-		word:'href'
+		word:'photo'
 	}]
 }
-
-var _hidbox=false; // 是否隐藏#box 节点
+var rowph=0,
+	rowp=$(".rowp"),
+	phone=0, //手机方向 1 坚屏，2 横屏
+	_hidbox=false; // 是否隐藏#box 节点
 $(document).ready(function()
 {
 	// Main Vars
@@ -266,7 +273,7 @@ $(document).ready(function()
 	public_vars.$sidebarMenu	= $('#sidebar');
 	public_vars.$tiMeng			= $('#ti-meng');	
 
-
+	phone=orient();
 	setup_sidebar_menu(); // 初	始化左边菜单	
 
 	_pagename=pageName(); //获取当前页面名称
@@ -274,6 +281,23 @@ $(document).ready(function()
 	if(_pagename=='index.html' || _pagename=='home.html' || _pagename=='edit.html'){
 		loadLocalSites(); // 加载本地网址
 	}
+
+	
+	/* 在用户变化屏幕显示方向的时候调用*/
+	$(window).bind('orientationchange', function(e){
+		phone=orient();setTimeout('trigger_resizable()',250);
+	});
+
+
+	// Enable/Disable Resizable Event
+	var resizeTimer=null;
+	$(window).resize(function() { // 解决执行两次变化
+		if (resizeTimer) clearTimeout(resizeTimer);
+		if(!phone){
+			resizeTimer = setTimeout('trigger_resizable()',100);
+		}
+	});
+
 	// Sidebar Toggle
 	//$('a[data-toggle="sidebar"]')
 	$('#ti-side').on('click',function(ev)
@@ -300,6 +324,7 @@ $(document).ready(function()
 			}
 			$('.has-sub.expanded > ul').show();
 		}
+		fixpics();
 	});
 	//$('.has-sub.expanded > ul').show();
 
@@ -373,8 +398,10 @@ $(document).ready(function()
 	
 	$("#menu a.smooth").click(function(ev) {
 		ev.stopPropagation();
-		var rowid=$(this).attr("href").substr(1);
-		moreHref(rowid,true);
+		var rowid=$(this).attr("href");
+		if('#'==rowid.charAt(0)){
+			moreHref(rowid.substr(1),true);
+		}
 		$("#menu li").each(function() {
 			$(this).removeClass("active");
 		});
@@ -382,7 +409,7 @@ $(document).ready(function()
 		public_vars.$sidebarMenu.toggleClass('mobile');
 		public_vars.$tiMeng.toggleClass('ti-meng');	
 		$("html, body").animate({
-			scrollTop: $($(this).attr("href")).offset().top - 105
+			scrollTop: $($(this).attr("href")).offset().top - 107
 		}, {
 			duration: 150,
 			easing: "swing"
@@ -416,6 +443,7 @@ $(document).ready(function()
 		box.html('');	
 		txt.val('');
 		delwd.css('display', 'none');
+		soinput.focus();
 	});
 
 	$("#txt").bind("input propertychange",function(event){   //当输入时，立刻隐藏下拉列表
@@ -514,8 +542,6 @@ $(document).ready(function()
 		box.html('');		
 		box.css('display', 'none');
 	});
-
-
 	mySearch(localStorage.getItem('search'));
 	var engine=$('#ti-engine');
 	for (var i = 0; i < _search.data.length; i++) {
@@ -570,38 +596,38 @@ $(document).ready(function()
 		box.attr('style','display:none');//setTimeout('displaynone()',250);	
 	});
 
-	// Enable/Disable Resizable Event
-	$(window).resize(function() {
-		setTimeout('trigger_resizable()',100);
-	});
+
+	
 	return false;
 
 });
 function mySearch(_index){// 加载最近使用的搜索
-	if(_index==null)return;
-    _thisSearch = _search.data[_index].url+'?'+_search.data[_index].word+'=';
-	var imge = _search.data[_index].img;
-	var wd = _search.data[_index].word;
-	var title=_search.data[_index].name;
-	var icon=$('#ti-icon');
-		icon.attr('src', imge);
-		icon.attr('alt', _index);
-		icon.attr('title', title);
-	var subform=$('#ti-search form');
-		subform.attr('action',_thisSearch);
-	var inputso=$('#ti-search input');
-	//inputso.focus();
-	//var btnsub=$('#ti-search button');
-		inputso.attr('name',wd);
-		btnsub.html(title);
-	if(title=='站内'){
-		subform.attr('target','_self');
-		$('#box').css('display','none');
-		_hidbox=true;
-	}else{		
-		subform.attr('target','_blank');
-		_hidbox=false;
+	if(_index!=null){
+		_thisSearch = _search.data[_index].url+'?'+_search.data[_index].word+'=';
+		var imge = _search.data[_index].img;
+		var wd = _search.data[_index].word;
+		var title=_search.data[_index].name;
+		var icon=$('#ti-icon');
+			icon.attr('src', imge);
+			icon.attr('alt', _index);
+			icon.attr('title', title);
+		var subform=$('#ti-search form');
+			subform.attr('action',_thisSearch);
+		var inputso=$('#ti-search input');
+		//inputso.focus();
+		//var btnsub=$('#ti-search button');
+			inputso.attr('name',wd);
+			btnsub.html(title);
+		if(title=='站内'){
+			subform.attr('target','_self');
+			$('#box').css('display','none');
+			_hidbox=true;
+		}else{		
+			subform.attr('target','_blank');
+			_hidbox=false;
+		}
 	}
+	//加载搜索页面
 	if(_pagename=='search.html'){
 		type='href';
 		wd='fcdh';
@@ -612,9 +638,11 @@ function mySearch(_index){// 加载最近使用的搜索
 		var tagso=$('#tag');
 		var blogso=$('#blog');
 		var hrefso=$('#href');
+		var photoso=$('#photo');
 		tagso.attr('href','?tag='+wd);
 		blogso.attr('href','?blog='+wd);
 		hrefso.attr('href','?href='+wd);
+		photoso.attr('href','?photo='+wd);
 		if(wd!='' && arr)getHrefList(wd,type);	
 	}
 }
@@ -627,7 +655,7 @@ function getQueryVariable(title)
 	   var vars = query.split("&");
 	   for (var i=0;i<vars.length;i++) {
 			   var pair = vars[i].split("=");
-			   if(pair[0] == 'href' || pair[0] == 'tag' || pair[0] == 'blog'){
+			   if(pair[0] == 'href' || pair[0] == 'tag' || pair[0] == 'blog' || pair[0] == 'photo'){
 					var soinput=$('#txt');
 					soinput.attr('name',pair[0]);	
 					if(title=='站内'){
@@ -635,6 +663,8 @@ function getQueryVariable(title)
 							btnsub.html('博客');
 						}else if(pair[0] == 'tag'){
 							btnsub.html('标签');
+						}else if(pair[0] == 'photo'){
+							btnsub.html('套图');
 						}else{
 							btnsub.html('站内');
 						}
@@ -674,7 +704,7 @@ function getHrefList(wd='',type='href',page=1){
 		}
 		var info=document.getElementById('info');
 		var main=document.getElementById(mainid);
-		var hreflist='';
+		var items=hreflist='';
 		xhr.onreadystatechange=function(){
 			info.innerHTML='<img src="assets/images/loading.gif">';
 			if(xhr.readyState == 4 && xhr.status==200){
@@ -684,25 +714,39 @@ function getHrefList(wd='',type='href',page=1){
 					var type=strArr['3'];
 					var count=0;
 					var de='';
+					var targ='target="_blank"';
+					if(type=='photo'){
+						hreflist='<h4><a><i class="fa-bookmark"></i> '+wd+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowp show">';
+					}
 					for(var i=4,len=strArr.length;i<len;){
 						if(type=='href'){
 							de='';
 							if(strArr[i+3]==0){ //死链
 								de=' class="de"';
 							}
-							hreflist+='<h4><a><i class="fa-bookmark"></i> '+strArr[i++]+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
-							hreflist+='<li><a href="'+strArr[i+1]+'"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong'+de+'>'+strArr[i++]+'</strong></a><br><span'+de+'>'+strArr[i+1]+'</span>';
-							i+=2;
+							var gourl=strArr[i+2];
+							hreflist+='<h4><a><i class="fa-bookmark"></i> '+strArr[i]+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
+							hreflist+='<li><a onclick="openHref(\''+gourl+'\',0,\'0#0#'+strArr[i]+'\')"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i+1]+'.html"'+targ+'><strong'+de+'>'+strArr[i+4]+'</strong></a>';
+							i+=5;
 						}else if(type=='tag'){
 							hreflist+='<h4><a><i class="fa-bookmark"></i> '+strArr[i++]+'</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
-							hreflist+='<li><a href="'+strArr[i]+'.html"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong>'+strArr[i++]+'</strong></a>';
+							hreflist+='<li><span class="fa-flag c6"></span>&nbsp;<a href="'+strArr[i++]+'.html"'+targ+'><strong>'+strArr[i++]+'</strong></a>';
+						}else if(type=='photo'){ // 套图
+							//hreflist+='<li><span class="fa-flag c6"></span>&nbsp;<a href="'+strArr[i++]+'.html"'+targ+'><strong>'+strArr[i++]+'</strong></a>';
+							if(strArr[i+3]<1)strArr[i+3]='N-';
+							hreflist+='<li><a href="'+strArr[i+1]+'p.html"><img src="'+strArr[i+7]+'thumb/'+strArr[i+2]+'/'+strArr[i+1]+'-'+strArr[i+4]+'-t-.jpg"><span class="bg'+strArr[i+6]+'">'+strArr[i]+'</span><i class="pix bg8">'+strArr[i+3]+'</i><i class="vip bg'+strArr[i+5]+'">VIP'+strArr[i+5]+'</i></a></li>';
+							i+=8;
 						}else{// 博客
 							hreflist+='<h4><a><i class="fa-bookmark"></i> 文章</a> &nbsp; </h4><div class="ti-ulbg"><ul class="rowso">';
-							hreflist+='<li><a href="'+strArr[++i]+'.html"target="website"><span class="fa-external-link c6"></span></a>&nbsp;<a href="'+strArr[i++]+'.html"><strong>'+strArr[i-2]+'</strong></a>';
+							hreflist+='<li><span class="fa-flag c6"></span>&nbsp;<a href="'+strArr[++i]+'.html"'+targ+'><strong>'+strArr[i-1]+'</strong></a>';
+							++i;
 						}
 						if(type=='href' || type=='blog'){
 							hreflist+='<br><i class="fa-calendar"> '+strArr[i++]+'</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-eye"> '+strArr[i++]+'</i></li>';
 						}
+						if(type !='photo')hreflist+='</ul></div>';
+					}
+					if(type=='photo'){
 						hreflist+='</ul></div>';
 					}
 					var pre=strArr['2']-1;
@@ -731,6 +775,7 @@ function getHrefList(wd='',type='href',page=1){
 						}
 						main.innerHTML=hreflist;
 					}
+					imgHover();
 				}else{
 					info.innerHTML=strArr['2'];
 				}
@@ -743,17 +788,60 @@ function getHrefList(wd='',type='href',page=1){
 		xhr.send(fData);
 }
 
+function imgHover(){
+	$(".rowp li").hover(
+	  function () {
+		var obj=$(this).children("a").children("span");
+		obj.addClass("bgspan");
+	  },
+	  function () {
+		var obj=$(this).children("a").children("span");
+		obj.removeClass("bgspan");
+	  }
+	); 
+}
+function orient() { // 手机横屏竖屏判断
+    if (window.orientation == 0 || window.orientation == 180) { // 竖屏
+        return 1;
+    }
+    else if (window.orientation == 90 || window.orientation == -90) { //横屏
+        return 2;
+    }else{// 未定义
+		return 0;
+	}
+}
+
+
+
 // 获取当前网页名称
 function pageName(){				
 	var page = window.location.pathname;
 	var host=window.location.host;
-	var lastindex=page.lastIndexOf('/')+1;
+	var lastindex=page.indexOf('/')+1;
+	//var lastindex=page.lastIndexOf('/')+1;
 	page=page.substring(lastindex);
-	if(host=='bbs.fcdh.net' && (page=='' || page=='index.php' || page=='sitesub.php')){
+
+	if(page=='index.php' || page=='sitesub.php' || page=='bbs.php'){
 		return 'bbs';
 	}
 	if(page=='')page='index.html';
 	return page;
+}
+function fixpics(){ // 修复图片的最大高度值
+	var tn=false;if($('ul').is('.rowp'))tn=true;
+	upimgh=$(".uplist:last").innerWidth()-10;
+	if(tn)rowph=($(".rowp li:first").innerWidth()-8)*1.4+18;
+	if(phone){//表示触摸屏
+		if(tn)rowph+=2;
+		upimgh+=2;	
+	}
+	if(tn){
+		$(".rowp").css("max-height",rowph+"px");
+		$(".show:first").css("max-height","none");
+	}
+	$(".uploadImg").css("height",upimgh+"px");
+//	$(".add_imgBox").css("height",upimgh+"px");
+	$(".file_progress").css("max-width",(upimgh-2)+"px");	
 }
 
 
@@ -787,7 +875,39 @@ function trigger_resizable(){
 			if(tn)public_vars.$sidebarMenu.removeClass('collapsed');
 		}
 	}
+	fixpics();
 
+}
+// js  解密后台php base64_encode
+function base64_decode(data) {
+    var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+    ac = 0,
+    dec = "",
+    tmp_arr = [];
+    if (!data) {
+        return data;
+    }
+    data += '';
+    do { // unpack four hexets into three octets using index points in b64
+        h1 = b64.indexOf(data.charAt(i++));
+        h2 = b64.indexOf(data.charAt(i++));
+        h3 = b64.indexOf(data.charAt(i++));
+        h4 = b64.indexOf(data.charAt(i++));
+        bits = h1 << 18 | h2 << 12 | h3 << 6 | h4;
+        o1 = bits >> 16 & 0xff;
+        o2 = bits >> 8 & 0xff;
+        o3 = bits & 0xff;
+        if (h3 == 64) {
+            tmp_arr[ac++] = String.fromCharCode(o1);
+        } else if (h4 == 64) {
+            tmp_arr[ac++] = String.fromCharCode(o1, o2);
+        } else {
+            tmp_arr[ac++] = String.fromCharCode(o1, o2, o3);
+        }
+    } while (i < data.length);
+    dec = tmp_arr.join('');
+    return dec;
 }
 // 打开网址页面
 /*
@@ -795,9 +915,12 @@ function trigger_resizable(){
 */
 function getHrefKey(url)
 {
-	return md5(url.split('://')[1]).substr(12,8);
+	return md5(url.split(':')[1]).substr(12,8);
 }
 function heartHref(url,opt=null){// 收藏网址
+	if(opt!=null){
+		url=base64_decode(url);
+	}
 	if(url==0 || url=='' || url==null)return;
 	var urlkey = getHrefKey(url); // 浏览记录
 	var key1 = "1"+urlkey;
@@ -819,16 +942,25 @@ function heartHref(url,opt=null){// 收藏网址
 		forbidButton('#heart',' 已收藏');
 	}
 }
-function openHref(url,obj,opt){
+function openHref(enurl,obj,opt){
+	url=base64_decode(enurl);
+	if(opt>=0)var url=enurl;
+
 	blank='_blank';
-	if(opt==undefined)opt=0;
-	else if(opt==-1){
+	if(opt==undefined){
+		opt=0;
+	}else if(opt==-1){
 		obj=obj.previousSibling.firstChild;
 		opt=0;
+	}else{
+		url=_gohref || url;
 	}
+
 	if(obj==undefined)blank='_self';
-	if(obj!=2)window.open(url, blank);
-	
+	if(obj!=2){
+		window.open(url, blank);
+	}
+
 	var max=getMaxLocalNum();	
 	var key=html='';
 	if(obj==0 || obj==2){ // href 页面的点击
@@ -838,7 +970,7 @@ function openHref(url,obj,opt){
 		var img='';
 		if(ico!=undefined){
 			img='<img src="'+ico+'">';
-		}
+		};
 		var strarr = opt.split("#");
 		var inner=img+strarr[2];
 		if(strarr[1]>0){ //is strong
@@ -849,6 +981,7 @@ function openHref(url,obj,opt){
 			color='c'+strarr[0];
 		}
 		html=max+'@'+url+'@'+obj+'@'+htitle+'@'+color+'@'+inner;	
+	//	alert(html)
 	}else if(opt==0){ // 浏览记录
 		key = opt+getHrefKey(url);
 		html=max+'@'+url+'@'+opt+'@'+obj.getAttribute("title")+'@'+obj.getAttribute('class')+'@'+obj.innerHTML.trim();
@@ -921,6 +1054,7 @@ function loadLocalSites(cate=1){
 	}else{ // index 首页
 		var records=document.getElementById('records');
 		//records.innerHTML='';
+		if(records==null)return;
 		if(cateStr[cate]==''){
 			records.innerHTML='<li title="没有相应数据"><span class="c8">【暂无数据】</span></li>';
 		}else{
@@ -946,7 +1080,6 @@ function get_userself_hrefs(dwname,tn='records',all=0){
 	xhr.onreadystatechange=function(){
 		records.innerHTML='<li><img src="assets/images/loading.gif"></li>';
 		if(xhr.readyState == 4 && xhr.status==200){
-			//alert(xhr.responseText);
 			var strArr = JSON.parse(xhr.responseText);
 			//alert(strArr['1']);
 			if(strArr['0']){
@@ -1052,7 +1185,8 @@ function get_current_breakpoint()
 
 
 function setup_sidebar_menu()
-{
+{		
+
 	if(public_vars.$sidebarMenu.length)
 	{
 		var $items_with_subs = public_vars.$sidebarMenu.find('li:has(> ul)'),
@@ -1103,6 +1237,7 @@ function setup_sidebar_menu()
 			});
 		});
 	}
+	fixpics();
 }
 
 // 左侧导航展开
@@ -1197,6 +1332,14 @@ function moreHref(rowid,_this,cate=-1){
 		}
 	}
 	//alert(open.is(_this));
+	var rowh=0;
+	if(curobj.hasClass('rowp')){
+		rowh=rowph;
+	}
+	var showp=0;
+	if(show.hasClass('rowp')){
+		showp=rowph;
+	}
 	if(open.is(_this)){
 		if(curobj.hasClass('show')){
 			curobj.removeClass('show');
@@ -1204,9 +1347,12 @@ function moreHref(rowid,_this,cate=-1){
 			if(rowid=='records' || rowid=='records1'){
 				$(_this).addClass('tablink');
 			}
+			if(rowh)curobj.css("max-height",rowh+"px");
+			fixpics();
 		}else{
 			curobj.addClass('show');
 			$(_this).addClass('open');
+			if(rowh)curobj.css("max-height",rowh+"px");
 		}
 		
 	}else{
@@ -1218,10 +1364,25 @@ function moreHref(rowid,_this,cate=-1){
 			var tablink=$('.tablink:first');
 			tablink.removeClass('tablink');
 		}
-
-		curobj.addClass('show');
 		$(_this).addClass('open');
+		curobj.addClass('show');
+		if(rowh){
+			curobj.css("max-height","none");
+		}
+		if(showp){
+			show.css("max-height",showp+"px");
+		}
 	}
+	if(tn!=true){
+		event.preventDefault();
+		$("html, body").animate({
+			scrollTop: curobj.offset().top - 107
+		}, {
+			duration: 150,
+			easing: "swing"
+		});
+	}
+	return false;
 }
 // 显示搜索模块
 function showsoso(tn){
@@ -1235,29 +1396,170 @@ function showsoso(tn){
 		}
 	}
 }
-
+function loadRarImges(encode,_this){
+	var _ajaxurl='downpic.php';
+	var self=$(_this);
+	self.html('  获取中…');
+				$(_this).attr("disabled",true);
+				self.removeClass('btn-primary');
+				self.addClass('btn-gray');
+	//alert(start);
+	$.ajax({
+		//请求方式
+		type : "POST",
+		//请求的媒体类型
+		data: {'encode':encode},
+		//crossDomain: true,
+		xhrFields:{ // 设置跨域使用的参数
+			withCredentials:true
+		},
+		timeout : 12000, //超时时间设置，单位毫秒
+		async:true,
+		//请求地址
+		url : _ajaxurl,
+		//数据，json字符串
+	   // data : JSON.stringify(list),
+		//请求成功
+		success : function(data) {
+		   var strArr = JSON.parse(data);
+		//	alert(strArr);
+			if(strArr['0']){
+				$(_this).html('  成功获取');
+				var urlcode='';
+				if(strArr['2']!=null){
+					urlcode='<a href="'+strArr['2']+'"target="_blank">[网盘地址一]</a> 提取码: <b>'+strArr['3']+'</b>';
+				}
+				if(strArr['4']!=null){
+					urlcode+='<br><a href="'+strArr['4']+'"target="_blank">[网盘地址二]</a> 提取码: <b>'+strArr['5']+'</b>';
+				}
+				if(strArr['1']!=''){
+					urlcode+='<br><i class="c5">'+strArr['1']+'</i>';
+				}
+				$('#downurl').html(urlcode);
+				var pdown=$('#pdown');
+					pdown.html(parseInt(pdown.html())+1);
+			}else{
+				$(_this).html(strArr['3']);
+				$('#msg').html(strArr['2']);
+				$('#warning').modal('show');
+			}
+		},
+	　　complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+	　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+				$(_this).attr("disabled",false);
+				self.removeClass('btn-gray');
+				self.addClass('btn-primary');
+	　　　　}
+	　　}
+	});
+}
+function loadMoreImges(pindex,pshow,year){
+	var _ajaxurl='ajax_search.php';
+	/*
+	var fData = new FormData();
+	fData.append("pindex",pindex);
+	fData.append("pshow",pshow);
+	fData.append("year",year);
+	var xhr = new XMLHttpRequest();
+	var records=document.getElementById('loadmore');
+	xhr.onreadystatechange=function(){
+		records.innerHTML=' 加载更多美人照片...';
+		if(xhr.readyState == 4 && xhr.status==200){
+			var strArr = JSON.parse(xhr.responseText);
+			if(strArr['0']){
+				$("#imges").append(strArr['2']);
+				if('over'==strArr['1']){
+				}
+			}else{
+				records.innerHTML=strArr['2'];
+			}
+		}
+		if(xhr.status==500 || xhr.status==502 ||xhr.status==503 ||xhr.status==504){
+			records.innerHTML='下载失败!';
+		}
+	}
+	xhr.open("POST",_ajaxurl);
+	xhr.send(fData);	*/
+	var loadmore=$('#loadmore');
+	forbidButton('#loadmore',' 正在加载美人照片...');
+	var start=loadmore.attr('value');
+	//alert(start);
+	$.ajax({
+		//请求方式
+		type : "POST",
+		//请求的媒体类型
+		data: {'pindex':pindex,'pshow':pshow,'year':year,'start':start},
+		//crossDomain: true,
+		xhrFields:{ // 设置跨域使用的参数
+			withCredentials:true
+		},
+		timeout: 12000, //（毫秒） 
+		async:true,
+		//请求地址
+		url : _ajaxurl,
+		//数据，json字符串
+	   // data : JSON.stringify(list),
+		//请求成功
+		success : function(data) {
+			//alert(data);
+		   var strArr = JSON.parse(data);
+			//alert(data);
+			if(strArr['0']){
+				$("#imges").append(strArr['2']);
+				if('over'==strArr['1']){
+					forbidButton('#loadmore',' 全部加载完成!');
+				}else{
+					loadmore.attr('value',strArr['1']);
+				//	loadmore.html(' 加载更多美人照片');
+					forbidButton('#loadmore',' 加载更多美人照片',1);
+				}
+			}else{
+				document.getElementById('err').innerHTML=strArr['1'];
+			}
+		},
+	　　complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+	　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+	 　　　　　forbidButton('#loadmore',' 加载更多美人照片',1);
+	　　　　}
+	　　}
+	});
+}
 // 增加点击数量
-function addHrefView(hid,hindex=''){// tn=1 则是用户在报错误信息 opt=1 表示正常访问
+function addHrefView(hid,hindex='',vip=0){// tn=1 则是用户在报错误信息 opt=1 表示正常访问
 	var opt=1;
-	if(hindex!=0 && hindex!=''){// 链接索引不为空表示用户在报错 ''表示来源博客
-		var statearr = ["死链", "正常", "异常", "改版"];
-		var state=document.getElementById('state').innerHTML;
-		opt=$("input[name='err']:checked").val();
-		if(state!=statearr[opt]){// 所选是否和原状态一致
-			forbidButton('#report');
+	if(hindex!='' && hindex!='0' && hindex !='3'){// 链接索引不为空表示用户在报错 2表示来源博客
+		if(hindex>2000000){ // 1表示来源美女套图报错
+			//var statearr = ["网盘地址无效", "正常", "提取码无效"];
+			//var state=document.getElementById('state').innerHTML;
+			opt=$("input[name='err']:checked").val();
+			forbidButton('#report',' 已报错');
 		}else{
-			return;
+			var statearr = ["死链", "正常", "异常", "改版"];
+			var state=document.getElementById('state').innerHTML;
+			opt=$("input[name='err']:checked").val();
+			if(state!=statearr[opt]){// 所选是否和原状态一致
+				forbidButton('#report',' 已报错');
+			}else{
+				return;
+			}
+		}
+	}else{
+		var i=Math.floor(Math.random()*400); // 0-399之间的随机数字
+		if(i<360){
+			i=360;
+			window.scrollBy(100, i); 
 		}
 	}
 	$.ajax({
 		//请求方式
 		type : "POST",
 		//请求的媒体类型
-		data: {'hid':hid,'hindex':hindex,'opt':opt},
+		data: {'hid':hid,'hindex':hindex,'opt':opt,'vip':vip},
 		//crossDomain: true,
 		xhrFields:{ // 设置跨域使用的参数
 			withCredentials:true
 		},
+		timeout: 12000,//（毫秒） 
 		async:true,
 		//请求地址
 		url : _ajaxsearch,
@@ -1266,26 +1568,90 @@ function addHrefView(hid,hindex=''){// tn=1 则是用户在报错误信息 opt=1
 		//请求成功
 		success : function(data) {
 		   var strArr = JSON.parse(data);
-			//alert(data);
 			if(strArr['0']){
-				if(hindex==0 || hindex==''){ // 增加view量
-					document.getElementById('view').innerHTML=strArr['3'];
-				}
-					//alert(strArr['2']);
 				if(strArr['2']){ // 后台已经被提交过一次了
-					forbidButton('#report');
+					forbidButton('#report',' 已报错');
+				}
+				if(hindex==0 || hindex==''){ // 增加view量
+					var statearr=['死链','正常','异常','改版','跳转', "已赞助", "已快审", "可赞助引流", "301重定向"];
+					var colorarr=['9','5','10','2','1','7','6','8','3'];
+					$('#view').html(strArr['3']);
+					$('#preview').html(strArr['4']);
+					$('#nowview').html(strArr['5']);
+					_gohref=strArr['6'];
+					var stateobj=$('#state');
+					if(strArr['1']==8){
+						window.location.href = _gohref;
+						return;
+					}else{
+						var state=statearr[strArr['1']];
+						var color='c'+colorarr[strArr['1']];
+						if(strArr['1']==0||strArr['1']==7)state='<a href="57392782.html"><span class="'+color+'">'+state+' &raquo;</span></a>';
+						stateobj.html(state);
+						stateobj.removeClass().addClass(color);
+						if(strArr['1']==0){
+							$('.deline').addClass('de');
+						}else{
+							$('.deline').removeClass('de');
+						}
+						heartHref(_gohref);
+					}
+				}else if(hindex==3){ //套图
+					$('#view').html(strArr['3']);
+					$('#pdown').html(strArr['6']);
+					var down= $('#down');
+					var downarr=[' 会员登录',' 首次获取',' 重复获取',' 过期获取',' 会员升级'];
+					down.html(downarr[strArr['4']]);
+					if(strArr['4']>0){
+						$('#vip').html(strArr['5']);
+						//if(strArr['4']==4)forbidButton('#down');
+					}
 				}
 			}else{
-				document.getElementById('err').innerHTML=strArr['1'];
+				$('err').html(strArr['1']);
 			}
-		}
+		},
+	　　complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+	　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+	 　　　　　 forbidButton('#down',' 重新获取',1);
+	　　　　}
+	　　}
+	});
+
+	$.ajax({
+		//请求方式
+		type : "POST",
+		//请求的媒体类型
+		data: {'hid':hid},
+		//crossDomain: true,
+		xhrFields:{ // 设置跨域使用的参数
+			withCredentials:true
+		},
+		timeout: 12000,//（毫秒） 
+		async:true,
+		//请求地址
+		url : _ajaxstate,
+		//数据，json字符串
+	   // data : JSON.stringify(list),
+		//请求成功
+		success : function(data) {
+			//alert(data);
+		},
+	　　complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+	　　}
 	});
 }
 
-function forbidButton(name,txt=''){// 让按钮变灰色不可用
+function forbidButton(name,txt='',tn=0){// 让按钮变灰色不可用或恢复
 	obj=$(name);
-	obj.attr("disabled",true);
-	obj.removeClass('btn-primary');
-	obj.addClass('btn-gray');
+	if(tn){
+		obj.attr("disabled",false);
+		obj.removeClass('btn-gray');
+		obj.addClass('btn-primary');
+	}else{// disabled
+		obj.attr("disabled",true);
+		obj.removeClass('btn-primary');
+		obj.addClass('btn-gray');
+	}
 	if(txt!='')obj.html(txt);
 }
