@@ -1,6 +1,6 @@
 <?php
-if($_SERVER['HTTP_HOST']=='index.html'){
-	header("location:http://www.index.html/");
+if($_SERVER['HTTP_HOST']=='fcdh.net'){
+	header("location:./");
 	exit;
 }
 include 'sqlite_db.php';
@@ -20,10 +20,10 @@ $verify=load_config('verify');
     <meta name="keywords" content="新站提交，网站提交，友情链接，链接提交，网址修改">
     <meta name="description" content="提交新站的地方，只要你的网站访问正常就可正常收录，禁止垃圾网站，违法网站提交">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
-	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
-    <link rel="stylesheet" href="./assets/css/bbs.css">
-	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<style>body{background: #f2f2f2;opacity:1;}</style>
 </head>
 
 <body>
@@ -113,7 +113,7 @@ $verify=load_config('verify');
 				<strong class="c8">友情提示：①所有网站提交不得违反中国法律。②友情链接需做好本站链接。③提交网站前，请用上述的“非”站内搜索查看你的网站是否已存在。如：你的网址www.fcdh.com,只搜索“fcdh”就可以。</strong>
 				</p>
 				<p>
-				<label><a class="c3"><i class="fa-bookmark"></i> 网站链接</a></label><input type="text" class="form-control" name="url"maxlength="127"style="width:100%" id="url" placeholder="http://www.index.html/"></p>
+				<label><a class="c3"><i class="fa-bookmark"></i> 网站链接</a></label><input type="text" class="form-control" name="url"maxlength="127"style="width:100%" id="url" placeholder="./"></p>
 				
 				<p><label><a class="c4"><i class="fa-bookmark"></i> 网站名称</a></label><input type="text" class="form-control" name="tname"maxlength="31"style="width:100%" id="tname" placeholder="非常导航"></p>
 
@@ -122,7 +122,7 @@ $verify=load_config('verify');
 				<p><label><a class="c6"><i class="fa-bookmark"></i> 网站关键词</a></label><input type="text" class="form-control" name="keyword"maxlength="127"style="width:100%" id="keyword" placeholder="非常导航，绿色导航，安全导航，绿色上网，安全上网，上网导航"></p>
 				<p>
 				<label><a class="c7"><i class="fa-bookmark"></i> 网站介绍</a></label>
-				<textarea rows="5" id="text" placeholder="非常导航成立于冠状病毒爆发的2020年。本着网址收藏的爱好，所以要求导航网站既能自定义网址、上传下载网址，又能看着简洁美丽、不臃肿杂乱，还要绿色安全、无毒无弹窗，这是导航站的宗旨，也是上网爱好者的底线。www.index.html" maxlength="100"></textarea>
+				<textarea rows="5" id="text" placeholder="非常导航成立于冠状病毒爆发的2020年。本着网址收藏的爱好，所以要求导航网站既能自定义网址、上传下载网址，又能看着简洁美丽、不臃肿杂乱，还要绿色安全、无毒无弹窗，这是导航站的宗旨，也是上网爱好者的底线。www.fcdh.net" maxlength="100"></textarea>
 				</p>
 				<p>
 				<label><?php if(load_config('scode')=='1'){?><img src="scode.php"alt="点击刷新" title="点击刷新" id="scodeimg" ></label><input type="text" class="form-control" name="code"maxlength="4"style="width:123px" id="scode" placeholder="验证码"><?php }?><button type="submit" class="btn btn-primary"value="4"onclick="optSite(this)">提交网站</button></p>
@@ -134,10 +134,12 @@ $verify=load_config('verify');
 				<div id="list">
 				</div>
 			</div>
-			<br/><br/><br/>
+			<div class="endnav">
             <footer class="footer">
-                    <div class="vcenter">
-                         Since 2020 <strong><a href="./">fcdh.net</a></strong> <span class="ti-more"><a href="http://beian.miit.gov.cn/">渝ICP备20001609号</a></a>
+					<div class="vcenter">
+						<span>Copyright © Since 2020 <a href="/"><strong>非常导航</strong></a>. All Rights Reserved.</span>
+						<span>Powered By fcdh.net. <a href="https://beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a></span>
+						<span>非常导航留言系统V1.0</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -146,6 +148,7 @@ $verify=load_config('verify');
                     </div>
             </footer>
 			<div id="ti-meng"></div>
+			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
 
@@ -162,12 +165,10 @@ $verify=load_config('verify');
 			</div> 
 		</div><!-- end 模态 -->
 	</div>
- <script src="./assets/js/fcdh.js"></script>
 	<script>
 $(function(){
 	var ttype=0;
 	$('#scodeimg').bind('click',function(){this.src='scode.php?rand='+Math.random();});
-	
     $('#myform').bind('submit',function(){
 		if($('#url').val().trim()==''){
 			$('#msg').html('请填写网站链接');
@@ -253,6 +254,7 @@ $(function(){
 
 });
 </script>
+ <script src="./assets/js/fcdh.js"></script>
 </body>
 
 </html>

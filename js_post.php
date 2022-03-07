@@ -1,11 +1,12 @@
 <?php
 include_once('sqlite_db.php');
 include_once('function.php');
+include_once('functionOpen.php');
 session_start();
 $content=@$_POST['content'];
 $content=mb_substr(strip_tags(filterText($content)),0,256);
 $content=nl2br($content);
-$scode=@strtoupper($_POST['scode']);
+$scode=@strtolower($_POST['scode']);
 
 if(isset($_POST['tname'])){ //增加网站提交信息	
 	$ttype=intval($_POST['ttype']);
@@ -50,7 +51,7 @@ if(isset($_POST['tname'])){ //增加网站提交信息
 		$verify=1;
 	}
 
-	$eof=$db->query("insert into contenthref(cate,hindex,url,tname,title,keyword,content,addtime,ip,verify,top) values($ttype,'$hindex','$url','$tname','$title','$keyword','$content',$addtime,'$ip',$verify,0)");
+	$eof=$db->query("insert into contenthref(cate,hindex,url,tname,title,keyword,content,addtime,ip,email,verify,top) values($ttype,'$hindex','$url','$tname','$title','$keyword','$content',$addtime,'$ip','$email',$verify,0)");
 	if(!$eof){
 		echo 'chong';
 	}else{

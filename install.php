@@ -5,6 +5,7 @@ if($_SERVER['HTTP_HOST']=='fcdh.net'){
 }
 //include './sqlite_db.php';
 include './function.php';
+include './functionOpen.php';
 $steparr=array('1'=>'配置Mysql数据','2'=>'后台用户名和密码','3'=>'修改后台目录','4'=>'修改后台目录');
 $errarr=array('1'=>'成功连接数据库','9'=>'未成功连接数据库');
 $len=count($steparr);
@@ -59,47 +60,112 @@ if($step>1){
 				fwrite($fp, $mysql);
 				fclose($fp);
 
+		$sql="CREATE TABLE IF NOT EXISTS `hidviews` (
+		  `hid` int(11) NOT NULL AUTO_INCREMENT,
+		  `views` int(10) unsigned NOT NULL DEFAULT '0',
+		  PRIMARY KEY (`hid`)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
+		mysqli_query($mydb,$sql);	
+
+		$sql="CREATE TABLE IF NOT EXISTS `href` (
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `urlkey` varchar(31) CHARACTER SET ascii NOT NULL,
+  `nums` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `html` varchar(255) NOT NULL,
+  UNIQUE KEY `uid` (`uid`,`urlkey`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8";
+		mysqli_query($mydb,$sql);	
+
+		$sql="CREATE TABLE IF NOT EXISTS `msg` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tn` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `uid` int(10) unsigned NOT NULL DEFAULT '0',
+  `uname` varchar(31) CHARACTER SET ascii NOT NULL DEFAULT '0',
+  `times` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip` varchar(19) CHARACTER SET ascii NOT NULL DEFAULT '0',
+  `ask` varchar(255) NOT NULL DEFAULT '0',
+  `reply` varchar(255) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
+		mysqli_query($mydb,$sql);	
+
 				// 插入数据结构
 			$sql="CREATE TABLE IF NOT EXISTS `user` (
   `uid` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `gender` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `found` date NOT NULL DEFAULT '2012-03-05',
-  `times` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `times` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `logtime` int(10) unsigned NOT NULL DEFAULT '0',
   `urlnum` tinyint(3) unsigned NOT NULL DEFAULT '15',
   `maxnum` int(10) unsigned NOT NULL DEFAULT '0',
-  `unick` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `uname` varchar(15) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
-  `psw` varchar(32) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
-  `email` varchar(32) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
-  `utel` bigint(11) unsigned DEFAULT NULL,
-  `uqq` bigint(11) unsigned DEFAULT NULL,
-  `bgcolor` varchar(127) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL,
-  `bordcolor` varchar(7) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '#000000',
-  `ip` varchar(15) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '0.0.0.0',
+  `unick` varchar(15) NOT NULL,
+  `uname` varchar(15) CHARACTER SET ascii NOT NULL DEFAULT 'mimipic',
+  `psw` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT 'mimipic',
+  `email` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT 'mimi@pic.com',
+  `utel` bigint(11) unsigned NOT NULL DEFAULT '0',
+  `uqq` bigint(11) unsigned NOT NULL DEFAULT '0',
+  `bgcolor` varchar(127) CHARACTER SET ascii NOT NULL DEFAULT '0',
+  `bordcolor` varchar(7) CHARACTER SET ascii NOT NULL DEFAULT '#000000',
+  `ip` varchar(15) CHARACTER SET ascii NOT NULL DEFAULT '0.0.0.0',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `name` (`uname`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
-			
-
 		mysqli_query($mydb,$sql);	
 
-				$sql="CREATE TABLE IF NOT EXISTS `href` (
-	  `uid` int(11) NOT NULL DEFAULT '0',
-	  `urlkey` varchar(31) CHARACTER SET ascii NOT NULL,
-	  `nums` smallint(5) unsigned NOT NULL DEFAULT '0',
-	  `html` varchar(255) NOT NULL,
-	  UNIQUE KEY `uid` (`uid`,`urlkey`) USING BTREE
-	) ENGINE=MyISAM DEFAULT CHARSET=utf8";
-
+				$sql="CREATE TABLE IF NOT EXISTS `vipcode` (
+  `vid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `vcode` varchar(18) CHARACTER SET ascii NOT NULL DEFAULT '0',
+  `vrank` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `price` tinyint(3) unsigned NOT NULL DEFAULT '10',
+  `saled` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `regtime` int(10) unsigned NOT NULL DEFAULT '0',
+  `uname` varchar(16) CHARACTER SET ascii DEFAULT NULL,
+  `email` varchar(32) CHARACTER SET ascii DEFAULT NULL,
+  `ip` varchar(15) CHARACTER SET ascii DEFAULT NULL,
+  PRIMARY KEY (`vid`),
+  UNIQUE KEY `vcode` (`vcode`),
+  KEY `actdate` (`regtime`),
+  KEY `uname` (`uname`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 		mysqli_query($mydb,$sql);
-			}
+
+		$sql="CREATE TABLE IF NOT EXISTS `vipimg` (
+  `iid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` int(10) unsigned NOT NULL DEFAULT '0',
+  `pindex` int(10) unsigned NOT NULL,
+  `pmid` tinyint(3) unsigned NOT NULL,
+  `downtime` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`iid`),
+  UNIQUE KEY `uid` (`uid`,`pindex`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1";
+		mysqli_query($mydb,$sql);
+
+		$sql="CREATE TABLE IF NOT EXISTS `vipuser` (
+  `uid` int(5) unsigned NOT NULL,
+  `vrank` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `fondtime` int(10) unsigned NOT NULL,
+  `logdate` date NOT NULL DEFAULT '2021-07-06',
+  `exptime` int(10) unsigned NOT NULL,
+  `upoint` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `ucoin` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `money` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `actived` smallint(6) NOT NULL DEFAULT '0',
+  `umotion` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `uname` varchar(16) CHARACTER SET ascii NOT NULL DEFAULT 'mimipic',
+  `psw` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT 'mimipic',
+  `email` varchar(32) CHARACTER SET ascii NOT NULL DEFAULT 'mimi@pic.com',
+  `ip` varchar(15) CHARACTER SET ascii NOT NULL DEFAULT '0.0.0.0',
+  `codestr` varchar(255) CHARACTER SET ascii NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8";
+		mysqli_query($mydb,$sql);
+
+
+	}
 
 		}elseif($step==3){  //第二步提交的数据
 			$key=$_POST['key'];	
 			$user=$_POST['user'];
-			$pass=md5($_POST['pass'].$key);
-			
+			$pass=md5($key.$_POST['pass'].$key);
 			$data = '12345678923456789ABCDEFGHIJKMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 			$name='00';
 			for ($i = 0; $i < 16; $i++) {
@@ -235,7 +301,7 @@ if($step>1){
 				<p>
 				<label><a class="c7"> Mysql数据库登录帐户</a> </label><input type="text" class="form-control" value="root"name="dbuser"maxlength="21"style="width:100%" placeholder="root"></p>
 				<p>
-				<label><a class="c7">Mysql数据库登录密码</a> </label><input type="text" class="form-control" value="root"name="dbpass"maxlength="21"style="width:100%" placeholder="root"></p>
+				<label><a class="c7">Mysql数据库登录密码</a> </label><input type="text" class="form-control" value="root"name="dbpass"maxlength="21"style="width:100%"autocomplete="off" placeholder="root"></p>
 				<p>
 				<label><a class="c7">Mysql数据库名称</a> </label><input type="text" class="form-control" name="dbname"value="test"maxlength="21"style="width:100%" placeholder="test"></p>
 			<?php } ?>

@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^fcdh.net$ [NC]
+RewriteRule ^(.*)$ https://www.fcdh.net/$1 [R=301,L]
+</IfModule>

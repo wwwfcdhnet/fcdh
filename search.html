@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="fcdh.net" />
-    <title>非常资源导航搜索(fcdh.net)</title>
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="fenmeiren.net" />
+    <title>粉美人资源搜索(fenmeiren.net)</title>
     <meta name="keywords" content="非常资源，非常导航，资源搜索，资源导航，资源">
     <meta name="description" content="非常资源导航搜索大全，想你所想，搜你想搜">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
@@ -15,37 +16,7 @@
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
-	<!-- Scripts -->
-	<script src="./assets/js/fcdh.js"></script>			
-	<script>		/*
-		function getQueryVariable()
-		{
-			var btnsub=$('#ti-search button');
-			var url = window.location.search;
-			if (url.indexOf("?") != -1){
-			   var query=url.substring(1);
-			   var vars = query.split("&");
-			   for (var i=0;i<vars.length;i++) {
-					   var pair = vars[i].split("=");
-					   if(pair[0] == 'wd' || pair[0] == 'tag' || pair[0] == 'blog'){
-							var soinput=$('#txt');
-							soinput.attr('name',pair[0]);	
-
-							if(pair[0] == 'blog'){
-								btnsub.html(' 博客');
-							}else if(pair[0] == 'tag'){
-								btnsub.html(' 标签');
-							}else{
-								btnsub.html(' 站内');
-							}
-							return pair;
-						}
-						return(false);
-			   }
-			}
-			return(false);
-		}*/
-	</script>
+	
 </head>
 <body>
     <!-- 鏈€澶栧眰瀹瑰櫒 -->
@@ -55,16 +26,16 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="//www.fcdh.net/" class="logo-expanded">
+                        <a href="./" class="logo-expanded">
                             <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
                         </a>
-                        <a href="//www.fcdh.net/" class="logo-collapsed">
+                        <a href="./" class="logo-collapsed">
                             <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
                         </a>
                     </div>
                 </header>
                 <ul id="menu">
-					<li><a href="./index.html"class="smooth"><span>返回首页</span><i class="fa-mail-reply"title="返回首页"></i></a></li>
+					<li><a href="./"class="smooth"><span>返回首页</span><i class="fa-mail-reply"title="返回首页"></i></a></li>
 					<li class="has-sub expanded">
 						<a class="ti-hand">
 							<span>搜索类型</span><i class="fa-search-plus"></i>
@@ -73,6 +44,7 @@
 							<li><a id="href" href="?href="class="smooth"><span>网站</span></a></li>
 							<li><a id="tag" href="?tag="class="smooth"><span>标签</span></a></li>
 							<li><a id="blog" href="?blog="class="smooth"><span>博客</span></a></li>
+							<li><a id="photo" href="?photo="class="smooth"><span>套图</span></a></li>
 						</ul>
 					</li>
 					 <li class="has-sub">
@@ -282,6 +254,7 @@
         </div>
 </div>
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -318,21 +291,23 @@
                     </li>
                 </ul>
             </nav>
-			<br/>
-			<br/>
+			</div>
+			<script src="assets/money/hreftop.js"></script>
 			<div id="main">
 				<h4><a><i class="fa-bookmark"></i> 搜索说明</a> &nbsp; <span id="info"class="c9"></span></h4>
 				<div class="ti-ulbg">
 					<ul class="rowso">
-						<li>①在搜索栏里选择“<img src="//www.fcdh.net/assets/images/fcdh.png">”图标可以在搜索本站在库的所有网站信息。比如，你想搜索自己网站<strong class="c6">“http://www.fcdh.net”</strong>是否存在，最好的方式是搜索<strong class="c4">“fcdh”</strong>关键词，当然搜索<strong class="c1">“绿色导航”</strong>也可以，那样的话，你可能搜索到更多结果。
+						<li>①在搜索栏里选择“<img src="assets/images/fcdh.png">”图标可以在搜索本站在库的所有网站信息。比如，你想搜索自己网站<strong class="c6">“http://www.fcdh.net”</strong>是否存在，最好的方式是搜索<strong class="c4">“fcdh”</strong>关键词，当然搜索<strong class="c1">“绿色导航”</strong>也可以，那样的话，你可能搜索到更多结果。
 							<br>②如果显示的是<strong class="c9">“N/A”</strong>表示结果数为<strong class="c7">“0”</strong>
 							<br>③搜索关键词，字尾尽量不要加<strong class="c9">“网”</strong>，比如搜索<strong>“新浪”</strong>，尽量不要搜索<strong>“新浪网”</strong>，当然，有些网名自带网字，比如<strong>“华夏名网”</strong>，那肯定得加<strong class="c9">“网”</strong>字。</li>
 					</ul>
 				</div>
 			</div>
-            <br/><br/><br/>
-            <footer class="footer">
-                    <div class="vcenter">Since 2020 <a href="//www.fcdh.net/"><strong>fcdh.net</strong></a> &nbsp;<span class="ti-more"><a href="//beian.miit.gov.cn/"target="_blank">渝ICP备20001609号</a> &nbsp; <script type="text/javascript" src="https://js.users.51.la/21061567.js"></script></span>
+			<script src="assets/money/hrefmid.js"></script>
+			<div class="endnav">
+           <footer class="footer">
+                     <div class="vcenter"> <span>Copyright © Since 2021 <a href="/"><strong>粉美人</strong></a>. All Rights Reserved.
+					 </span><span>Powered By fenmeiren.net. <a href="https://beian.miit.gov.cn/"target="_blank">酒ICP备20210717号</a></span><span><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JOeSlJKe3W80qG6d&ck=JOeSlJKe3W80qG6d"></script><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/JOeSlJKe3W80qG6d">51LA统计</a></span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -342,7 +317,9 @@
             </footer>
 			<div id="ti-meng">
 			</div>
+			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
+	<script src="./assets/js/fcdh.js"></script>	
 </body>
 </html>

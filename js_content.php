@@ -26,7 +26,7 @@ foreach($res as $r){
 	</dd>
 	<?php if($r['reply']!=''){?>
 	<dd class="c5">
-		 <strong class="c9">【回复】</strong><?php echo $r['reply'];?>
+		 <strong class="c7">【回复】</strong><?php echo $r['reply'];?>
 	</dd>
     <?php }?>
 </dl>

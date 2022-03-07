@@ -209,13 +209,13 @@ $(function(){
 		page=page.replace('#','');
 		if(page=='') page=1;
 		$('#list').html('数据加载中');
-		$.post('js_content.php',{'cate':0,'page':page,'rand':Math.random()},function(data){
+		$.post('js_content.php',{'page':page,'rand':Math.random()},function(data){
 			$('#list').html(data);
 		});
 	}
 
 	function load_top(){
-		$.post('js_top.php',{'cate':0},function(data){
+		$.post('js_top.php',{},function(data){
 			$('#top').html(data);
 		});
 	}

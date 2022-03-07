@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="viggo" />
-    <title>我的网址收藏主页 - 非常导航</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />	
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="fenmeiren.net" />
+    <title>我的网址主页 - 粉美人(fenmeiren.net)</title>
     <meta name="keywords" content="自定义,网址夹,本地网址,收藏主页,非常导航,上网导航">
     <meta name="description" content="记录每一个本地网址，按编辑按钮，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端，真真你自己意义上的收藏主页">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
     <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
-    <link rel="stylesheet" href="./assets/css/bbs.css">
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	<style>div.endnav{height:59px;}footer.footer{height:53px;}</style>
 </head>
 
 <body>
@@ -26,17 +27,17 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="https://www.fcdh.net/" class="logo-expanded">
+                        <a href="./" class="logo-expanded">
                             <img src="./assets/images/logo@2x.png"alt="非常导航之电脑版本logo" />
                         </a>
-                        <a href="https://www.fcdh.net/" class="logo-collapsed">
+                        <a href="./" class="logo-collapsed">
                             <img src="./assets/images/logo-collapsed@2x.png"alt="非常导航之手机版本logo" />
                         </a>
                     </div>
                 </header>
                 <ul id="menu"> 
                     <li>
-                        <a href="index.html" class="smooth">
+                        <a href="./" class="smooth">
                             <span>返回首页</span><i class="fa-home"></i>
                         </a>
                     </li>
@@ -73,7 +74,8 @@
                 </ul>
         </div>
         </div>
-        <div class="content">
+        <div class="content">			
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -89,7 +91,7 @@
                         </a>
                     </li>	
                     <li id="ti-home">
-                        <a href="index.html">
+                        <a href="./">
                             <i class="fa-home"></i>
                         </a>
                     </li>
@@ -116,12 +118,10 @@
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="https://www.fcdh.net/">非常导航</a></li>
+					<li><a href="./">粉美人</a></li>
 				</ul>
             </nav>
-			<br/>
-			<br/>
-
+			</div>
             <!-- 自我收藏网站 -->
 			<div id="simi">
 				<!-- 自我收藏网站 -->
@@ -184,10 +184,10 @@
 				</div>
 			</div>
             <!-- END 网址收藏 -->
-			<br/><br/><br/>
+			<div class="endnav">
             <footer class="footer">
-                    <div class="vcenter">
-                         Since 2020 <strong><a href="https://www.fcdh.net/">www.fcdh.net</a></strong> <span class="ti-more">渝ICP备20001609号 &nbsp; <script type="text/javascript" src="https://js.users.51.la/21061567.js"></script></span>
+                    <div class="vcenter"> <span>Copyright © Since 2021 <a href="/"><strong>粉美人</strong></a>. All Rights Reserved.
+					 </span><span>Powered By fenmeiren.net. <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JOeSlJKe3W80qG6d&ck=JOeSlJKe3W80qG6d"></script><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/JOeSlJKe3W80qG6d">51LA统计</a></span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -196,6 +196,7 @@
                     </div>
             </footer>
 			<div id="ti-meng"></div>
+			</div>
         </div>
     </div> <!-- end 最处层容器 -->
     <script src="./assets/js/fcdh.js"></script>

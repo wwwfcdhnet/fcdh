@@ -1,4 +1,2 @@
-# robots.txt
 User-agent: *
-Disallow: /cgi-bin/
-#Sitemap: http://fcdh.net/sitemap.xml
+Allow: /

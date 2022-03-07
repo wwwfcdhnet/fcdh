@@ -1,27 +1,31 @@
 <?php
 	include 'mysql_mydb.php';
 	include 'function.php';
+	include 'functionOpen.php';
 	header("Access-Control-Request-Method:GET,POST");
 	header("Access-Control-Allow-Credentials:true");
 	header('Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type, Accept, Authorization');
-/* 跨域使用
+
+	$origin = isset($_SERVER['HTTP_ORIGIN'])? $_SERVER['HTTP_ORIGIN'] : '';
 	$allowOrigin = array(
 		'http://www.fcdh.net',
 		'https://www.fcdh.net',
 		'http://127.0.0.1'
 	);
-
+	header('Access-Control-Allow-Origin:'.$origin); // 允许单个域名跨域
+/*
 	if (in_array($origin, $allowOrigin)) {
 		header("Access-Control-Allow-Origin:".$origin);
 	}
 */
+//	header('Access-Control-Allow-Origin:*'); // 允许所有域名跨域
 
 	$res=array(true,'上传成功!','');
 	if(isset($_POST['uname']) && !empty($_POST['uname'])){ //  从云端下载收藏网址
 		$uname=substr(filterTitle(trim($_POST['uname'])),0,15);
 		$all=intval($_POST['all']);
 		if(_CheckInput($uname,'numchar')){
-			$sql='SELECT uid,logtime,urlnum,maxnum,psw FROM user WHERE uname="'.$uname.'" LIMIT 1';
+			$sql='SELECT SQL_CACHE uid,logtime,urlnum,maxnum,psw FROM user WHERE uname="'.$uname.'" LIMIT 1';
 			$result=mysqli_query($mydb,$sql);		
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$uid=intval($row['uid']);
@@ -53,11 +57,7 @@
 	}elseif(isset($_POST['upstr']) && !empty($_POST['upstr'])){ //  上传收藏网址到云端
 		//"numbers@https://www.west.cn/@1@西部数码是基于云计算知名的互联网服务提供商,18年专业知名品牌@bg2@w2@西部@c1@西部数码@key",
 
-		if(get_magic_quotes_gpc()){//如果get_magic_quotes_gpc()是打开的
-			$str=stripslashes($_POST['upstr']);//将字符串进行处理 删除反斜杠：
-		}else{
-			$str=$_POST['upstr'];
-		}
+		$str=$_POST['upstr'];
 		//echo$str;
 		$arrstr=json_decode($str,true);
 		$c = array("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c0","null");	
@@ -69,7 +69,7 @@
 		//echo $arrstr;
 		$uid=$oldtime=$count=0;
 		if(_CheckInput($uname,'numchar')){			
-			$sql='SELECT uid,logtime,psw,urlnum FROM user WHERE uname="'.$uname.'" LIMIT 1';			
+			$sql='SELECT SQL_CACHE uid,logtime,psw,urlnum FROM user WHERE uname="'.$uname.'" LIMIT 1';			
 			$result=mysqli_query($mydb,$sql);		
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$uid=intval($row['uid']);
@@ -94,10 +94,10 @@
 			echo json_encode($res);
 			exit;
 		}
-		$num=count($arrstr)-2;
+		$num=count($arrstr)-4;
 		if(empty($uid) && $res['0']){//表示用户不存在，则自动生成用户			
 			// 一个客户端口只能生成一个用户，
-			//session_start();
+			session_start();
 			if(!isset($_SESSION['have'])){
 				$_SESSION['have']=true;
 			}else{
@@ -151,20 +151,17 @@
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$max=$row['max'];
 			$sqlstr='';
-			//print_r($arrstr);
 			foreach ($arrstr as $key => $value){
 				//if($count<0)break; // 非认证用户只能存15条记录
 				if($key==0||$key==1)continue; // 跳过帐户和密码
-
 				$arr	=explode('@',$value);
-
-				$nums	=intval(@$arr['0'])+$max;
-				$url	=@$arr['1'];
-				$opt	=intval(@$arr['2']);
-				$desc	=filterTitle(@$arr['3'],false);
-				$color	=@$arr['4'];
-				$title	=filterTitle(@$arr['5']);
-				$key	=@$arr['6'];
+				$nums	=intval($arr['0'])+$max;
+				$url	=$arr['1'];
+				$opt	=intval($arr['2']);
+				$desc	=filterTitle($arr['3'],false);
+				$color	=$arr['4'];
+				$title	=filterTitle($arr['5']);
+				$key	=$arr['6'];
 				if($nums>20000){$nums-=20000;}
 				if(!in_array($opt,$o)){$opt=1;}
 				if(!in_array($color,$c)){$color='null';}
@@ -176,7 +173,7 @@
 				$html=$url.'@'.$opt.'@'.$desc.'@'.$color.'@'.$title;
 
 				$sqlstr.='('.$uid.',"'.$key.'",'.$nums.',"'.$html.'"),';
-		  }
+		    }
 			$sqstr=rtrim($sqlstr,',');
 			$sql='INSERT INTO href (uid,urlkey,nums,html) VALUES '.$sqstr.' ON DUPLICATE KEY UPDATE nums=values(nums),html=values(html)';
 			//echo$sql;
@@ -230,7 +227,7 @@
 
 
 		if(!empty($oldname)){			
-			$sql='SELECT uid,logtime,psw,email,utel,uqq FROM user WHERE uname="'.$oldname.'" LIMIT 1';	
+			$sql='SELECT SQL_CACHE uid,logtime,psw,email,utel,uqq FROM user WHERE uname="'.$oldname.'" LIMIT 1';	
 			$result=mysqli_query($mydb,$sql);		
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$uid=intval($row['uid']);

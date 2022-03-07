@@ -4,21 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="fcdh.net" />
-    <title>网站编辑 - 非常导航</title>
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="fenmeiren.net" />
+    <title>网站编辑 - 粉美人(fenmeiren.net)</title>
     <meta name="keywords" content="网址编辑,本地编辑,网站编辑,非常导航,上网导航">
     <meta name="description" content="在本地编辑网址，保存在本地，纯静态无毒绿色安全网址编辑，在本地浏览，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
     <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
-    <link rel="stylesheet" href="./assets/css/bbs.css">
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
-	<style>
-	.main-content{background-image: url('assets/images/edit.png');}
-	</style>
+	<style>body{background: url('assets/images/edit.png');opacity:1;}
+div.endnav{
+	height:59px;
+}
+footer.footer{
+	height:53px;
+}</style>
 </head>
 
 <body class="main-content">
@@ -83,6 +87,7 @@
         </div>
 
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -125,13 +130,10 @@
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="./">非常导航</a></li>
+					<li><a href="https://www.fcdh.net/">非常导航</a></li>
 				</ul>
             </nav>
-			<br/>
-			<br/>
-
-					
+			</div>
 			<div id="simi">
 				<!-- 自我收藏网站 -->
 				<h4 id="scroll">
@@ -200,10 +202,10 @@
 				</div>
             <!-- end 浏览记录 -->
 			</div>
-			<br/><br/><br/>
-            <footer class="footer">
-                    <div class="vcenter">
-                         Since 2021 <a href="./"><strong>fcdh.net</strong></a> <span class="ti-more"></span>
+			<div class="endnav">
+             <footer class="footer">
+                    <div class="vcenter"> <span>Copyright © Since 2021 <a href="/"><strong>粉美人</strong></a>. All Rights Reserved.
+					 </span><span>Powered By fenmeiren.net. <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JOeSlJKe3W80qG6d&ck=JOeSlJKe3W80qG6d"></script><a target="_blank" title="51la网站统计" href="https://v6.51.la/land/JOeSlJKe3W80qG6d">51LA统计</a></span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -212,6 +214,7 @@
                     </div>
             </footer>
 			<div id="ti-meng"></div>
+			</div>
         </div>
     </div> <!-- end 最处层容器 -->
 
@@ -334,19 +337,12 @@
 				<button id="delete"type="submit" class="btn btn-primary" data-dismiss="modal"> 删 除 </button> 
 				<button id="move"type="submit" class="btn btn-primary" data-dismiss="modal"> 编 辑 </button> 
 			</div> 
-		</div><!-- end 模态 e3态43 -->
+		</div><!-- end 模态 -->
 	</div>
+    <!-- Bottom Scripts -->
+    <!-- JavaScripts initializations and stuff -->
     <script src="./assets/js/fcdh.js"></script>
     <script src="./assets/js/edit.js"></script>
-	<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?05028fb3e2f8681720b1333d57db02d0";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 </body>
 
 </html>

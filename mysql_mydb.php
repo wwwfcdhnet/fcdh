@@ -2,8 +2,8 @@
 		$_DBHOSTname="localhost";               
 		$_DBuser="root";                    
 		$_DBpass="root";                    
-		$_DBname="techo";                   
-		$_KEY="p!2Ax28MR#7yjM)o";     
+		$_DBname="daohang";                   
+		$_KEY="|mGbPaU4ZJACD,9{";     
 		$_URLNUM=100;						
 
 		$mydb=mysqli_connect($_DBHOSTname,$_DBuser,$_DBpass,$_DBname);
