@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="fcdh.net" />
-    <title>{{htitle}} - {{title}}</title>
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="{{domain}}" />
+    <title>{{htitle}}{{subtitle}}</title>
     <meta name="keywords" content="{{hkey}}">
     <meta name="description" content="{{hdescmeta}}">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
@@ -15,6 +16,7 @@
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	{{adshead}}
 </head>
 <body>
     <!-- 鏈€澶栧眰瀹瑰櫒 -->
@@ -38,6 +40,7 @@
         </div>
 </div>
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -73,26 +76,31 @@
                     </li>
                 </ul>
             </nav>
-			<br/>
-			<br/>
+			</div>
 			<div id="main">
-				<h4><a><i class="fa-bookmark"></i> 正文内容</a> &nbsp; <span id="info"class="c9"></span></h4>
+				<script src="assets/money/blogtop.js"></script>
+				<h4><a><i class="fa-bookmark"></i> ID:{{hid}}</a> &nbsp; <span id="info"class="c9"></span></h4>
 				<div class="ti-ulbg">
 					<div class="rowx">
 					<h2>{{htitle}}</h2>
-					{{htag}}
+					<p>{{tagso}}</p>
+					<p><i class="fa-calendar"> {{htime}}</i> &nbsp; <i class="fa-eye" id="view"> {{hview}}</i></p>
 					<hr>
 					{{hdesc}}
-					<p><i class="fa-calendar"> {{htime}}</i> &nbsp; <i class="fa-eye" id="view"> {{hview}}</i></p>
+					{{htag}}
+					<hr>
+					<ul class="rowx">
+					<li>{{pre}}</li>
+					<li>{{next}}</li>
+					</ul>
 					</div>
 				</div>
 			</div>
-
-	<!-- Scripts -->
-	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
-            <br/><br/><br/>
+            <script src="assets/money/photomid.js"></script>
+			<div class="endnav">
             <footer class="footer">
-                    <div class="vcenter">Since {{year}} <a href="/"><strong>{{domain}}</strong></a> &nbsp;<span class="ti-more"><a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span>
+                    <div class="vcenter"> <span>Copyright © Since {{year}} <a href="/"><strong>{{title}}</strong></a>. All Rights Reserved.
+					 </span><span>Powered By {{domain}}. <a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span><span>{{tongji}}</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -100,13 +108,14 @@
                         </a>
                     </div>
             </footer>
-			<div id="ti-meng">
+			<div id="ti-meng"></div>
 			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
+	<!-- Scripts -->
+	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
 	<script type="text/javascript">
-		addHrefView({{hid}},'0');
+		addHrefView({{hid}},'0',{{vip}});
 	</script>
-	{{tongji}}
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="applicable-device" content="pc,mobile">
+    <meta name="applicable-device"content="pc,mobile">
     <meta name="author" content="{{domain}}" />
     <title>{{htitle}}{{subtitle}}</title>
     <meta name="keywords" content="{{hkey}}">
@@ -17,8 +17,9 @@
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
 	{{adshead}}
-</head>
+	</head>
 <body>
+    <!-- 鏈€澶栧眰瀹瑰櫒 -->
     <div id="container">
         <div id="sidebar"class="toggle-others">
 		<div class="ti-fix">
@@ -56,16 +57,15 @@
                     </li>
 					<li>
                         <div id="ti-search"class="searchs">
-                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+                            <form action="search.html" target="_blank" method="get">
 								<div class="input-group">
-									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<img id="ti-icon"src="assets/images/fcdh.png" alt="0">
 									<ul id="ti-engine">
 									</ul>				
 									<!-- 搜索热词  -->
-									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<input id="txt"type="text" class="form-control" name="photo" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
 									<span class="input-group-btn">
-										<i class="fa-times-circle"id="del"></i>
-										<button type="submit"class="btn btn-primary fa-search">百度</button>
+										<button type="submit"class="btn btn-primary fa-search">站内</button>
 									</span>	
 									<ul id="box">	
 										
@@ -78,34 +78,30 @@
             </nav>
 			</div>
 			<div id="main">
-				<script src="assets/money/hreftop.js"></script>
-				<h4><a><i class="fa-bookmark"></i> {{htxtname}}</a> &nbsp; <span id="info"class="c9"></span></h4>
+				<script src="assets/money/blogtop.js"></script>
+				<h4><a><i class="fa-bookmark"></i> ID:{{hid}}</a> &nbsp; <span id="info"class="c9"></span></h4>
 				<div class="ti-ulbg">
-					<ul class="rowso">
-					<li>【网名】{{hname}}</li>
-					<li><span>【标题】</span><strong class="deline c3"id="htitle">{{htitle}}</strong></li>
-					<li><span>【标签】</span><strong class="c4">{{tagso}}</strong> </li>
-					<li><span class="c5">【摘要】</span>{{hdesc}} <span class="c1">[{{hid}}]</span></li>
-					{{hurlhtml}}
-					<li><span>【类型】</span><strong>{{htag}}</strong> </li>
-					<li><span>【状态】</span>{{hstate}}</li>
-					<li><span>【总访问量】</span><strong class="c10" id="view">{{hview}}</strong>次</li>
-					<li><span>【上月】</span><strong class="c7" id="preview">{{preview}}</strong>次 <span>【本月】</span><strong class="c7" id="nowview">{{nowview}}</strong>次</li>
-					<li><span>【收录时间】</span><strong class="c6">{{htime}}</strong></li>
-					<li><strong>【收藏至首页“爱好”栏】</strong> <a href="https://bbs.fcdh.net/bbs.php?url={{hindex}}"rel="nofollow"target="_blank">[留言]</a></li>
-					&nbsp; <button onclick="openHref('{{gohurl}}',0,'{{opt}}')"  type="submit"class="btn btn-primary fa-paper-plane"> 访问</button>
-					<button onclick="heartHref('{{gohurl}}','{{opt}}')"  id="heart" class="btn btn-primary fa-heart"> 收藏</button>
-					<button data-toggle="modal"data-target="#error" id="report" class="btn btn-primary fa-exclamation-triangle"> 报错</button>
-					</li>
+					<div class="rowx">
+					<h2>{{htitle}}</h2>
+					<p>{{tagso}}</p>
+					<p><i class="fa-calendar"> {{htime}}</i> &nbsp; <i class="fa-eye" id="view"> {{hview}}</i></p>
+					<hr>
+					{{hdesc}}
+					{{htag}}
+					<hr>
+					<ul class="rowx">
+					<li>{{pre}}</li>
+					<li>{{next}}</li>
 					</ul>
+					</div>
 				</div>
-				<script src="assets/money/hrefmid.js"></script>
+				<script src="assets/money/photomid.js"></script>
 				{{hrelate}}
 			</div>
 
-            
+           
 			<div class="endnav">
-            <footer class="footer">
+             <footer class="footer">
                     <div class="vcenter"> <span>Copyright © Since {{year}} <a href="/"><strong>{{title}}</strong></a>. All Rights Reserved.
 					 </span><span>Powered By {{domain}}. <a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span><span>{{tongji}}</span>
                     </div>
@@ -119,8 +115,20 @@
 			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
-	
-		<!-- 确定信息 --> 
+
+	<div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog"> 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+				<h3 class="modal-title" id="myModalLabel"> 提示信息 </h3> 
+			</div>
+			<div class="modal-body"><p class="modal-body"><strong id="msg"></strong></p></div>
+			<div class="modal-footer"> 
+				<button id="cancel"type="submit" class="btn btn-primary" data-dismiss="modal"> 确 定 </button> 
+			</div> 
+		</div><!-- end 模态 -->
+	</div>
+			<!-- 确定信息 --> 
 	<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog"> 
 			<div class="modal-header">
@@ -128,35 +136,28 @@
 				<h3 class="modal-title" id="myModalLabel"> 提示信息 </h3> 
 			</div>
 			<div class="modal-body">
-				<p>类别：
+				<p>状态：
 				<strong>
-					<label><input type="radio" name="err" value="1" checked><span class="c2">正常</span></label> &nbsp; 
-					<label><input type="radio" name="err" value="0"><span class="c9">死链</span></label> &nbsp; 
-					<label><input type="radio" name="err" value="2"><span class="c4">异常</span></label> &nbsp; 
-					<label><input type="radio" name="err" value="3"><span class="c5">改版</span></label>
+					<label><input type="radio" name="err" value="6" checked><span class="c2">正常</span></label>
 				</strong>
-				</p>
-				<p>
-				 <a href="https://www.boce.com/wall"target="_blank"rel="nofollow"><span class="c8">网址访问异常查询① &raquo;</span></a>
-				</p>
-				<p>
-				 <a href="http://www.dbcha.com/"target="_blank"rel="nofollow"><span class="c8">网址访问异常查询② &raquo;</span></a>
-				</p>
-				<p>
-				 <strong>备用网址</strong> 在 <strong class="c5">【相似网站】</strong> 中找!
+				</p><p>
+				错误：
+				<strong>
+					<label><input type="radio" name="err" value="5"><span class="c9">网盘地址无效</span></label> &nbsp; 
+					<label><input type="radio" name="err" value="7"><span class="c4">提取码无效</span></label>
+				</strong>
 				</p>
 			</div>
 			<div class="modal-footer"> 
 				<button id="cancel"type="submit" class="btn btn-primary" data-dismiss="modal"> 取 消 </button> 
-				<button id="ok"type="submit" class="btn btn-primary"value="0"onclick="addHrefView({{hid}},'{{hindex}}')" data-dismiss="modal"> 上 报 </button> 
+				<button id="ok"type="submit" class="btn btn-primary"value="0"onclick="addHrefView({{hid}},{{hindex}})" data-dismiss="modal"> 上 报 </button> 
 			</div> 
 		</div><!-- end 模态 -->
 	</div>
 	<!-- Scripts -->
 	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
 	<script type="text/javascript">
-		addHrefView({{hid}});
+		addHrefView({{hindex}},3,{{vip}});
 	</script>
-	<script src="assets/money/footer.js"></script>
 </body>
 </html>

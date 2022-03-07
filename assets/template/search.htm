@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="fcdh.net" />
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="{{domain}}" />
     <title>{{title}}资源搜索({{domain}})</title>
     <meta name="keywords" content="非常资源，非常导航，资源搜索，资源导航，资源">
     <meta name="description" content="非常资源导航搜索大全，想你所想，搜你想搜">
@@ -15,37 +16,7 @@
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
-	<!-- Scripts -->
-	<script src="./assets/js/fcdh.js"></script>			
-	<script>		/*
-		function getQueryVariable()
-		{
-			var btnsub=$('#ti-search button');
-			var url = window.location.search;
-			if (url.indexOf("?") != -1){
-			   var query=url.substring(1);
-			   var vars = query.split("&");
-			   for (var i=0;i<vars.length;i++) {
-					   var pair = vars[i].split("=");
-					   if(pair[0] == 'wd' || pair[0] == 'tag' || pair[0] == 'blog'){
-							var soinput=$('#txt');
-							soinput.attr('name',pair[0]);	
-
-							if(pair[0] == 'blog'){
-								btnsub.html(' 博客');
-							}else if(pair[0] == 'tag'){
-								btnsub.html(' 标签');
-							}else{
-								btnsub.html(' 站内');
-							}
-							return pair;
-						}
-						return(false);
-			   }
-			}
-			return(false);
-		}*/
-	</script>
+	{{adshead}}
 </head>
 <body>
     <!-- 鏈€澶栧眰瀹瑰櫒 -->
@@ -73,6 +44,7 @@
 							<li><a id="href" href="?href="class="smooth"><span>网站</span></a></li>
 							<li><a id="tag" href="?tag="class="smooth"><span>标签</span></a></li>
 							<li><a id="blog" href="?blog="class="smooth"><span>博客</span></a></li>
+							<li><a id="photo" href="?photo="class="smooth"><span>套图</span></a></li>
 						</ul>
 					</li>
 					 <li class="has-sub">
@@ -282,6 +254,7 @@
         </div>
 </div>
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -318,8 +291,8 @@
                     </li>
                 </ul>
             </nav>
-			<br/>
-			<br/>
+			</div>
+			<script src="assets/money/hreftop.js"></script>
 			<div id="main">
 				<h4><a><i class="fa-bookmark"></i> 搜索说明</a> &nbsp; <span id="info"class="c9"></span></h4>
 				<div class="ti-ulbg">
@@ -330,9 +303,11 @@
 					</ul>
 				</div>
 			</div>
-            <br/><br/><br/>
-            <footer class="footer">
-                    <div class="vcenter">Since {{year}} <a href="./"><strong>{{domain}}</strong></a> &nbsp;<span class="ti-more"><a href="//beian.miit.gov.cn/"target="_blank">{{beian}}</a></span>
+			<script src="assets/money/hrefmid.js"></script>
+			<div class="endnav">
+           <footer class="footer">
+                     <div class="vcenter"> <span>Copyright © Since {{year}} <a href="/"><strong>{{title}}</strong></a>. All Rights Reserved.
+					 </span><span>Powered By {{domain}}. <a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span><span>{{tongji}}</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -342,8 +317,9 @@
             </footer>
 			<div id="ti-meng">
 			</div>
+			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
-	{{tongji}}
+	<script src="./assets/js/fcdh.js"></script>	
 </body>
 </html>

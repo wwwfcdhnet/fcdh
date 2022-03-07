@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="fcdh.net" />
-    <title>{{ttitle}} - {{title}}</title>
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="{{domain}}" />
+    <title>{{ttitle}}{{subtitle}}</title>
     <meta name="keywords" content="{{tkey}}">
     <meta name="description" content="{{tdesc}}">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
@@ -15,6 +16,7 @@
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+	{{adshead}}
 </head>
 <body>
     <!-- 最外层容器 -->
@@ -38,6 +40,7 @@
         </div>
 </div>
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -54,16 +57,16 @@
                     </li>
 					<li>
                         <div id="ti-search"class="searchs">
-                            <form action="https://www.baidu.com/s" target="_blank" method="get">
+                            <form action="search.html" target="_blank" method="get">
 								<div class="input-group">
-									<img id="ti-icon"src="assets/images/baidu.png" alt="0">
+									<img id="ti-icon"src="assets/images/fcdh.png" alt="5">
 									<ul id="ti-engine">
 									</ul>				
 									<!-- 搜索热词 -->
-									<input id="txt"type="text" class="form-control" name="word" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
+									<input id="txt"type="text" class="form-control" name="href" placeholder="随时搜索一下" maxlength="255"autocomplete="off">
 									<span class="input-group-btn">
 										<i class="fa-times-circle"id="del"></i>
-										<button type="submit"class="btn btn-primary fa-search">百度</button>
+										<button type="submit"class="btn btn-primary fa-search"> 站内</button>
 									</span>	
 									<ul id="box">	
 										
@@ -75,21 +78,20 @@
                 </ul>
 				<ul class="ti-ads">
 					<a id="soso"onclick="showsoso(1);"><i class="fa-search"></i></a>
-					<li><a href="/">非常导航</a></li>
 				</ul>
             </nav>
-			<br/>
-			<br/>
+			</div>
 			{{simi}}
 			<div id="main">
 				{{hrefall}}
 			</div>
-	<!-- Scripts -->
-	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
-			<br/><br/><br/>
+			{{pagestr}}
+			<div class="endnav">
             <footer class="footer">
-                    <div class="vcenter">
-                         Since {{year}} <a href="/"><strong>{{domain}}</strong></a>&nbsp;<span class="ti-more">{{indexday}}<a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span>
+					<div class="vcenter">
+						<span>Copyright © Since {{year}} <a href="/"><strong>{{title}}</strong></a>. All Rights Reserved.</span>
+						<span>Powered By {{domain}}. <a href="https://beian.miit.gov.cn/"target="_blank">{{beian}}</a></span>
+						<span>{{indexday}}{{tongji}}</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -97,11 +99,14 @@
                         </a>
                     </div>
             </footer>
-			<div id="ti-meng">
+			<div id="ti-meng"></div>
 			</div>
 		</div>
     </div> <!-- end 最处层容器 -->
+	<!-- Scripts -->
+	<script type="text/javascript" src="./assets/js/fcdh.js"></script>
+	<script>imgHover();</script>
+
 	{{indexjs}}
-	{{tongji}}
 </body>
 </html>

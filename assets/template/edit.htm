@@ -4,21 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
-    <meta name="author" content="viggo" />
-    <title>网站编辑 - {{title}}</title>
+    <meta name="applicable-device"content="pc,mobile">
+    <meta name="author" content="{{domain}}" />
+    <title>网站编辑 - {{title}}({{domain}})</title>
     <meta name="keywords" content="网址编辑,本地编辑,网站编辑,非常导航,上网导航">
     <meta name="description" content="在本地编辑网址，保存在本地，纯静态无毒绿色安全网址编辑，在本地浏览，可以通过账号从云端下载自己保存的网站，也可以上传本地自建的网址到云端">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
     <!--<link rel="stylesheet" href="./assets/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/fcdh.css">
-    <link rel="stylesheet" href="./assets/css/bbs.css">
     <!--<script src="./assets/js/jquery-1.11.1.min.js"></script>-->
 	<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
-	<style>
-	.main-content{background-image: url('assets/images/edit.png');}
-	</style>
+	<style>body{background: url('assets/images/edit.png');opacity:1;}
+div.endnav{
+	height:59px;
+}
+footer.footer{
+	height:53px;
+}</style>
 </head>
 
 <body class="main-content">
@@ -83,6 +87,7 @@
         </div>
 
         <div class="content">
+			<div class="topnav">
             <nav class="navbar user-info-navbar" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
@@ -125,13 +130,10 @@
                     </li>
                 </ul>
 				<ul class="ti-ads">
-					<li><a href="./">非常导航</a></li>
+					<li><a href="https://www.fcdh.net/">非常导航</a></li>
 				</ul>
             </nav>
-			<br/>
-			<br/>
-
-					
+			</div>
 			<div id="simi">
 				<!-- 自我收藏网站 -->
 				<h4 id="scroll">
@@ -200,10 +202,10 @@
 				</div>
             <!-- end 浏览记录 -->
 			</div>
-			<br/><br/><br/>
-            <footer class="footer">
-                    <div class="vcenter">
-                         Since {{year}} <a href="./"><strong>{{domain}}</strong></a> <span class="ti-more">{{beian}}</span>
+			<div class="endnav">
+             <footer class="footer">
+                    <div class="vcenter"> <span>Copyright © Since {{year}} <a href="/"><strong>{{title}}</strong></a>. All Rights Reserved.
+					 </span><span>Powered By {{domain}}. {{tongji}}</span>
                     </div>
                     <div id="go-up">
                         <a href="#" rel="go-top"title="顶部">
@@ -212,6 +214,7 @@
                     </div>
             </footer>
 			<div id="ti-meng"></div>
+			</div>
         </div>
     </div> <!-- end 最处层容器 -->
 
@@ -262,6 +265,7 @@
 				<h3 class="modal-title" id="myModalLabel"> 从云端下载网址 </h3> 
 			</div>
 			<div class="modal-body"> 
+				<p>首页默认加载用户:<strong>admin</strong></p>
 				<p><label>用户名称：</label><input type="text" class="form-control" name="dwname" maxlength="15" style="width:50%"  placeholder="4-15个数字英文"> * <label><input type="checkbox"id="allurl">ALL</label></p>
 				<p>『演示账户』<strong class="c7">demo</strong>『演示密码』<strong class="c3">demo</strong></p>
 			</div> 
@@ -339,7 +343,6 @@
     <!-- JavaScripts initializations and stuff -->
     <script src="./assets/js/fcdh.js"></script>
     <script src="./assets/js/edit.js"></script>
-	{{tongji}}
 </body>
 
 </html>
