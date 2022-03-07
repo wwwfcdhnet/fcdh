@@ -1,0 +1,1 @@
+document.write('<div class="ti-ulbg link3"><ul class="row"><li><a href="#this"rel="nofollow"title="太精彩了哇，看来下载是没白下载，物超所值"><strong class="c8">广告图片</strong></a></li></ul></div>');
